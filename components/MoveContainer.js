@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 const sampleMove = {
     name: "Sample Move",
     command: "FF3",
-    hitLevel: "M ",
+    hitLevel: "M",
     damage: "20",
     startUpFrame: "23F",
     blockFrame: "0",
@@ -18,6 +18,7 @@ const MoveContainer = () => {
         <View style={styles.moveContainer}>
             <View style={styles.mainInfoContainer}>
                 <Text>{sampleMove.name}</Text>
+                <Text>{sampleMove.hitLevel}</Text>
                 <Text>{sampleMove.command}</Text>
                 <Text>{sampleMove.notes}</Text>
             </View>
