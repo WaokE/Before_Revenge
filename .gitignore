@@ -38,4 +38,4 @@ yarn-error.*
 assets/moveIcon/
 
 # 프레임 데이터 경로
-assets/frameData/
+assets/moveData/
