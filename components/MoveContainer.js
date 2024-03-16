@@ -17,7 +17,7 @@ const MoveContainer = (props) => {
     return (
         <View style={styles.moveContainer}>
             <View style={styles.mainInfoContainer}>
-                <Text>{props.name}</Text>
+                <Text style={styles.commandName}>{props.name}</Text>
                 <Text>{props.hitLevel}</Text>
                 <Text>{props.command}</Text>
                 <Text>{props.notes}</Text>
@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
         backgroundColor: "lightgray",
         width: "100%",
         borderWidth: 1,
+    },
+    commandName: {
+        fontSize: 14,
+        fontWeight: "bold",
     },
     mainInfoContainer: {
         flex: 4,
