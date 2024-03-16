@@ -13,21 +13,21 @@ const sampleMove = {
     notes: "통칭 좌종 / 주력기",
 };
 
-const MoveContainer = () => {
+const MoveContainer = (props) => {
     return (
         <View style={styles.moveContainer}>
             <View style={styles.mainInfoContainer}>
-                <Text>{sampleMove.name}</Text>
-                <Text>{sampleMove.hitLevel}</Text>
-                <Text>{sampleMove.command}</Text>
-                <Text>{sampleMove.notes}</Text>
+                <Text>{props.name}</Text>
+                <Text>{props.hitLevel}</Text>
+                <Text>{props.command}</Text>
+                <Text>{props.notes}</Text>
             </View>
             <View style={styles.detailInfoContainer}>
-                <Text>{`발동 ${sampleMove.startUpFrame}`}</Text>
-                <Text>{`가드 ${sampleMove.blockFrame}`}</Text>
-                <Text>{`노말히트 ${sampleMove.hitFrame}`}</Text>
-                <Text>{`카운터히트 ${sampleMove.counterHitFrame}`}</Text>
-                <Text>{`${sampleMove.feature}`}</Text>
+                <Text>{`발동 ${props.startUpFrame}`}</Text>
+                <Text>{`가드 ${props.blockFrame}`}</Text>
+                <Text>{`노말히트 ${props.hitFrame}`}</Text>
+                <Text>{`카운터히트 ${props.counterHitFrame}`}</Text>
+                <Text>{`${props.feature}`}</Text>
             </View>
         </View>
     );
