@@ -27,7 +27,7 @@ const MoveContainer = (props) => {
                 <Text>{`가드 ${props.blockFrame}`}</Text>
                 <Text>{`노말히트 ${props.hitFrame}`}</Text>
                 <Text>{`카운터히트 ${props.counterHitFrame}`}</Text>
-                <Text>{`${props.feature}`}</Text>
+                <Text>{props.feature}</Text>
             </View>
         </View>
     );

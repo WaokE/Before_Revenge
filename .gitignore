@@ -36,6 +36,7 @@ yarn-error.*
 
 # 아이콘 경로
 assets/moveIcon/
+assets/featureIcon/
 
 # 프레임 데이터 경로
 assets/moveData/
