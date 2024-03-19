@@ -3,11 +3,13 @@ import { StyleSheet, View, Text } from "react-native";
 
 // 컴포넌트
 import JinKazamaMove from "./screens/JinKazamaMove";
+import MoveListFilterKeyboard from "./components/MoveListFilterKeyboard";
 
 export default function App() {
     return (
         <View style={styles.appContainer}>
-            <JinKazamaMove />
+            <MoveListFilterKeyboard />
+            {/* <JinKazamaMove /> */}
         </View>
     );
 }
