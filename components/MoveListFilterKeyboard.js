@@ -24,7 +24,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -36,7 +35,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -50,7 +48,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -62,7 +59,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -76,7 +72,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -88,7 +83,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -102,7 +96,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -114,7 +107,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -128,7 +121,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -140,7 +132,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -154,7 +146,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -166,7 +157,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -180,7 +171,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -192,7 +182,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -208,7 +198,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -220,7 +209,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -234,7 +222,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -246,7 +233,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -260,7 +246,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -272,7 +257,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -286,7 +270,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -298,7 +281,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -312,7 +295,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -324,7 +306,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -338,7 +320,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -350,7 +331,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -364,7 +345,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -376,7 +356,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -392,7 +372,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -404,7 +383,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -418,7 +396,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -430,7 +407,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -444,7 +420,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -456,7 +431,6 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
                             }}
                         />
                     </Pressable>
@@ -470,7 +444,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -482,7 +455,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -496,7 +469,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -508,7 +480,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -522,7 +494,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -534,7 +505,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -548,7 +519,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -560,7 +530,7 @@ const MoveListFilterKeyboard = ({}) => {
                                 borderWidth: 1,
                                 width: windowWidth / 7,
                                 height: windowWidth / 7,
-                                backgroundColor: "pink",
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -576,7 +546,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -586,8 +555,8 @@ const MoveListFilterKeyboard = ({}) => {
                             source={require("../assets/FeatureIcon/HMicon.png")}
                             style={{
                                 borderWidth: 1,
-                                width: 150 / 4,
-                                height: 150 / 4,
+                                width: (windowWidth * (3 / 7)) / 4,
+                                height: (windowWidth * (3 / 7)) / 4,
                             }}
                         />
                     </Pressable>
@@ -601,7 +570,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -611,8 +579,8 @@ const MoveListFilterKeyboard = ({}) => {
                             source={require("../assets/FeatureIcon/HTicon.png")}
                             style={{
                                 borderWidth: 1,
-                                width: 150 / 4,
-                                height: 150 / 4,
+                                width: (windowWidth * (3 / 7)) / 4,
+                                height: (windowWidth * (3 / 7)) / 4,
                             }}
                         />
                     </Pressable>
@@ -626,7 +594,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -636,8 +603,8 @@ const MoveListFilterKeyboard = ({}) => {
                             source={require("../assets/FeatureIcon/PCicon.png")}
                             style={{
                                 borderWidth: 1,
-                                width: 150 / 4,
-                                height: 150 / 4,
+                                width: (windowWidth * (3 / 7)) / 4,
+                                height: (windowWidth * (3 / 7)) / 4,
                             }}
                         />
                     </Pressable>
@@ -651,7 +618,6 @@ const MoveListFilterKeyboard = ({}) => {
                                         borderWidth: 1,
                                         width: 20,
                                         height: 20,
-                                        backgroundColor: "pink",
                                     }}
                                 />,
                             ]);
@@ -661,8 +627,108 @@ const MoveListFilterKeyboard = ({}) => {
                             source={require("../assets/FeatureIcon/TNicon.png")}
                             style={{
                                 borderWidth: 1,
-                                width: 150 / 4,
-                                height: 150 / 4,
+                                width: (windowWidth * (3 / 7)) / 4,
+                                height: (windowWidth * (3 / 7)) / 4,
+                            }}
+                        />
+                    </Pressable>
+                    <Pressable
+                        onPress={() => {
+                            setFilterInput((prev) => [
+                                ...prev,
+                                <Image
+                                    source={require("../assets/MoveIcon/23.png")}
+                                    style={{
+                                        borderWidth: 1,
+                                        width: 20,
+                                        height: 20,
+                                    }}
+                                />,
+                            ]);
+                        }}
+                    >
+                        <Image
+                            source={require("../assets/MoveIcon/23.png")}
+                            style={{
+                                borderWidth: 1,
+                                width: windowWidth / 7,
+                                height: windowWidth / 7,
+                                borderColor: "white",
+                            }}
+                        />
+                    </Pressable>
+                    <Pressable
+                        onPress={() => {
+                            setFilterInput((prev) => [
+                                ...prev,
+                                <Image
+                                    source={require("../assets/MoveIcon/134.png")}
+                                    style={{
+                                        borderWidth: 1,
+                                        width: 20,
+                                        height: 20,
+                                    }}
+                                />,
+                            ]);
+                        }}
+                    >
+                        <Image
+                            source={require("../assets/MoveIcon/134.png")}
+                            style={{
+                                borderWidth: 1,
+                                width: windowWidth / 7,
+                                height: windowWidth / 7,
+                                borderColor: "white",
+                            }}
+                        />
+                    </Pressable>
+                    <Pressable
+                        onPress={() => {
+                            setFilterInput((prev) => [
+                                ...prev,
+                                <Image
+                                    source={require("../assets/MoveIcon/234.png")}
+                                    style={{
+                                        borderWidth: 1,
+                                        width: 20,
+                                        height: 20,
+                                    }}
+                                />,
+                            ]);
+                        }}
+                    >
+                        <Image
+                            source={require("../assets/MoveIcon/234.png")}
+                            style={{
+                                borderWidth: 1,
+                                width: windowWidth / 7,
+                                height: windowWidth / 7,
+                                borderColor: "white",
+                            }}
+                        />
+                    </Pressable>
+                    <Pressable
+                        onPress={() => {
+                            setFilterInput((prev) => [
+                                ...prev,
+                                <Image
+                                    source={require("../assets/MoveIcon/ws.png")}
+                                    style={{
+                                        borderWidth: 1,
+                                        width: 20,
+                                        height: 20,
+                                    }}
+                                />,
+                            ]);
+                        }}
+                    >
+                        <Image
+                            source={require("../assets/MoveIcon/ws.png")}
+                            style={{
+                                borderWidth: 1,
+                                width: windowWidth / 7,
+                                height: windowWidth / 7,
+                                borderColor: "white",
                             }}
                         />
                     </Pressable>
@@ -683,7 +749,7 @@ const styles = StyleSheet.create({
         flexDirection: "col",
         height: windowHeight * 0.7,
         width: windowWidth,
-        backgroundColor: "blue",
+        backgroundColor: "black",
     },
 });
 
