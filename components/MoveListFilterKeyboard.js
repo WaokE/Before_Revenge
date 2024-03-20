@@ -16,17 +16,12 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/ub.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "7"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -40,17 +35,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/u.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "8"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -64,17 +54,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/uf.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "9"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -88,17 +73,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/1.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "LP"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -113,17 +93,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/2.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "RP"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -138,17 +113,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/uf.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "AP"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -163,17 +133,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/uf.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "AL"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -190,17 +155,12 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/b.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "4"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -214,17 +174,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/n.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "N"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -238,17 +193,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/f.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "6"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -262,17 +212,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/3.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "LK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -287,17 +232,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/4.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "RK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -312,17 +252,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/34.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "AK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -337,17 +272,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/24.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "AR"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -364,17 +294,12 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/db.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "1"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -388,17 +313,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/d.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "2"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -412,17 +332,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/df.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "3"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -436,17 +351,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/14.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "LPRK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -461,17 +371,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/123.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "APLK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -486,17 +391,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/124.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "APRK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -511,17 +411,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/1234.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "ALL"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -538,17 +433,14 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/FeatureIcon/HMicon.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            feature: {
+                                                HM: !prev.feature.HM,
+                                            },
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -562,17 +454,14 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/FeatureIcon/HTicon.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            feature: {
+                                                HT: !prev.feature.HT,
+                                            },
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -586,17 +475,14 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/FeatureIcon/PCicon.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            feature: {
+                                                PC: !prev.feature.PC,
+                                            },
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -610,17 +496,14 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/FeatureIcon/TNicon.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            feature: {
+                                                TN: !prev.feature.TN,
+                                            },
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -634,17 +517,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/23.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "RPLK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -659,17 +537,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/134.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "LPAK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -684,17 +557,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/234.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "RPAK"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image
@@ -709,17 +577,12 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => [
-                                        ...prev,
-                                        <Image
-                                            source={require("../assets/MoveIcon/ws.png")}
-                                            style={{
-                                                borderWidth: 1,
-                                                width: 20,
-                                                height: 20,
-                                            }}
-                                        />,
-                                    ]);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...prev,
+                                            command: [...prev.command, "WS"],
+                                        };
+                                    });
                                 }}
                             >
                                 <Image

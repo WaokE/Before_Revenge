@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Button, FlatList } from "react-native";
+import { View, StyleSheet, Image, Button, FlatList } from "react-native";
 import { useState } from "react";
 
 import moveData from "../assets/moveData/jin_kazama_movelist.json";
@@ -10,7 +10,15 @@ import convertCommand from "../lib/convertCommand";
 import convertFeature from "../lib/convertFeature";
 
 const JinKazamaMove = () => {
-    const [filterInput, setFilterInput] = useState([]);
+    const [filterInput, setFilterInput] = useState({
+        feature: {
+            HM: false,
+            HT: false,
+            PC: false,
+            TN: false,
+        },
+        command: [],
+    });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -21,22 +29,14 @@ const JinKazamaMove = () => {
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
             />
-            <View style={{ flexDirection: "row" }}>
-                {filterInput.map((item, index) => (
-                    <View
-                        key={index}
-                        style={{
-                            padding: 5,
-                            margin: 5,
-                            backgroundColor: "lightgray",
-                            borderRadius: 10,
-                        }}
-                    >
-                        {item}
-                    </View>
-                ))}
+            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                <View style={{ flexDirection: "row" }}>
+                    {filterInput.command.map((item, index) => (
+                        <View key={index}>{convertCommand([item])}</View>
+                    ))}
+                </View>
+                <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
             </View>
-            <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
             {/* <ScrollView>
                 {moveData.map((move, index) => {
                     if (
