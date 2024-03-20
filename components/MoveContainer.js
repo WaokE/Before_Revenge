@@ -24,9 +24,42 @@ const MoveContainer = (props) => {
             </View>
             <View style={styles.detailInfoContainer}>
                 <Text>{`발동 ${props.startUpFrame}`}</Text>
-                <Text>{`가드 ${props.blockFrame}`}</Text>
-                <Text>{`노말히트 ${props.hitFrame}`}</Text>
-                <Text>{`카운터히트 ${props.counterHitFrame}`}</Text>
+                <Text>
+                    가드{" "}
+                    <Text style={Number(props.blockFrame) >= 0 ? styles.greenText : styles.redText}>
+                        {props.blockFrame}
+                    </Text>
+                </Text>
+                <Text>
+                    노말히트{" "}
+                    <Text
+                        style={
+                            Number(props.hitFrame) >= 0 ||
+                            props.hitFrame === "D" ||
+                            props.hitFrame === "A" ||
+                            props.hitFrame.includes("(")
+                                ? styles.greenText
+                                : styles.redText
+                        }
+                    >
+                        {props.hitFrame}
+                    </Text>
+                </Text>
+                <Text>
+                    카운터히트{" "}
+                    <Text
+                        style={
+                            Number(props.counterHitFrame) >= 0 ||
+                            props.counterHitFrame === "D" ||
+                            props.counterHitFrame === "A" ||
+                            props.counterHitFrame.includes("(")
+                                ? styles.greenText
+                                : styles.redText
+                        }
+                    >
+                        {props.counterHitFrame}
+                    </Text>
+                </Text>
                 <Text>{props.feature}</Text>
             </View>
         </View>
@@ -53,6 +86,12 @@ const styles = StyleSheet.create({
         flex: 2,
         backgroundColor: "darkgray",
         alignItems: "center",
+    },
+    greenText: {
+        color: "green",
+    },
+    redText: {
+        color: "darkred",
     },
 });
 
