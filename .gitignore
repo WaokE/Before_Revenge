@@ -40,3 +40,6 @@ assets/featureIcon/
 
 # 프레임 데이터 경로
 assets/moveData/
+
+# 이미지 경로
+assets/CharacterImage/
