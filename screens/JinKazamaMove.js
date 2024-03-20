@@ -31,6 +31,18 @@ const JinKazamaMove = () => {
             />
             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                 <View style={{ flexDirection: "row" }}>
+                    {filterInput.feature.HM && (
+                        <Image source={require("../assets/FeatureIcon/HMicon.png")} />
+                    )}
+                    {filterInput.feature.HT && (
+                        <Image source={require("../assets/FeatureIcon/HTicon.png")} />
+                    )}
+                    {filterInput.feature.PC && (
+                        <Image source={require("../assets/FeatureIcon/PCicon.png")} />
+                    )}
+                    {filterInput.feature.TN && (
+                        <Image source={require("../assets/FeatureIcon/TNicon.png")} />
+                    )}
                     {filterInput.command.map((item, index) => (
                         <View key={index}>{convertCommand([item])}</View>
                     ))}
