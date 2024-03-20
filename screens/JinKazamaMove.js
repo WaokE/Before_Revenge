@@ -62,7 +62,9 @@ const filterMoveList = (data, filterInput) => {
             return (
                 move.command.join("").includes(filterInput.command.join("")) &&
                 Object.keys(filterInput.feature).every(
-                    (key) => filterInput.feature[key] && move.feature.includes(key)
+                    (key) =>
+                        (filterInput.feature[key] === true && move.feature.includes(key)) ||
+                        filterInput.feature[key] === false
                 )
             );
         }
