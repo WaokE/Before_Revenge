@@ -19,7 +19,7 @@ const CharacterIcon = ({ name, imagePath }) => {
 const styles = StyleSheet.create({
     iconContainer: {
         flexDirection: "column",
-        backgroundColor: "#214C5C",
+        backgroundColor: "transparent",
         alignItems: "center",
     },
     iconImage: {
