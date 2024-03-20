@@ -1,5 +1,5 @@
 import { View, StyleSheet, Image, Button, FlatList } from "react-native";
-import { useState } from "react";
+import { useState, memo } from "react";
 
 import moveData from "../assets/moveData/jin_kazama_movelist.json";
 
@@ -49,51 +49,47 @@ const JinKazamaMove = () => {
                 </View>
                 <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
             </View>
-            {/* <ScrollView>
-                {moveData.map((move, index) => {
-                    if (
-                        // move.name.includes(filterInput) ||
-                        // move.command.join("").includes(filterInput.toUpperCase())
-                        true
-                    )
-                        return (
-                            <MoveContainer
-                                key={index}
-                                name={move.name ? move.name : "이름 없음"}
-                                command={convertCommand(move.command)}
-                                hitLevel={move.hitLevel}
-                                damage={move.damage}
-                                startUpFrame={move.startUpFrame}
-                                blockFrame={move.blockFrame}
-                                hitFrame={move.hitFrame}
-                                counterHitFrame={move.counterHitFrame}
-                                feature={convertFeature(move.feature)}
-                                notes={move.notes}
-                            />
-                        );
-                })}
-            </ScrollView> */}
-            <FlatList
-                data={moveData}
-                renderItem={({ item }) => (
-                    <MoveContainer
-                        name={item.name ? item.name : "이름 없음"}
-                        command={convertCommand(item.command)}
-                        hitLevel={item.hitLevel}
-                        damage={item.damage}
-                        startUpFrame={item.startUpFrame}
-                        blockFrame={item.blockFrame}
-                        hitFrame={item.hitFrame}
-                        counterHitFrame={item.counterHitFrame}
-                        feature={convertFeature(item.feature)}
-                        notes={item.notes}
-                    />
-                )}
-                keyExtractor={(item, index) => index.toString()}
-            />
+            <MemoizedMoveList data={moveData} filterInput={filterInput} />
         </View>
     );
 };
+
+const filterMoveList = (data, filterInput) => {
+    return data.filter((move) => {
+        if (Object.values(filterInput.feature).every((value) => value === false)) {
+            return move.command.join("").includes(filterInput.command.join(""));
+        } else {
+            return (
+                move.command.join("").includes(filterInput.command.join("")) &&
+                Object.keys(filterInput.feature).every(
+                    (key) => filterInput.feature[key] && move.feature.includes(key)
+                )
+            );
+        }
+    });
+};
+
+const MemoizedMoveList = memo(({ data, filterInput }) => (
+    <FlatList
+        data={filterMoveList(data, filterInput)}
+        renderItem={({ item }) => (
+            <MoveContainer
+                name={item.name ? item.name : "이름 없음"}
+                command={convertCommand(item.command)}
+                hitLevel={item.hitLevel}
+                damage={item.damage}
+                startUpFrame={item.startUpFrame}
+                blockFrame={item.blockFrame}
+                hitFrame={item.hitFrame}
+                counterHitFrame={item.counterHitFrame}
+                feature={convertFeature(item.feature)}
+                notes={item.notes}
+            />
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        extraData={filterInput}
+    />
+));
 
 const styles = StyleSheet.create({
     moveScreen: {
