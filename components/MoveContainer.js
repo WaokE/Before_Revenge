@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     mainInfoContainer: {
-        flex: 4,
+        flex: 5,
         backgroundColor: "gray",
         justifyContent: "space-between",
     },
