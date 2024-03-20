@@ -18,7 +18,10 @@ const MoveContainer = (props) => {
         <View style={styles.moveContainer}>
             <View style={styles.mainInfoContainer}>
                 <Text style={styles.commandName}>{props.name}</Text>
-                <Text>{props.hitLevel}</Text>
+                <View style={{ flexDirection: "row", gap: 4 }}>
+                    <Text>{props.hitLevel}</Text>
+                    <Text>{props.damage}</Text>
+                </View>
                 <Text>{props.command}</Text>
                 <Text>{props.notes}</Text>
             </View>
