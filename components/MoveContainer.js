@@ -23,7 +23,7 @@ const MoveContainer = (props) => {
                     <Text>{props.damage}</Text>
                 </View>
                 <Text>{props.command}</Text>
-                <Text>{props.notes}</Text>
+                <Text style={{ fontSize: 10 }}>{props.notes}</Text>
             </View>
             <View style={styles.detailInfoContainer}>
                 <Text>{`발동 ${props.startUpFrame}`}</Text>
