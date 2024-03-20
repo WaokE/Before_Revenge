@@ -1,4 +1,4 @@
-import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal } from "react-native";
+import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -13,6 +13,22 @@ const MoveListFilterKeyboard = (props) => {
             >
                 <View style={styles.container}>
                     <View style={styles.row}>
+                        <Button
+                            title="clean filter"
+                            onPress={() => {
+                                props.onChangeFilterInput((prev) => {
+                                    return {
+                                        feature: {
+                                            HM: false,
+                                            HT: false,
+                                            PC: false,
+                                            TN: false,
+                                        },
+                                        command: [],
+                                    };
+                                });
+                            }}
+                        />
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
