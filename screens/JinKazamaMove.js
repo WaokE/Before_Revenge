@@ -29,19 +29,39 @@ const JinKazamaMove = () => {
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
             />
-            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+            <View
+                style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    borderRadius: 5,
+                }}
+            >
                 <View style={{ flexDirection: "row" }}>
                     {filterInput.feature.HM && (
-                        <Image source={require("../assets/FeatureIcon/HMicon.png")} />
+                        <Image
+                            source={require("../assets/FeatureIcon/HMicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
                     )}
                     {filterInput.feature.HT && (
-                        <Image source={require("../assets/FeatureIcon/HTicon.png")} />
+                        <Image
+                            source={require("../assets/FeatureIcon/HTicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
                     )}
                     {filterInput.feature.PC && (
-                        <Image source={require("../assets/FeatureIcon/PCicon.png")} />
+                        <Image
+                            source={require("../assets/FeatureIcon/PCicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
                     )}
                     {filterInput.feature.TN && (
-                        <Image source={require("../assets/FeatureIcon/TNicon.png")} />
+                        <Image
+                            source={require("../assets/FeatureIcon/TNicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
                     )}
                     {filterInput.command.map((item, index) => (
                         <View key={index}>{convertCommand([item])}</View>
