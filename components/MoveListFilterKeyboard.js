@@ -437,6 +437,7 @@ const MoveListFilterKeyboard = (props) => {
                                         return {
                                             ...prev,
                                             feature: {
+                                                ...prev.feature,
                                                 HM: !prev.feature.HM,
                                             },
                                         };
@@ -458,6 +459,7 @@ const MoveListFilterKeyboard = (props) => {
                                         return {
                                             ...prev,
                                             feature: {
+                                                ...prev.feature,
                                                 HT: !prev.feature.HT,
                                             },
                                         };
@@ -479,6 +481,7 @@ const MoveListFilterKeyboard = (props) => {
                                         return {
                                             ...prev,
                                             feature: {
+                                                ...prev.feature,
                                                 PC: !prev.feature.PC,
                                             },
                                         };
@@ -500,6 +503,7 @@ const MoveListFilterKeyboard = (props) => {
                                         return {
                                             ...prev,
                                             feature: {
+                                                ...prev.feature,
                                                 TN: !prev.feature.TN,
                                             },
                                         };
