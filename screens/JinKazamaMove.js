@@ -95,6 +95,9 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
 
 const styles = StyleSheet.create({
     moveScreen: {
+        paddingTop: 40,
+        paddingHorizontal: 10,
+        borderRadius: 10,
         width: "100%",
         flex: 1,
     },
