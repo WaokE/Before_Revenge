@@ -1,5 +1,5 @@
 // 프레임워크 API
-import { View, StyleSheet, Image, Button, FlatList } from "react-native";
+import { View, StyleSheet, Image, Button, SectionList, Text } from "react-native";
 import { useState, memo } from "react";
 
 // 컴포넌트
@@ -79,25 +79,32 @@ const CharacterMoveScreen = ({ route }) => {
 };
 
 const filterMoveList = (data, filterInput) => {
-    return data.filter((move) => {
-        if (Object.values(filterInput.feature).every((value) => value === false)) {
-            return move.command.join("").includes(filterInput.command.join(""));
-        } else {
-            return (
-                move.command.join("").includes(filterInput.command.join("")) &&
-                Object.keys(filterInput.feature).every(
-                    (key) =>
-                        (filterInput.feature[key] === true && move.feature.includes(key)) ||
-                        filterInput.feature[key] === false
-                )
-            );
+    const result = [];
+    data.forEach((section) => {
+        const filteredData = section.data.filter((move) => {
+            if (Object.values(filterInput.feature).every((value) => value === false)) {
+                return move.command.join("").includes(filterInput.command.join(""));
+            } else {
+                return (
+                    move.command.join("").includes(filterInput.command.join("")) &&
+                    Object.keys(filterInput.feature).every(
+                        (key) =>
+                            (filterInput.feature[key] === true && move.feature.includes(key)) ||
+                            filterInput.feature[key] === false
+                    )
+                );
+            }
+        });
+        if (filteredData.length !== 0) {
+            result.push({ title: section.title, data: filteredData });
         }
     });
+    return result;
 };
 
 const MemoizedMoveList = memo(({ data, filterInput }) => (
-    <FlatList
-        data={filterMoveList(data, filterInput)}
+    <SectionList
+        sections={filterMoveList(data, filterInput)}
         renderItem={({ item }) => (
             <MoveContainer
                 name={item.name ? item.name : "이름 없음"}
@@ -112,6 +119,7 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
                 notes={item.notes}
             />
         )}
+        renderSectionHeader={({ section: { title } }) => <Text>{title}</Text>}
         keyExtractor={(item, index) => index.toString()}
         extraData={filterInput}
     />
