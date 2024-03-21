@@ -22,10 +22,16 @@ export default function App() {
                         options={{ headerShown: false }}
                     />
                     <Stack.Screen
-                        name="JinKazamaScreen"
+                        name="JinKazamaMoveScreen"
                         component={CharacterMoveScreen}
                         options={{ headerShown: false }}
                         initialParams={{ characterName: "jin-kazama" }}
+                    />
+                    <Stack.Screen
+                        name="ReinaMoveScreen"
+                        component={CharacterMoveScreen}
+                        options={{ headerShown: false }}
+                        initialParams={{ characterName: "reina" }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

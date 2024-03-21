@@ -40,8 +40,15 @@ import CharacterIcon from "../components/CharacterIcon";
 
 const SelectCharacterScreen = ({ navigation }) => {
     const handleIconPress = (characterName) => {
-        if (characterName === "진") {
-            navigation.navigate("JinKazamaScreen");
+        switch (characterName) {
+            case "진":
+                navigation.navigate("JinKazamaMoveScreen");
+                break;
+            case "레이나":
+                navigation.navigate("ReinaMoveScreen");
+                break;
+            default:
+                console.log("캐릭터 이름이 없습니다.");
         }
     };
 
