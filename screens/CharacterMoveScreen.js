@@ -1,15 +1,19 @@
+// 프레임워크 API
 import { View, StyleSheet, Image, Button, FlatList } from "react-native";
 import { useState, memo } from "react";
 
-import moveData from "../assets/moveData/jin_kazama_movelist.json";
-
+// 컴포넌트
 import MoveContainer from "../components/MoveContainer";
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 
+// 라이브러리
 import convertCommand from "../lib/convertCommand";
 import convertFeature from "../lib/convertFeature";
+import importCharacterMoveData from "../lib/importCharacterMoveData";
 
-const JinKazamaMove = () => {
+const CharacterMoveScreen = ({ route }) => {
+    const { characterName } = route.params;
+    const moveData = importCharacterMoveData[characterName];
     const [filterInput, setFilterInput] = useState({
         feature: {
             HM: false,
@@ -123,4 +127,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default JinKazamaMove;
+export default CharacterMoveScreen;

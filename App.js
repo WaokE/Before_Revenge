@@ -4,8 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // 컴포넌트
-import JinKazamaMove from "./screens/JinKazamaMove";
 import SelectCharacterScreen from "./screens/SelectCharacterScreen";
+import CharacterMoveScreen from "./screens/CharacterMoveScreen";
 
 // 네비게이션 스택
 const Stack = createNativeStackNavigator();
@@ -23,8 +23,9 @@ export default function App() {
                     />
                     <Stack.Screen
                         name="JinKazamaScreen"
-                        component={JinKazamaMove}
+                        component={CharacterMoveScreen}
                         options={{ headerShown: false }}
+                        initialParams={{ characterName: "jin-kazama" }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
