@@ -7,12 +7,15 @@ const textSize = windowWidth * 0.04;
 
 const CharacterIcon = ({ name, imagePath }) => {
     return (
-        <Pressable>
-            <View style={styles.iconContainer}>
+        <View style={styles.iconContainer}>
+            <Pressable
+                android_ripple={{ color: "gray", radius: iconSize * 0.5 }}
+                style={({ pressed }) => (pressed ? styles.pressed : null)}
+            >
                 <Image source={imagePath} style={styles.iconImage} />
-                <Text style={styles.iconText}>{name}</Text>
-            </View>
-        </Pressable>
+            </Pressable>
+            <Text style={styles.iconText}>{name}</Text>
+        </View>
     );
 };
 
@@ -31,6 +34,9 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: textSize,
         fontWeight: "bold",
+    },
+    pressed: {
+        opacity: 0.75,
     },
 });
 
