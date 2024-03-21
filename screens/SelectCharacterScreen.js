@@ -1,4 +1,5 @@
 import { View, StyleSheet, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const CharacterImagePaths = {
     니나: require("../assets/CharacterImage/Nina-Williams.png"),
@@ -37,16 +38,27 @@ const CharacterImagePaths = {
 
 import CharacterIcon from "../components/CharacterIcon";
 
-const SelectCharacterScreen = () => {
+const SelectCharacterScreen = ({ navigation }) => {
+    const handleIconPress = (characterName) => {
+        if (characterName === "진") {
+            navigation.navigate("JinKazamaScreen");
+        }
+    };
+
     const characterIcons = Object.keys(CharacterImagePaths).map((characterName) => (
         <CharacterIcon
             key={characterName}
             name={characterName}
             imagePath={CharacterImagePaths[characterName]}
+            onPressIcon={handleIconPress}
         />
     ));
 
-    return <ScrollView contentContainerStyle={styles.container}>{characterIcons}</ScrollView>;
+    return (
+        <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
+            <ScrollView contentContainerStyle={styles.container}>{characterIcons}</ScrollView>
+        </LinearGradient>
+    );
 };
 
 const styles = StyleSheet.create({

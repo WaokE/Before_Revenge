@@ -5,12 +5,16 @@ const windowWidth = Dimensions.get("window").width;
 const iconSize = windowWidth * 0.3;
 const textSize = windowWidth * 0.04;
 
-const CharacterIcon = ({ name, imagePath }) => {
+const CharacterIcon = ({ name, imagePath, onPressIcon }) => {
     return (
         <View style={styles.iconContainer}>
             <Pressable
                 android_ripple={{ color: "gray", radius: iconSize * 0.5 }}
                 style={({ pressed }) => (pressed ? styles.pressed : null)}
+                onPress={() => {
+                    console.log(`${name} pressed`);
+                    onPressIcon(name);
+                }}
             >
                 <Image source={imagePath} style={styles.iconImage} />
             </Pressable>
