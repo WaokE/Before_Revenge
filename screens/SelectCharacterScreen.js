@@ -47,6 +47,9 @@ const SelectCharacterScreen = ({ navigation }) => {
             case "레이나":
                 navigation.navigate("ReinaMoveScreen");
                 break;
+            case "드라구노프":
+                navigation.navigate("DragunovMoveScreen");
+                break;
             default:
                 console.log("캐릭터 이름이 없습니다.");
         }

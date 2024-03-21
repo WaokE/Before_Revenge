@@ -33,6 +33,12 @@ export default function App() {
                         options={{ headerShown: false }}
                         initialParams={{ characterName: "reina" }}
                     />
+                    <Stack.Screen
+                        name="DragunovMoveScreen"
+                        component={CharacterMoveScreen}
+                        options={{ headerShown: false }}
+                        initialParams={{ characterName: "sergei-dragunov" }}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </>
