@@ -119,7 +119,9 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
                 notes={item.notes}
             />
         )}
-        renderSectionHeader={({ section: { title } }) => <Text>{title}</Text>}
+        renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.sectionHeaderText}>{title}</Text>
+        )}
         keyExtractor={(item, index) => index.toString()}
         extraData={filterInput}
     />
@@ -127,11 +129,14 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
 
 const styles = StyleSheet.create({
     moveScreen: {
-        paddingTop: 40,
-        // paddingHorizontal: ,
         borderRadius: 10,
         width: "100%",
         flex: 1,
+    },
+    sectionHeaderText: {
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center",
     },
 });
 
