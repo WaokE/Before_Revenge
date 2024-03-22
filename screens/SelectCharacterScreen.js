@@ -1,6 +1,8 @@
 import { View, StyleSheet, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
+import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
+
 const CharacterImagePaths = {
     니나: require("../assets/CharacterImage/Nina-Williams.png"),
     "데빌 진": require("../assets/CharacterImage/Devil-Jin.png"),
@@ -40,106 +42,7 @@ import CharacterIcon from "../components/CharacterIcon";
 
 const SelectCharacterScreen = ({ navigation }) => {
     const handleIconPress = (characterName) => {
-        switch (characterName) {
-            case "니나":
-                navigation.navigate("NinaWilliamsMoveScreen");
-                break;
-            case "데빌 진":
-                navigation.navigate("DevilJinMoveScreen");
-                break;
-            case "드라구노프":
-                navigation.navigate("SergeiDragunovMoveScreen");
-                break;
-            case "라스":
-                navigation.navigate("LarsAlexanderssonMoveScreen");
-                break;
-            case "레오":
-                navigation.navigate("LeoMoveScreen");
-                break;
-            case "레이나":
-                navigation.navigate("ReinaMoveScreen");
-                break;
-            case "레이븐":
-                navigation.navigate("RavenMoveScreen");
-                break;
-            case "로우":
-                navigation.navigate("MarshallLawMoveScreen");
-                break;
-            case "리로이":
-                navigation.navigate("LeroySmithMoveScreen");
-                break;
-            case "리리":
-                navigation.navigate("LiliMoveScreen");
-                break;
-            case "리 차오랑":
-                navigation.navigate("LeeMoveScreen");
-                break;
-            case "브라이언":
-                navigation.navigate("BryanFuryMoveScreen");
-                break;
-            case "빅터":
-                navigation.navigate("VictorChevalierMoveScreen");
-                break;
-            case "샤오유":
-                navigation.navigate("LingXiaoyuMoveScreen");
-                break;
-            case "샤힌":
-                navigation.navigate("ShaheenMoveScreen");
-                break;
-            case "스티브":
-                navigation.navigate("SteveFoxMoveScreen");
-                break;
-            case "아스카":
-                navigation.navigate("AsukaMoveScreen");
-                break;
-            case "아주세나":
-                navigation.navigate("AzucenaMoveScreen");
-                break;
-            case "알리사":
-                navigation.navigate("AlisaMoveScreen");
-                break;
-            case "요시미츠":
-                navigation.navigate("YoshimitsuMoveScreen");
-                break;
-            case "자피나":
-                navigation.navigate("ZafinaMoveScreen");
-                break;
-            case "잭-8":
-                navigation.navigate("Jack8MoveScreen");
-                break;
-            case "준":
-                navigation.navigate("JunKazamaMoveScreen");
-                break;
-            case "진":
-                navigation.navigate("JinKazamaMoveScreen");
-                break;
-            case "카즈야":
-                navigation.navigate("KazuyaMishimaMoveScreen");
-                break;
-            case "쿠마":
-                navigation.navigate("KumaMoveScreen");
-                break;
-            case "클라우디오":
-                navigation.navigate("ClaudioSerafinoMoveScreen");
-                break;
-            case "킹":
-                navigation.navigate("KingMoveScreen");
-                break;
-            case "판다":
-                navigation.navigate("PandaMoveScreen");
-                break;
-            case "펭 웨이":
-                navigation.navigate("FengWeiMoveScreen");
-                break;
-            case "폴":
-                navigation.navigate("PaulPhoenixMoveScreen");
-                break;
-            case "화랑":
-                navigation.navigate("HwoarangMoveScreen");
-                break;
-            default:
-                console.log("캐릭터 이름이 없습니다.");
-        }
+        navigation.navigate(navigateCharacterMoveScreen(characterName));
     };
 
     const characterIcons = Object.keys(CharacterImagePaths).map((characterName) => (
@@ -160,8 +63,6 @@ const SelectCharacterScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 40,
-
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
