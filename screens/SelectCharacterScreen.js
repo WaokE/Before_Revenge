@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
@@ -56,12 +56,24 @@ const SelectCharacterScreen = ({ navigation }) => {
 
     return (
         <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
+            <View>
+                {/* 임시 배너 */}
+                <Text style={{ fontSize: 30, textAlign: "center", color: "white" }}>
+                    Tekken 8 movelist
+                </Text>
+            </View>
             <ScrollView contentContainerStyle={styles.container}>{characterIcons}</ScrollView>
         </LinearGradient>
     );
 };
 
 const styles = StyleSheet.create({
+    appContainer: {
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    },
     container: {
         flexDirection: "row",
         flexWrap: "wrap",

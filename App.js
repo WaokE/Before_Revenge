@@ -219,11 +219,4 @@ export default function App() {
     );
 }
 
-const styles = StyleSheet.create({
-    appContainer: {
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
+const styles = StyleSheet.create({});
