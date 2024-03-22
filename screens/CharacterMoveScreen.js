@@ -1,5 +1,5 @@
 // 프레임워크 API
-import { View, StyleSheet, Image, Button, SectionList, Text } from "react-native";
+import { View, StyleSheet, Image, Button, SectionList, Text, TextInput } from "react-native";
 import { useState, memo } from "react";
 
 // 컴포넌트
@@ -22,6 +22,7 @@ const CharacterMoveScreen = ({ route }) => {
             TN: false,
         },
         command: [],
+        text: "",
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,36 +43,40 @@ const CharacterMoveScreen = ({ route }) => {
                     borderRadius: 5,
                 }}
             >
-                <View style={{ flexDirection: "row" }}>
-                    {filterInput.feature.HM && (
-                        <Image
-                            source={require("../assets/FeatureIcon/HMicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    )}
-                    {filterInput.feature.HT && (
-                        <Image
-                            source={require("../assets/FeatureIcon/HTicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    )}
-                    {filterInput.feature.PC && (
-                        <Image
-                            source={require("../assets/FeatureIcon/PCicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    )}
-                    {filterInput.feature.TN && (
-                        <Image
-                            source={require("../assets/FeatureIcon/TNicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    )}
-                    {filterInput.command.map((item, index) => (
-                        <View key={index}>{convertCommand([item])}</View>
-                    ))}
-                </View>
+                <TextInput
+                    onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
+                    style={{ flex: 1 }}
+                />
                 <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
+            </View>
+            <View style={{ flexDirection: "row" }}>
+                {filterInput.feature.HM && (
+                    <Image
+                        source={require("../assets/FeatureIcon/HMicon.png")}
+                        style={{ width: 20, height: 20 }}
+                    />
+                )}
+                {filterInput.feature.HT && (
+                    <Image
+                        source={require("../assets/FeatureIcon/HTicon.png")}
+                        style={{ width: 20, height: 20 }}
+                    />
+                )}
+                {filterInput.feature.PC && (
+                    <Image
+                        source={require("../assets/FeatureIcon/PCicon.png")}
+                        style={{ width: 20, height: 20 }}
+                    />
+                )}
+                {filterInput.feature.TN && (
+                    <Image
+                        source={require("../assets/FeatureIcon/TNicon.png")}
+                        style={{ width: 20, height: 20 }}
+                    />
+                )}
+                {filterInput.command.map((item, index) => (
+                    <View key={index}>{convertCommand([item])}</View>
+                ))}
             </View>
             <MemoizedMoveList data={moveData} filterInput={filterInput} />
         </View>
@@ -83,7 +88,10 @@ const filterMoveList = (data, filterInput) => {
     data.forEach((section) => {
         const filteredData = section.data.filter((move) => {
             if (Object.values(filterInput.feature).every((value) => value === false)) {
-                return move.command.join("").includes(filterInput.command.join(""));
+                return (
+                    move.command.join("").includes(filterInput.command.join("")) &&
+                    (move.name.includes(filterInput.text) || move.notes.includes(filterInput.text))
+                );
             } else {
                 return (
                     move.command.join("").includes(filterInput.command.join("")) &&
@@ -91,7 +99,8 @@ const filterMoveList = (data, filterInput) => {
                         (key) =>
                             (filterInput.feature[key] === true && move.feature.includes(key)) ||
                             filterInput.feature[key] === false
-                    )
+                    ) &&
+                    (move.name.includes(filterInput.text) || move.notes.includes(filterInput.text))
                 );
             }
         });
