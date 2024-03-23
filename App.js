@@ -1,7 +1,10 @@
 // 프레임워크 API
-import { StyleSheet, StatusBar } from "react-native";
+import React, { useCallback } from "react";
+import { View, StyleSheet, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
 // 컴포넌트
 import SelectCharacterScreen from "./screens/SelectCharacterScreen";
@@ -11,8 +14,22 @@ import CharacterMoveScreen from "./screens/CharacterMoveScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+    const [fontsLoaded, fontError] = useFonts({
+        tekkenfont: require("./assets/fonts/tekkenfont.ttf"),
+    });
+
+    const onLayoutRootView = useCallback(async () => {
+        if (fontsLoaded || fontError) {
+            await SplashScreen.hideAsync();
+        }
+    }, [fontsLoaded, fontError]);
+
+    if (!fontsLoaded && !fontError) {
+        return null;
+    }
+
     return (
-        <>
+        <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
             <StatusBar />
             <NavigationContainer>
                 <Stack.Navigator>
@@ -215,7 +232,7 @@ export default function App() {
                     />
                 </Stack.Navigator>
             </NavigationContainer>
-        </>
+        </View>
     );
 }
 

@@ -1,7 +1,10 @@
-import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView, SafeAreaView, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const CharacterImagePaths = {
     니나: require("../assets/CharacterImage/Nina-Williams.png"),
@@ -57,10 +60,31 @@ const SelectCharacterScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
-                <View>
-                    {/* 임시 배너 */}
-                    <Text style={{ fontSize: 30, textAlign: "center", color: "white" }}>
-                        Tekken 8 movelist
+                <View
+                    style={{
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Image
+                        source={require("../assets/tekken_logo.png")}
+                        style={{
+                            width: windowWidth * 0.3,
+                            height: windowHeight * 0.1,
+                            resizeMode: "contain",
+                        }}
+                    />
+                    <Text
+                        style={{
+                            fontFamily: "tekkenfont",
+                            fontSize: windowWidth * 0.07,
+                            textAlign: "center",
+                            color: "white",
+                            paddingLeft: windowWidth * 0.02,
+                        }}
+                    >
+                        movelist
                     </Text>
                 </View>
                 <ScrollView contentContainerStyle={styles.container}>{characterIcons}</ScrollView>
