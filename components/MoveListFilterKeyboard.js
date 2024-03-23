@@ -25,6 +25,7 @@ const MoveListFilterKeyboard = (props) => {
                                             TN: false,
                                         },
                                         command: [],
+                                        text: "",
                                     };
                                 });
                             }}
