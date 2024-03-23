@@ -1,5 +1,14 @@
 // 프레임워크 API
-import { View, StyleSheet, Image, Button, SectionList, Text, TextInput } from "react-native";
+import {
+    View,
+    StyleSheet,
+    Image,
+    Button,
+    SectionList,
+    Text,
+    TextInput,
+    SafeAreaView,
+} from "react-native";
 import { useState, memo } from "react";
 
 // 컴포넌트
@@ -27,7 +36,7 @@ const CharacterMoveScreen = ({ route }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <View style={styles.moveScreen}>
+        <SafeAreaView style={styles.moveScreen}>
             {/* 필터 키보드  */}
             <MoveListFilterKeyboard
                 onChangeFilterInput={setFilterInput}
@@ -79,7 +88,7 @@ const CharacterMoveScreen = ({ route }) => {
                 ))}
             </View>
             <MemoizedMoveList data={moveData} filterInput={filterInput} />
-        </View>
+        </SafeAreaView>
     );
 };
 
