@@ -9,6 +9,7 @@ import {
     TextInput,
     SafeAreaView,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { useState, memo } from "react";
 
 // 컴포넌트
@@ -37,57 +38,59 @@ const CharacterMoveScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={styles.moveScreen}>
-            {/* 필터 키보드  */}
-            <MoveListFilterKeyboard
-                onChangeFilterInput={setFilterInput}
-                isModalOpen={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
-            />
-            <View
-                style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    backgroundColor: "white",
-                    borderRadius: 5,
-                }}
-            >
-                <TextInput
-                    onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
-                    style={{ flex: 1 }}
+            <LinearGradient colors={["#214C5C", "#000000"]} style={{ flex: 1 }}>
+                {/* 필터 키보드  */}
+                <MoveListFilterKeyboard
+                    onChangeFilterInput={setFilterInput}
+                    isModalOpen={isModalOpen}
+                    setIsModalOpen={setIsModalOpen}
                 />
-                <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
-            </View>
-            <View style={{ flexDirection: "row" }}>
-                {filterInput.feature.HM && (
-                    <Image
-                        source={require("../assets/FeatureIcon/HMicon.png")}
-                        style={{ width: 20, height: 20 }}
+                <View
+                    style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        backgroundColor: "white",
+                        borderRadius: 5,
+                    }}
+                >
+                    <TextInput
+                        onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
+                        style={{ flex: 1 }}
                     />
-                )}
-                {filterInput.feature.HT && (
-                    <Image
-                        source={require("../assets/FeatureIcon/HTicon.png")}
-                        style={{ width: 20, height: 20 }}
-                    />
-                )}
-                {filterInput.feature.PC && (
-                    <Image
-                        source={require("../assets/FeatureIcon/PCicon.png")}
-                        style={{ width: 20, height: 20 }}
-                    />
-                )}
-                {filterInput.feature.TN && (
-                    <Image
-                        source={require("../assets/FeatureIcon/TNicon.png")}
-                        style={{ width: 20, height: 20 }}
-                    />
-                )}
-                {filterInput.command.map((item, index) => (
-                    <View key={index}>{convertCommand([item])}</View>
-                ))}
-            </View>
-            <MemoizedMoveList data={moveData} filterInput={filterInput} />
+                    <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                    {filterInput.feature.HM && (
+                        <Image
+                            source={require("../assets/FeatureIcon/HMicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
+                    )}
+                    {filterInput.feature.HT && (
+                        <Image
+                            source={require("../assets/FeatureIcon/HTicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
+                    )}
+                    {filterInput.feature.PC && (
+                        <Image
+                            source={require("../assets/FeatureIcon/PCicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
+                    )}
+                    {filterInput.feature.TN && (
+                        <Image
+                            source={require("../assets/FeatureIcon/TNicon.png")}
+                            style={{ width: 20, height: 20 }}
+                        />
+                    )}
+                    {filterInput.command.map((item, index) => (
+                        <View key={index}>{convertCommand([item])}</View>
+                    ))}
+                </View>
+                <MemoizedMoveList data={moveData} filterInput={filterInput} />
+            </LinearGradient>
         </SafeAreaView>
     );
 };
@@ -148,10 +151,10 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
 const styles = StyleSheet.create({
     moveScreen: {
         borderRadius: 10,
-        width: "100%",
         flex: 1,
     },
     sectionHeaderText: {
+        color: "white",
         fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
