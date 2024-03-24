@@ -71,10 +71,13 @@ const MoveContainer = (props) => {
 
 const styles = StyleSheet.create({
     moveContainer: {
+        flex: 1,
         flexDirection: "row",
         backgroundColor: "lightgray",
-        width: "100%",
         borderWidth: 1,
+        // borderColor: "#F61276",
+        borderColor: "white",
+        marginHorizontal: 4,
     },
     commandName: {
         fontSize: 14,
