@@ -63,7 +63,7 @@ const MoveContainer = (props) => {
                         {props.counterHitFrame}
                     </Text>
                 </Text>
-                <Text>{props.feature}</Text>
+                {props.feature && props.feature}
             </View>
         </View>
     );
