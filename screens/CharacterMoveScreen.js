@@ -58,7 +58,11 @@ const CharacterMoveScreen = ({ route }) => {
                         onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
                         style={{ flex: 1 }}
                     />
-                    <Button title="Open filter" onPress={() => setIsModalOpen((prev) => !prev)} />
+                    <Button
+                        title="필터"
+                        onPress={() => setIsModalOpen((prev) => !prev)}
+                        color="#006666"
+                    />
                 </View>
                 <View style={{ flexDirection: "row" }}>
                     {filterInput.feature.HM && (
@@ -158,6 +162,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
+        backgroundColor: "#1b3e4b",
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        borderColor: "#999999",
+        marginHorizontal: 4,
     },
 });
 

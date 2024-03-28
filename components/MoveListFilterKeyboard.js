@@ -13,23 +13,26 @@ const MoveListFilterKeyboard = (props) => {
             >
                 <View style={styles.container}>
                     <View style={styles.content}>
-                        <Button
-                            title="clean filter"
-                            onPress={() => {
-                                props.onChangeFilterInput((prev) => {
-                                    return {
-                                        feature: {
-                                            HM: false,
-                                            HT: false,
-                                            PC: false,
-                                            TN: false,
-                                        },
-                                        command: [],
-                                        text: "",
-                                    };
-                                });
-                            }}
-                        />
+                        <View style={{ backgroundColor: "#e6e6e6" }}>
+                            <Button
+                                title="필터 초기화"
+                                onPress={() => {
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            feature: {
+                                                HM: false,
+                                                HT: false,
+                                                PC: false,
+                                                TN: false,
+                                            },
+                                            command: [],
+                                            text: "",
+                                        };
+                                    });
+                                }}
+                                color="#006666"
+                            />
+                        </View>
                         <View style={{ flexDirection: "row" }}></View>
                         <View style={{ flexDirection: "row" }}></View>
 

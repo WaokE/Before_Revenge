@@ -19,21 +19,21 @@ const MoveContainer = (props) => {
             <View style={styles.mainInfoContainer}>
                 <Text style={styles.commandName}>{props.name}</Text>
                 <View style={{ flexDirection: "row", gap: 4 }}>
-                    <Text>{props.hitLevel}</Text>
-                    <Text>{props.damage}</Text>
+                    <Text style={styles.judgeInfoText}>{props.hitLevel}</Text>
+                    <Text style={styles.judgeInfoText}>{props.damage}</Text>
                 </View>
                 <Text>{props.command}</Text>
-                <Text style={{ fontSize: 10 }}>{props.notes}</Text>
+                <Text style={styles.noteText}>{props.notes}</Text>
             </View>
             <View style={styles.detailInfoContainer}>
-                <Text>{`발동 ${props.startUpFrame}`}</Text>
-                <Text>
+                <Text style={styles.frameDataText}>{`발동 ${props.startUpFrame}`}</Text>
+                <Text style={styles.frameDataText}>
                     가드{" "}
                     <Text style={Number(props.blockFrame) >= 0 ? styles.greenText : styles.redText}>
                         {props.blockFrame}
                     </Text>
                 </Text>
-                <Text>
+                <Text style={styles.frameDataText}>
                     노말히트{" "}
                     <Text
                         style={
@@ -48,7 +48,7 @@ const MoveContainer = (props) => {
                         {props.hitFrame}
                     </Text>
                 </Text>
-                <Text>
+                <Text style={styles.frameDataText}>
                     카운터히트{" "}
                     <Text
                         style={
@@ -73,31 +73,47 @@ const styles = StyleSheet.create({
     moveContainer: {
         flex: 1,
         flexDirection: "row",
-        backgroundColor: "lightgray",
         borderWidth: 1,
-        // borderColor: "#F61276",
-        borderColor: "white",
+        borderColor: "#999999",
         marginHorizontal: 4,
     },
     commandName: {
+        color: "#e6e6e6",
         fontSize: 14,
+        fontWeight: "bold",
+    },
+    judgeInfoText: {
+        color: "white",
+        fontSize: 11,
+    },
+    noteText: {
+        fontSize: 10,
+        fontWeight: "bold",
+        color: "#e6e600",
+    },
+    frameDataText: {
+        color: "white",
+        fontSize: 12,
         fontWeight: "bold",
     },
     mainInfoContainer: {
         flex: 5,
-        backgroundColor: "gray",
+        backgroundColor: "transparent",
         justifyContent: "space-between",
+        padding: 4,
     },
     detailInfoContainer: {
         flex: 2,
-        backgroundColor: "darkgray",
+        backgroundColor: "transparent",
         alignItems: "center",
+        borderLeftWidth: 1,
+        borderColor: "#999999",
     },
     greenText: {
-        color: "green",
+        color: "#00e600",
     },
     redText: {
-        color: "darkred",
+        color: "#ff1a1a",
     },
 });
 
