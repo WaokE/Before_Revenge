@@ -33,6 +33,58 @@ const MoveListFilterKeyboard = (props) => {
                                 color="#006666"
                             />
                         </View>
+                        <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>1</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>2</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>3</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>4</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>5</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>-</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>막히고</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>이상</Text>
+                            </Pressable>
+                        </View>
+                        <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>6</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>7</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>8</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>9</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>0</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>+</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>맞히고</Text>
+                            </Pressable>
+                            <Pressable style={styles.numpadButton}>
+                                <Text style={styles.numpadText}>이하</Text>
+                            </Pressable>
+                        </View>
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
@@ -521,6 +573,17 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         width: (windowWidth * (3 / 7)) / 4,
         height: (windowWidth * (3 / 7)) / 4,
+    },
+    numpadButton: {
+        borderWidth: 1,
+        borderColor: "white",
+        width: windowWidth / 8,
+        height: windowWidth / 8,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    numpadText: {
+        color: "white",
     },
 });
 
