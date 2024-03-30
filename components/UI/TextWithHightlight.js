@@ -2,6 +2,7 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 
 const TextWithHighlight = ({ text, wantToHighlight, style }) => {
+    if (!text) return null;
     const highlightIndex = text.indexOf(wantToHighlight);
     if (highlightIndex === -1) {
         return <Text style={style}>{text}</Text>;
