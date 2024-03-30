@@ -57,10 +57,11 @@ const CharacterMoveScreen = ({ route }) => {
                     <TextInput
                         onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
                         value={filterInput.text}
-                        style={{ flex: 1 }}
+                        style={{ flex: 1, textAlign: "center" }}
+                        placeholder="기술명, 설명 검색 (ex.초풍신권, 통발...)"
                     />
                     <Button
-                        title="필터"
+                        title="필터 추가"
                         onPress={() => setIsModalOpen((prev) => !prev)}
                         color="#006666"
                     />
