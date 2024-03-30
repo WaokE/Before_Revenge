@@ -33,9 +33,6 @@ const MoveListFilterKeyboard = (props) => {
                                 color="#006666"
                             />
                         </View>
-                        <View style={{ flexDirection: "row" }}></View>
-                        <View style={{ flexDirection: "row" }}></View>
-
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
