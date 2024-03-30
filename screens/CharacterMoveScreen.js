@@ -56,6 +56,7 @@ const CharacterMoveScreen = ({ route }) => {
                 >
                     <TextInput
                         onChangeText={(text) => setFilterInput((prev) => ({ ...prev, text }))}
+                        value={filterInput.text}
                         style={{ flex: 1 }}
                     />
                     <Button
@@ -142,6 +143,7 @@ const MemoizedMoveList = memo(({ data, filterInput }) => (
                 counterHitFrame={item.counterHitFrame}
                 feature={convertFeature(item.feature)}
                 notes={item.notes}
+                highlight={filterInput.text}
             />
         )}
         renderSectionHeader={({ section: { title } }) => (

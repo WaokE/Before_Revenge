@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
+import TextWithHighlight from "./UI/TextWithHightlight";
+
 const sampleMove = {
     name: "Sample Move",
     command: "FF3",
@@ -17,13 +19,23 @@ const MoveContainer = (props) => {
     return (
         <View style={styles.moveContainer}>
             <View style={styles.mainInfoContainer}>
-                <Text style={styles.commandName}>{props.name}</Text>
+                <TextWithHighlight
+                    text={props.name}
+                    wantToHighlight={props.highlight}
+                    style={styles.commandName}
+                />
+                {/* <Text style={styles.commandName}>{props.name}</Text> */}
                 <View style={{ flexDirection: "row", gap: 4 }}>
                     <Text style={styles.judgeInfoText}>{props.hitLevel}</Text>
                     <Text style={styles.judgeInfoText}>{props.damage}</Text>
                 </View>
                 <View>{props.command}</View>
-                <Text style={styles.noteText}>{props.notes}</Text>
+                <TextWithHighlight
+                    text={props.notes}
+                    wantToHighlight={props.highlight}
+                    style={styles.noteText}
+                />
+                {/* <Text style={styles.noteText}>{props.notes}</Text> */}
             </View>
             <View style={styles.detailInfoContainer}>
                 <Text style={styles.frameDataText}>{`발동 ${props.startUpFrame}`}</Text>
