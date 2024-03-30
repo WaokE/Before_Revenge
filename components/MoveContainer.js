@@ -22,7 +22,7 @@ const MoveContainer = (props) => {
                     <Text style={styles.judgeInfoText}>{props.hitLevel}</Text>
                     <Text style={styles.judgeInfoText}>{props.damage}</Text>
                 </View>
-                <Text>{props.command}</Text>
+                <View>{props.command}</View>
                 <Text style={styles.noteText}>{props.notes}</Text>
             </View>
             <View style={styles.detailInfoContainer}>
