@@ -98,14 +98,14 @@ const CharacterMoveScreen = ({ route }) => {
                             style={{ width: 20, height: 20 }}
                         />
                     )}
-                    {filterInput.frame.number !== "" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
+                    {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.hitOrGuard}</Text>
                     )}
                     {filterInput.frame.lossOrGain !== "UNSELECTED" && (
                         <Text style={{ color: "white" }}>{filterInput.frame.lossOrGain}</Text>
                     )}
-                    {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.hitOrGuard}</Text>
+                    {filterInput.frame.number !== "" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
                     )}
                     {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
                         <Text style={{ color: "white" }}>{filterInput.frame.aboveOrBelow}</Text>
