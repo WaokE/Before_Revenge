@@ -1,13 +1,33 @@
 import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } from "react-native";
+import { useState } from "react";
+
+import convertCommand from "../lib/convertCommand.js";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveListFilterKeyboard = (props) => {
+    const [tempFilterInput, setTempFilterInput] = useState({
+        feature: {
+            HM: false,
+            HT: false,
+            PC: false,
+            TN: false,
+        },
+        command: [],
+        text: "",
+        frame: {
+            number: "",
+            lossOrGain: "UNSELECTED",
+            hitOrGuard: "UNSELECTED",
+            aboveOrBelow: "UNSELECTED",
+        },
+    });
+
     const handleNumpadPress = (value) => {
         switch (value) {
             case "막히고": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -19,7 +39,7 @@ const MoveListFilterKeyboard = (props) => {
                 break;
             }
             case "맞히고": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -31,7 +51,7 @@ const MoveListFilterKeyboard = (props) => {
                 break;
             }
             case "이득이": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -43,7 +63,7 @@ const MoveListFilterKeyboard = (props) => {
                 break;
             }
             case "손해가": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -55,7 +75,7 @@ const MoveListFilterKeyboard = (props) => {
                 break;
             }
             case "이상": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -67,7 +87,7 @@ const MoveListFilterKeyboard = (props) => {
                 break;
             }
             case "이하": {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -80,7 +100,7 @@ const MoveListFilterKeyboard = (props) => {
             }
 
             default: {
-                props.onChangeFilterInput((prev) => {
+                setTempFilterInput((prev) => {
                     return {
                         ...prev,
                         frame: {
@@ -99,15 +119,65 @@ const MoveListFilterKeyboard = (props) => {
             <Pressable
                 onPress={() => {
                     props.setIsModalOpen(false);
+                    props.onChangeFilterInput(tempFilterInput);
                 }}
             >
                 <View style={styles.container}>
                     <View style={styles.content}>
+                        <View style={{ flexDirection: "row" }}>
+                            {tempFilterInput.feature.HM && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/HMicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {tempFilterInput.feature.HT && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/HTicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {tempFilterInput.feature.PC && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/PCicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {tempFilterInput.feature.TN && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/TNicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {tempFilterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {tempFilterInput.frame.hitOrGuard}
+                                </Text>
+                            )}
+                            {tempFilterInput.frame.lossOrGain !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {tempFilterInput.frame.lossOrGain}
+                                </Text>
+                            )}
+                            {tempFilterInput.frame.number !== "" && (
+                                <Text style={{ color: "white" }}>
+                                    {tempFilterInput.frame.number}
+                                </Text>
+                            )}
+                            {tempFilterInput.frame.aboveOrBelow !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {tempFilterInput.frame.aboveOrBelow}
+                                </Text>
+                            )}
+                            {tempFilterInput.command.map((item, index) => (
+                                <View key={index}>{convertCommand([item])}</View>
+                            ))}
+                        </View>
                         <View style={{ backgroundColor: "#e6e6e6" }}>
                             <Button
                                 title="필터 초기화"
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             feature: {
                                                 HM: false,
@@ -128,8 +198,15 @@ const MoveListFilterKeyboard = (props) => {
                                 }}
                                 color="#006666"
                             />
+                            <Button
+                                title="설정 완료"
+                                onPress={() => {
+                                    props.setIsModalOpen(false);
+                                    props.onChangeFilterInput(tempFilterInput);
+                                }}
+                            />
                         </View>
-                        <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
+                        <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
                             <Pressable
                                 style={styles.numpadButton}
                                 onPress={() => {
@@ -207,7 +284,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>이상</Text>
                             </Pressable>
                         </View>
-                        <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
+                        <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
                             <Pressable
                                 style={styles.numpadButton}
                                 onPress={() => {
@@ -288,7 +365,7 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "7"],
@@ -303,7 +380,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "8"],
@@ -318,7 +395,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "9"],
@@ -333,7 +410,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "LP"],
@@ -348,7 +425,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "RP"],
@@ -363,7 +440,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "AP"],
@@ -378,7 +455,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "AL"],
@@ -395,7 +472,7 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "4"],
@@ -410,7 +487,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "N"],
@@ -425,7 +502,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "6"],
@@ -440,7 +517,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "LK"],
@@ -455,7 +532,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "RK"],
@@ -470,7 +547,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "AK"],
@@ -485,7 +562,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "AR"],
@@ -502,7 +579,7 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "1"],
@@ -517,7 +594,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "2"],
@@ -532,7 +609,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "3"],
@@ -547,7 +624,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "LPRK"],
@@ -562,7 +639,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "APLK"],
@@ -577,7 +654,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "APRK"],
@@ -592,7 +669,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "ALL"],
@@ -609,7 +686,7 @@ const MoveListFilterKeyboard = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             feature: {
@@ -627,7 +704,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             feature: {
@@ -645,7 +722,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             feature: {
@@ -663,7 +740,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             feature: {
@@ -681,7 +758,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "RPLK"],
@@ -696,7 +773,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "LPAK"],
@@ -711,7 +788,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "RPAK"],
@@ -726,7 +803,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 onPress={() => {
-                                    props.onChangeFilterInput((prev) => {
+                                    setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
                                             command: [...prev.command, "WS"],
