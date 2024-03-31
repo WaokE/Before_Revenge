@@ -202,54 +202,71 @@ const MoveListFilterKeyboard = (props) => {
             >
                 <View style={styles.container}>
                     <View style={styles.content}>
-                        <View style={{ flexDirection: "row" }}>
-                            {tempFilterInput.feature.HM && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/HMicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
+                        <View style={{ flexDirection: "row", gap: 4 }}>
+                            {Object.keys(tempFilterInput.feature).some(
+                                (key) => tempFilterInput.feature[key] === true
+                            ) && (
+                                <View style={styles.showCurrentFilterItem}>
+                                    {tempFilterInput.feature.HM && (
+                                        <Image
+                                            source={require("../assets/FeatureIcon/HMicon.png")}
+                                            style={{ width: 20, height: 20 }}
+                                        />
+                                    )}
+                                    {tempFilterInput.feature.HT && (
+                                        <Image
+                                            source={require("../assets/FeatureIcon/HTicon.png")}
+                                            style={{ width: 20, height: 20 }}
+                                        />
+                                    )}
+                                    {tempFilterInput.feature.PC && (
+                                        <Image
+                                            source={require("../assets/FeatureIcon/PCicon.png")}
+                                            style={{ width: 20, height: 20 }}
+                                        />
+                                    )}
+                                    {tempFilterInput.feature.TN && (
+                                        <Image
+                                            source={require("../assets/FeatureIcon/TNicon.png")}
+                                            style={{ width: 20, height: 20 }}
+                                        />
+                                    )}
+                                </View>
                             )}
-                            {tempFilterInput.feature.HT && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/HTicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
+                            {(tempFilterInput.frame.hitOrGuard !== "UNSELECTED" ||
+                                tempFilterInput.frame.lossOrGain !== "UNSELECTED" ||
+                                tempFilterInput.frame.number !== "" ||
+                                tempFilterInput.frame.aboveOrBelow !== "UNSELECTED") && (
+                                <View style={styles.showCurrentFilterCommand}>
+                                    {tempFilterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                                        <Text style={{ color: "white" }}>
+                                            {tempFilterInput.frame.hitOrGuard}
+                                        </Text>
+                                    )}
+                                    {tempFilterInput.frame.lossOrGain !== "UNSELECTED" && (
+                                        <Text style={{ color: "white" }}>
+                                            {tempFilterInput.frame.lossOrGain}
+                                        </Text>
+                                    )}
+                                    {tempFilterInput.frame.number !== "" && (
+                                        <Text style={{ color: "white" }}>
+                                            {tempFilterInput.frame.number}
+                                        </Text>
+                                    )}
+                                    {tempFilterInput.frame.aboveOrBelow !== "UNSELECTED" && (
+                                        <Text style={{ color: "white" }}>
+                                            {tempFilterInput.frame.aboveOrBelow}
+                                        </Text>
+                                    )}
+                                </View>
                             )}
-                            {tempFilterInput.feature.PC && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/PCicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
+                            {tempFilterInput.command.length > 0 && (
+                                <View style={styles.showCurrentFilterItem}>
+                                    {tempFilterInput.command.map((item, index) => (
+                                        <View key={index}>{convertCommand([item])}</View>
+                                    ))}
+                                </View>
                             )}
-                            {tempFilterInput.feature.TN && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/TNicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
-                            )}
-                            {tempFilterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {tempFilterInput.frame.hitOrGuard}
-                                </Text>
-                            )}
-                            {tempFilterInput.frame.lossOrGain !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {tempFilterInput.frame.lossOrGain}
-                                </Text>
-                            )}
-                            {tempFilterInput.frame.number !== "" && (
-                                <Text style={{ color: "white" }}>
-                                    {tempFilterInput.frame.number}
-                                </Text>
-                            )}
-                            {tempFilterInput.frame.aboveOrBelow !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {tempFilterInput.frame.aboveOrBelow}
-                                </Text>
-                            )}
-                            {tempFilterInput.command.map((item, index) => (
-                                <View key={index}>{convertCommand([item])}</View>
-                            ))}
                         </View>
                         <View
                             style={{
@@ -954,6 +971,23 @@ const styles = StyleSheet.create({
     },
     numpadText: {
         color: "white",
+    },
+    showCurrentFilterItem: {
+        flexDirection: "row",
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 4,
+        padding: 4,
+        margin: 4,
+    },
+    showCurrentFilterCommand: {
+        flexDirection: "row",
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 4,
+        padding: 4,
+        margin: 4,
+        gap: 2,
     },
 });
 

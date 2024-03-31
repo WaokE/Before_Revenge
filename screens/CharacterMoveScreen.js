@@ -73,46 +73,69 @@ const CharacterMoveScreen = ({ route }) => {
                         color="#006666"
                     />
                 </View>
-                <View style={{ flexDirection: "row" }}>
-                    {filterInput.feature.HM && (
-                        <Image
-                            source={require("../assets/FeatureIcon/HMicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
+                <View style={{ flexDirection: "row", gap: 4 }}>
+                    {Object.keys(filterInput.feature).some(
+                        (key) => filterInput.feature[key] === true
+                    ) && (
+                        <View style={styles.showCurrentFilterItem}>
+                            {filterInput.feature.HM && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/HMicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {filterInput.feature.HT && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/HTicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {filterInput.feature.PC && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/PCicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                            {filterInput.feature.TN && (
+                                <Image
+                                    source={require("../assets/FeatureIcon/TNicon.png")}
+                                    style={{ width: 20, height: 20 }}
+                                />
+                            )}
+                        </View>
                     )}
-                    {filterInput.feature.HT && (
-                        <Image
-                            source={require("../assets/FeatureIcon/HTicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
+                    {(filterInput.frame.hitOrGuard !== "UNSELECTED" ||
+                        filterInput.frame.lossOrGain !== "UNSELECTED" ||
+                        filterInput.frame.number !== "" ||
+                        filterInput.frame.aboveOrBelow !== "UNSELECTED") && (
+                        <View style={styles.showCurrentFilterCommand}>
+                            {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {filterInput.frame.hitOrGuard}
+                                </Text>
+                            )}
+                            {filterInput.frame.lossOrGain !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {filterInput.frame.lossOrGain}
+                                </Text>
+                            )}
+                            {filterInput.frame.number !== "" && (
+                                <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
+                            )}
+                            {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
+                                <Text style={{ color: "white" }}>
+                                    {filterInput.frame.aboveOrBelow}
+                                </Text>
+                            )}
+                        </View>
                     )}
-                    {filterInput.feature.PC && (
-                        <Image
-                            source={require("../assets/FeatureIcon/PCicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
+                    {filterInput.command.length > 0 && (
+                        <View style={styles.showCurrentFilterItem}>
+                            {filterInput.command.map((item, index) => (
+                                <View key={index}>{convertCommand([item])}</View>
+                            ))}
+                        </View>
                     )}
-                    {filterInput.feature.TN && (
-                        <Image
-                            source={require("../assets/FeatureIcon/TNicon.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    )}
-                    {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.hitOrGuard}</Text>
-                    )}
-                    {filterInput.frame.lossOrGain !== "UNSELECTED" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.lossOrGain}</Text>
-                    )}
-                    {filterInput.frame.number !== "" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
-                    )}
-                    {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
-                        <Text style={{ color: "white" }}>{filterInput.frame.aboveOrBelow}</Text>
-                    )}
-                    {filterInput.command.map((item, index) => (
-                        <View key={index}>{convertCommand([item])}</View>
-                    ))}
                 </View>
                 <MemoizedMoveList data={moveData} filterInput={filterInput} />
             </LinearGradient>
@@ -311,6 +334,23 @@ const styles = StyleSheet.create({
         borderLeftWidth: 1,
         borderColor: "#999999",
         marginHorizontal: 4,
+    },
+    showCurrentFilterItem: {
+        flexDirection: "row",
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 4,
+        padding: 4,
+        margin: 4,
+    },
+    showCurrentFilterCommand: {
+        flexDirection: "row",
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 4,
+        padding: 4,
+        margin: 4,
+        gap: 2,
     },
 });
 
