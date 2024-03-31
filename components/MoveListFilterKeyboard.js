@@ -309,6 +309,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.hitOrGuard === "막히고"
                                         ? styles.numpadButtonSelected
@@ -321,6 +322,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>막히고</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.lossOrGain === "손해가"
                                         ? styles.numpadButtonSelected
@@ -333,6 +335,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>손해가</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("1");
@@ -341,6 +344,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>1</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("2");
@@ -349,6 +353,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>2</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("3");
@@ -357,6 +362,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>3</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("4");
@@ -365,6 +371,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>4</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("5");
@@ -374,6 +381,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
 
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.aboveOrBelow === "이상"
                                         ? styles.numpadButtonSelected
@@ -388,6 +396,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.hitOrGuard === "맞히고"
                                         ? styles.numpadButtonSelected
@@ -400,6 +409,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>맞히고</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.lossOrGain === "이득이"
                                         ? styles.numpadButtonSelected
@@ -412,6 +422,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>이득이</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("6");
@@ -420,6 +431,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>6</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("7");
@@ -428,6 +440,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>7</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("8");
@@ -436,6 +449,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>8</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("9");
@@ -444,6 +458,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>9</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={styles.numpadButton}
                                 onPress={() => {
                                     handleNumpadPress("0");
@@ -452,6 +467,7 @@ const MoveListFilterKeyboard = (props) => {
                                 <Text style={styles.numpadText}>0</Text>
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 style={
                                     tempFilterInput.frame.aboveOrBelow === "이하"
                                         ? styles.numpadButtonSelected
@@ -466,6 +482,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -481,6 +498,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -496,6 +514,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -511,6 +530,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -526,6 +546,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -541,6 +562,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -556,6 +578,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -573,6 +596,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -588,6 +612,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -603,6 +628,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -618,6 +644,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -633,6 +660,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -648,6 +676,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -663,6 +692,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -680,6 +710,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -695,6 +726,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -710,6 +742,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -725,6 +758,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -740,6 +774,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -755,6 +790,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -770,6 +806,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -787,6 +824,7 @@ const MoveListFilterKeyboard = (props) => {
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -805,6 +843,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -823,6 +862,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -841,6 +881,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -859,6 +900,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -874,6 +916,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -889,6 +932,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -904,6 +948,7 @@ const MoveListFilterKeyboard = (props) => {
                                 />
                             </Pressable>
                             <Pressable
+                                android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -963,7 +1008,8 @@ const styles = StyleSheet.create({
     },
     numpadButtonSelected: {
         borderWidth: 1,
-        borderColor: "red",
+        borderColor: "white",
+        backgroundColor: "gray",
         width: windowWidth / 8,
         height: windowWidth / 8,
         justifyContent: "center",
@@ -988,6 +1034,9 @@ const styles = StyleSheet.create({
         padding: 4,
         margin: 4,
         gap: 2,
+    },
+    pressed: {
+        opacity: 0.5,
     },
 });
 
