@@ -176,7 +176,30 @@ const MoveListFilterKeyboard = (props) => {
                 }
                 break;
             }
-
+            case "DEL": {
+                setTempFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            number: prev.frame.number.slice(0, -1),
+                        },
+                    };
+                });
+                break;
+            }
+            case "AC": {
+                setTempFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            number: "",
+                        },
+                    };
+                });
+                break;
+            }
             default: {
                 setTempFilterInput((prev) => {
                     return {
@@ -296,6 +319,24 @@ const MoveListFilterKeyboard = (props) => {
                                             },
                                         };
                                     });
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            feature: {
+                                                HM: false,
+                                                HT: false,
+                                                PC: false,
+                                                TN: false,
+                                            },
+                                            command: [],
+                                            text: "",
+                                            frame: {
+                                                number: "",
+                                                lossOrGain: "UNSELECTED",
+                                                hitOrGuard: "UNSELECTED",
+                                                aboveOrBelow: "UNSELECTED",
+                                            },
+                                        };
+                                    });
                                 }}
                                 color="#006666"
                             />
@@ -379,7 +420,15 @@ const MoveListFilterKeyboard = (props) => {
                             >
                                 <Text style={styles.numpadText}>5</Text>
                             </Pressable>
-
+                            <Pressable
+                                android_ripple={{ color: "#ffffff" }}
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("DEL");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>DEL</Text>
+                            </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
                                 style={
@@ -465,6 +514,15 @@ const MoveListFilterKeyboard = (props) => {
                                 }}
                             >
                                 <Text style={styles.numpadText}>0</Text>
+                            </Pressable>
+                            <Pressable
+                                android_ripple={{ color: "#ffffff" }}
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("AC");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>AC</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -1001,8 +1059,8 @@ const styles = StyleSheet.create({
     numpadButton: {
         borderWidth: 1,
         borderColor: "white",
-        width: windowWidth / 8,
-        height: windowWidth / 8,
+        width: windowWidth / 9,
+        height: windowWidth / 9,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -1010,8 +1068,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "white",
         backgroundColor: "gray",
-        width: windowWidth / 8,
-        height: windowWidth / 8,
+        width: windowWidth / 9,
+        height: windowWidth / 9,
         justifyContent: "center",
         alignItems: "center",
     },
