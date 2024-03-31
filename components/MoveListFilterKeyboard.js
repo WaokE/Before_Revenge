@@ -27,75 +27,153 @@ const MoveListFilterKeyboard = (props) => {
     const handleNumpadPress = (value) => {
         switch (value) {
             case "막히고": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            hitOrGuard: "막히고",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.hitOrGuard === "막히고") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                hitOrGuard: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                hitOrGuard: "막히고",
+                            },
+                        };
+                    });
+                }
                 break;
             }
             case "맞히고": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            hitOrGuard: "맞히고",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.hitOrGuard === "맞히고") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                hitOrGuard: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                hitOrGuard: "맞히고",
+                            },
+                        };
+                    });
+                }
                 break;
             }
             case "이득이": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            lossOrGain: "이득이",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.lossOrGain === "이득이") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                lossOrGain: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                lossOrGain: "이득이",
+                            },
+                        };
+                    });
+                }
                 break;
             }
             case "손해가": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            lossOrGain: "손해가",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.lossOrGain === "손해가") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                lossOrGain: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                lossOrGain: "손해가",
+                            },
+                        };
+                    });
+                }
                 break;
             }
             case "이상": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            aboveOrBelow: "이상",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.aboveOrBelow === "이상") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                aboveOrBelow: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                aboveOrBelow: "이상",
+                            },
+                        };
+                    });
+                }
                 break;
             }
             case "이하": {
-                setTempFilterInput((prev) => {
-                    return {
-                        ...prev,
-                        frame: {
-                            ...prev.frame,
-                            aboveOrBelow: "이하",
-                        },
-                    };
-                });
+                if (tempFilterInput.frame.aboveOrBelow === "이하") {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                aboveOrBelow: "UNSELECTED",
+                            },
+                        };
+                    });
+                    break;
+                } else {
+                    setTempFilterInput((prev) => {
+                        return {
+                            ...prev,
+                            frame: {
+                                ...prev.frame,
+                                aboveOrBelow: "이하",
+                            },
+                        };
+                    });
+                }
                 break;
             }
 
@@ -173,9 +251,15 @@ const MoveListFilterKeyboard = (props) => {
                                 <View key={index}>{convertCommand([item])}</View>
                             ))}
                         </View>
-                        <View style={{ backgroundColor: "#e6e6e6" }}>
+                        <View
+                            style={{
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                backgroundColor: "transparent",
+                            }}
+                        >
                             <Button
-                                title="필터 초기화"
+                                title="모든 필터 초기화"
                                 onPress={() => {
                                     setTempFilterInput((prev) => {
                                         return {
@@ -207,6 +291,30 @@ const MoveListFilterKeyboard = (props) => {
                             />
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
+                            <Pressable
+                                style={
+                                    tempFilterInput.frame.hitOrGuard === "막히고"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("막히고");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>막히고</Text>
+                            </Pressable>
+                            <Pressable
+                                style={
+                                    tempFilterInput.frame.lossOrGain === "손해가"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("손해가");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>손해가</Text>
+                            </Pressable>
                             <Pressable
                                 style={styles.numpadButton}
                                 onPress={() => {
@@ -247,30 +355,7 @@ const MoveListFilterKeyboard = (props) => {
                             >
                                 <Text style={styles.numpadText}>5</Text>
                             </Pressable>
-                            <Pressable
-                                style={
-                                    tempFilterInput.frame.hitOrGuard === "막히고"
-                                        ? styles.numpadButtonSelected
-                                        : styles.numpadButton
-                                }
-                                onPress={() => {
-                                    handleNumpadPress("막히고");
-                                }}
-                            >
-                                <Text style={styles.numpadText}>막히고</Text>
-                            </Pressable>
-                            <Pressable
-                                style={
-                                    tempFilterInput.frame.lossOrGain === "손해가"
-                                        ? styles.numpadButtonSelected
-                                        : styles.numpadButton
-                                }
-                                onPress={() => {
-                                    handleNumpadPress("손해가");
-                                }}
-                            >
-                                <Text style={styles.numpadText}>손해가</Text>
-                            </Pressable>
+
                             <Pressable
                                 style={
                                     tempFilterInput.frame.aboveOrBelow === "이상"
@@ -285,6 +370,30 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
+                            <Pressable
+                                style={
+                                    tempFilterInput.frame.hitOrGuard === "맞히고"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("맞히고");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>맞히고</Text>
+                            </Pressable>
+                            <Pressable
+                                style={
+                                    tempFilterInput.frame.lossOrGain === "이득이"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("이득이");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>이득이</Text>
+                            </Pressable>
                             <Pressable
                                 style={styles.numpadButton}
                                 onPress={() => {
@@ -324,30 +433,6 @@ const MoveListFilterKeyboard = (props) => {
                                 }}
                             >
                                 <Text style={styles.numpadText}>0</Text>
-                            </Pressable>
-                            <Pressable
-                                style={
-                                    tempFilterInput.frame.hitOrGuard === "맞히고"
-                                        ? styles.numpadButtonSelected
-                                        : styles.numpadButton
-                                }
-                                onPress={() => {
-                                    handleNumpadPress("맞히고");
-                                }}
-                            >
-                                <Text style={styles.numpadText}>맞히고</Text>
-                            </Pressable>
-                            <Pressable
-                                style={
-                                    tempFilterInput.frame.lossOrGain === "이득이"
-                                        ? styles.numpadButtonSelected
-                                        : styles.numpadButton
-                                }
-                                onPress={() => {
-                                    handleNumpadPress("이득이");
-                                }}
-                            >
-                                <Text style={styles.numpadText}>이득이</Text>
                             </Pressable>
                             <Pressable
                                 style={
