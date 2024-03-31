@@ -249,7 +249,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.hitOrGuard === "막히고"
+                                    tempFilterInput.frame.hitOrGuard === "막히고"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
@@ -261,7 +261,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.lossOrGain === "손해가"
+                                    tempFilterInput.frame.lossOrGain === "손해가"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
@@ -273,7 +273,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.aboveOrBelow === "이상"
+                                    tempFilterInput.frame.aboveOrBelow === "이상"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
@@ -327,7 +327,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.hitOrGuard === "맞히고"
+                                    tempFilterInput.frame.hitOrGuard === "맞히고"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
@@ -339,7 +339,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.lossOrGain === "이득이"
+                                    tempFilterInput.frame.lossOrGain === "이득이"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
@@ -351,7 +351,7 @@ const MoveListFilterKeyboard = (props) => {
                             </Pressable>
                             <Pressable
                                 style={
-                                    props.filterInput.frame.aboveOrBelow === "이하"
+                                    tempFilterInput.frame.aboveOrBelow === "이하"
                                         ? styles.numpadButtonSelected
                                         : styles.numpadButton
                                 }
