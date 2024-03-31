@@ -33,6 +33,12 @@ const CharacterMoveScreen = ({ route }) => {
         },
         command: [],
         text: "",
+        frame: {
+            number: "",
+            lossOrGain: "UNSELECTED",
+            hitOrGuard: "UNSELECTED",
+            aboveOrBelow: "UNSELECTED",
+        },
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,6 +47,7 @@ const CharacterMoveScreen = ({ route }) => {
             <LinearGradient colors={["#214C5C", "#000000"]} style={{ flex: 1 }}>
                 {/* 필터 키보드  */}
                 <MoveListFilterKeyboard
+                    filterInput={filterInput}
                     onChangeFilterInput={setFilterInput}
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}
@@ -91,6 +98,18 @@ const CharacterMoveScreen = ({ route }) => {
                             style={{ width: 20, height: 20 }}
                         />
                     )}
+                    {filterInput.frame.number !== "" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
+                    )}
+                    {filterInput.frame.lossOrGain !== "UNSELECTED" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.lossOrGain}</Text>
+                    )}
+                    {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.hitOrGuard}</Text>
+                    )}
+                    {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
+                        <Text style={{ color: "white" }}>{filterInput.frame.aboveOrBelow}</Text>
+                    )}
                     {filterInput.command.map((item, index) => (
                         <View key={index}>{convertCommand([item])}</View>
                     ))}
@@ -129,31 +148,36 @@ const filterMoveList = (data, filterInput) => {
     return result;
 };
 
-const MemoizedMoveList = memo(({ data, filterInput }) => (
-    <SectionList
-        sections={filterMoveList(data, filterInput)}
-        renderItem={({ item }) => (
-            <MoveContainer
-                name={item.name ? item.name : "이름 없음"}
-                command={convertCommand(item.command)}
-                hitLevel={item.hitLevel}
-                damage={item.damage}
-                startUpFrame={item.startUpFrame}
-                blockFrame={item.blockFrame}
-                hitFrame={item.hitFrame}
-                counterHitFrame={item.counterHitFrame}
-                feature={convertFeature(item.feature)}
-                notes={item.notes}
-                highlight={filterInput.text}
+const MemoizedMoveList = memo(
+    ({ data, filterInput }) => (
+        console.log("MoveList rendered"),
+        (
+            <SectionList
+                sections={filterMoveList(data, filterInput)}
+                renderItem={({ item }) => (
+                    <MoveContainer
+                        name={item.name ? item.name : "이름 없음"}
+                        command={convertCommand(item.command)}
+                        hitLevel={item.hitLevel}
+                        damage={item.damage}
+                        startUpFrame={item.startUpFrame}
+                        blockFrame={item.blockFrame}
+                        hitFrame={item.hitFrame}
+                        counterHitFrame={item.counterHitFrame}
+                        feature={convertFeature(item.feature)}
+                        notes={item.notes}
+                        highlight={filterInput.text}
+                    />
+                )}
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text style={styles.sectionHeaderText}>{title}</Text>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                extraData={filterInput}
             />
-        )}
-        renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.sectionHeaderText}>{title}</Text>
-        )}
-        keyExtractor={(item, index) => index.toString()}
-        extraData={filterInput}
-    />
-));
+        )
+    )
+);
 
 const styles = StyleSheet.create({
     moveScreen: {

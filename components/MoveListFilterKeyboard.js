@@ -4,6 +4,96 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveListFilterKeyboard = (props) => {
+    const handleNumpadPress = (value) => {
+        switch (value) {
+            case "막히고": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            hitOrGuard: "막히고",
+                        },
+                    };
+                });
+                break;
+            }
+            case "맞히고": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            hitOrGuard: "맞히고",
+                        },
+                    };
+                });
+                break;
+            }
+            case "이득이": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            lossOrGain: "이득이",
+                        },
+                    };
+                });
+                break;
+            }
+            case "손해가": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            lossOrGain: "손해가",
+                        },
+                    };
+                });
+                break;
+            }
+            case "이상": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            aboveOrBelow: "이상",
+                        },
+                    };
+                });
+                break;
+            }
+            case "이하": {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            aboveOrBelow: "이하",
+                        },
+                    };
+                });
+                break;
+            }
+
+            default: {
+                props.onChangeFilterInput((prev) => {
+                    return {
+                        ...prev,
+                        frame: {
+                            ...prev.frame,
+                            number: prev.frame.number + value,
+                        },
+                    };
+                });
+                break;
+            }
+        }
+    };
+
     return (
         <Modal transparent visible={props.isModalOpen} animationType="slide">
             <Pressable
@@ -27,6 +117,12 @@ const MoveListFilterKeyboard = (props) => {
                                             },
                                             command: [],
                                             text: "",
+                                            frame: {
+                                                number: "",
+                                                lossOrGain: "UNSELECTED",
+                                                hitOrGuard: "UNSELECTED",
+                                                aboveOrBelow: "UNSELECTED",
+                                            },
                                         };
                                     });
                                 }}
@@ -34,54 +130,158 @@ const MoveListFilterKeyboard = (props) => {
                             />
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("1");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>1</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("2");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>2</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("3");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>3</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("4");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>4</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("5");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>5</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
-                                <Text style={styles.numpadText}>-</Text>
-                            </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.hitOrGuard === "막히고"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("막히고");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>막히고</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.lossOrGain === "손해가"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("손해가");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>손해가</Text>
+                            </Pressable>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.aboveOrBelow === "이상"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("이상");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>이상</Text>
                             </Pressable>
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "gray" }}>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("6");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>6</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("7");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>7</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("8");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>8</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("9");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>9</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={styles.numpadButton}
+                                onPress={() => {
+                                    handleNumpadPress("0");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>0</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
-                                <Text style={styles.numpadText}>+</Text>
-                            </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.hitOrGuard === "맞히고"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("맞히고");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>맞히고</Text>
                             </Pressable>
-                            <Pressable style={styles.numpadButton}>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.lossOrGain === "이득이"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("이득이");
+                                }}
+                            >
+                                <Text style={styles.numpadText}>이득이</Text>
+                            </Pressable>
+                            <Pressable
+                                style={
+                                    props.filterInput.frame.aboveOrBelow === "이하"
+                                        ? styles.numpadButtonSelected
+                                        : styles.numpadButton
+                                }
+                                onPress={() => {
+                                    handleNumpadPress("이하");
+                                }}
+                            >
                                 <Text style={styles.numpadText}>이하</Text>
                             </Pressable>
                         </View>
@@ -577,6 +777,14 @@ const styles = StyleSheet.create({
     numpadButton: {
         borderWidth: 1,
         borderColor: "white",
+        width: windowWidth / 8,
+        height: windowWidth / 8,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    numpadButtonSelected: {
+        borderWidth: 1,
+        borderColor: "red",
         width: windowWidth / 8,
         height: windowWidth / 8,
         justifyContent: "center",
