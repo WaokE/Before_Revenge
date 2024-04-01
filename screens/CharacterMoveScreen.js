@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Image,
     Button,
+    Pressable,
     SectionList,
     Text,
     TextInput,
@@ -11,6 +12,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState, memo } from "react";
+import { Icon } from "@rneui/themed";
 
 // 컴포넌트
 import MoveContainer from "../components/MoveContainer";
@@ -40,6 +42,24 @@ const CharacterMoveScreen = ({ route }) => {
             aboveOrBelow: "UNSELECTED",
         },
     });
+
+    const [tempFilterInput, setTempFilterInput] = useState({
+        feature: {
+            HM: false,
+            HT: false,
+            PC: false,
+            TN: false,
+        },
+        command: [],
+        text: "",
+        frame: {
+            number: "",
+            lossOrGain: "UNSELECTED",
+            hitOrGuard: "UNSELECTED",
+            aboveOrBelow: "UNSELECTED",
+        },
+    });
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -51,6 +71,8 @@ const CharacterMoveScreen = ({ route }) => {
                     onChangeFilterInput={setFilterInput}
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}
+                    tempFilterInput={tempFilterInput}
+                    setTempFilterInput={setTempFilterInput}
                 />
                 <View
                     style={{
@@ -77,64 +99,112 @@ const CharacterMoveScreen = ({ route }) => {
                     {Object.keys(filterInput.feature).some(
                         (key) => filterInput.feature[key] === true
                     ) && (
-                        <View style={styles.showCurrentFilterItem}>
-                            {filterInput.feature.HM && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/HMicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
-                            )}
-                            {filterInput.feature.HT && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/HTicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
-                            )}
-                            {filterInput.feature.PC && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/PCicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
-                            )}
-                            {filterInput.feature.TN && (
-                                <Image
-                                    source={require("../assets/FeatureIcon/TNicon.png")}
-                                    style={{ width: 20, height: 20 }}
-                                />
-                            )}
-                        </View>
+                        <Pressable
+                            onPress={() => {
+                                setFilterInput((prev) => ({
+                                    ...prev,
+                                    feature: { HM: false, HT: false, PC: false, TN: false },
+                                }));
+                                setTempFilterInput((prev) => ({
+                                    ...prev,
+                                    feature: { HM: false, HT: false, PC: false, TN: false },
+                                }));
+                            }}
+                        >
+                            <View style={styles.showCurrentFilterItem}>
+                                {filterInput.feature.HM && (
+                                    <Image
+                                        source={require("../assets/FeatureIcon/HMicon.png")}
+                                        style={{ width: 20, height: 20 }}
+                                    />
+                                )}
+                                {filterInput.feature.HT && (
+                                    <Image
+                                        source={require("../assets/FeatureIcon/HTicon.png")}
+                                        style={{ width: 20, height: 20 }}
+                                    />
+                                )}
+                                {filterInput.feature.PC && (
+                                    <Image
+                                        source={require("../assets/FeatureIcon/PCicon.png")}
+                                        style={{ width: 20, height: 20 }}
+                                    />
+                                )}
+                                {filterInput.feature.TN && (
+                                    <Image
+                                        source={require("../assets/FeatureIcon/TNicon.png")}
+                                        style={{ width: 20, height: 20 }}
+                                    />
+                                )}
+                                <Icon name="close" size={20} color={"white"} />
+                            </View>
+                        </Pressable>
                     )}
                     {(filterInput.frame.hitOrGuard !== "UNSELECTED" ||
                         filterInput.frame.lossOrGain !== "UNSELECTED" ||
                         filterInput.frame.number !== "" ||
                         filterInput.frame.aboveOrBelow !== "UNSELECTED") && (
-                        <View style={styles.showCurrentFilterCommand}>
-                            {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {filterInput.frame.hitOrGuard}
-                                </Text>
-                            )}
-                            {filterInput.frame.lossOrGain !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {filterInput.frame.lossOrGain}
-                                </Text>
-                            )}
-                            {filterInput.frame.number !== "" && (
-                                <Text style={{ color: "white" }}>{filterInput.frame.number}</Text>
-                            )}
-                            {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
-                                <Text style={{ color: "white" }}>
-                                    {filterInput.frame.aboveOrBelow}
-                                </Text>
-                            )}
-                        </View>
+                        <Pressable
+                            onPress={() => {
+                                setFilterInput((prev) => ({
+                                    ...prev,
+                                    frame: {
+                                        number: "",
+                                        lossOrGain: "UNSELECTED",
+                                        hitOrGuard: "UNSELECTED",
+                                        aboveOrBelow: "UNSELECTED",
+                                    },
+                                }));
+                                setTempFilterInput((prev) => ({
+                                    ...prev,
+                                    frame: {
+                                        number: "",
+                                        lossOrGain: "UNSELECTED",
+                                        hitOrGuard: "UNSELECTED",
+                                        aboveOrBelow: "UNSELECTED",
+                                    },
+                                }));
+                            }}
+                        >
+                            <View style={styles.showCurrentFilterCommand}>
+                                {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
+                                    <Text style={{ color: "white" }}>
+                                        {filterInput.frame.hitOrGuard}
+                                    </Text>
+                                )}
+                                {filterInput.frame.lossOrGain !== "UNSELECTED" && (
+                                    <Text style={{ color: "white" }}>
+                                        {filterInput.frame.lossOrGain}
+                                    </Text>
+                                )}
+                                {filterInput.frame.number !== "" && (
+                                    <Text style={{ color: "white" }}>
+                                        {filterInput.frame.number}
+                                    </Text>
+                                )}
+                                {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
+                                    <Text style={{ color: "white" }}>
+                                        {filterInput.frame.aboveOrBelow}
+                                    </Text>
+                                )}
+                                <Icon name="close" size={20} color={"white"} />
+                            </View>
+                        </Pressable>
                     )}
                     {filterInput.command.length > 0 && (
-                        <View style={styles.showCurrentFilterItem}>
-                            {filterInput.command.map((item, index) => (
-                                <View key={index}>{convertCommand([item])}</View>
-                            ))}
-                        </View>
+                        <Pressable
+                            onPress={() => {
+                                setFilterInput((prev) => ({ ...prev, command: [] }));
+                                setTempFilterInput((prev) => ({ ...prev, command: [] }));
+                            }}
+                        >
+                            <View style={styles.showCurrentFilterItem}>
+                                {filterInput.command.map((item, index) => (
+                                    <View key={index}>{convertCommand([item])}</View>
+                                ))}
+                                <Icon name="close" size={20} color={"white"} />
+                            </View>
+                        </Pressable>
                     )}
                 </View>
                 <MemoizedMoveList data={moveData} filterInput={filterInput} />
