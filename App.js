@@ -30,7 +30,7 @@ export default function App() {
 
     return (
         <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-            <StatusBar />
+            <StatusBar backgroundColor="black" barStyle="light-content" />
             <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen
