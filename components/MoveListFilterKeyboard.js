@@ -1,4 +1,5 @@
 import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } from "react-native";
+import { useState } from "react";
 import { Icon } from "@rneui/themed";
 
 import convertCommand from "../lib/convertCommand.js";
@@ -7,6 +8,7 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveListFilterKeyboard = (props) => {
+    const [isGuideOpen, setIsGuideOpen] = useState(false);
     const { tempFilterInput, setTempFilterInput } = props;
     const handleNumpadPress = (value) => {
         switch (value) {
@@ -331,63 +333,71 @@ const MoveListFilterKeyboard = (props) => {
                             style={{
                                 flexDirection: "row",
                                 justifyContent: "space-between",
-                                backgroundColor: "transparent",
+                                alignItems: "center",
                             }}
                         >
-                            <Button
-                                title="모든 필터 초기화"
-                                onPress={() => {
-                                    setTempFilterInput((prev) => {
-                                        return {
-                                            feature: {
-                                                HM: false,
-                                                HT: false,
-                                                PC: false,
-                                                TN: false,
-                                            },
-                                            command: [],
-                                            text: "",
-                                            frame: {
-                                                number: "",
-                                                lossOrGain: "UNSELECTED",
-                                                hitOrGuard: "UNSELECTED",
-                                                aboveOrBelow: "UNSELECTED",
-                                            },
-                                        };
-                                    });
-                                    props.onChangeFilterInput((prev) => {
-                                        return {
-                                            feature: {
-                                                HM: false,
-                                                HT: false,
-                                                PC: false,
-                                                TN: false,
-                                            },
-                                            command: [],
-                                            text: "",
-                                            frame: {
-                                                number: "",
-                                                lossOrGain: "UNSELECTED",
-                                                hitOrGuard: "UNSELECTED",
-                                                aboveOrBelow: "UNSELECTED",
-                                            },
-                                        };
-                                    });
-                                }}
-                                color="#006666"
-                            />
-                            <Button
-                                title="설정 완료"
-                                onPress={() => {
-                                    props.setIsModalOpen(false);
-                                    props.onChangeFilterInput((prev) => {
-                                        return {
-                                            ...tempFilterInput,
-                                            text: props.filterInput.text,
-                                        };
-                                    });
-                                }}
-                            />
+                            <View style={{ flex: 4 }}>
+                                <Button
+                                    title="모든 필터 초기화"
+                                    onPress={() => {
+                                        setTempFilterInput((prev) => {
+                                            return {
+                                                feature: {
+                                                    HM: false,
+                                                    HT: false,
+                                                    PC: false,
+                                                    TN: false,
+                                                },
+                                                command: [],
+                                                text: "",
+                                                frame: {
+                                                    number: "",
+                                                    lossOrGain: "UNSELECTED",
+                                                    hitOrGuard: "UNSELECTED",
+                                                    aboveOrBelow: "UNSELECTED",
+                                                },
+                                            };
+                                        });
+                                        props.onChangeFilterInput((prev) => {
+                                            return {
+                                                feature: {
+                                                    HM: false,
+                                                    HT: false,
+                                                    PC: false,
+                                                    TN: false,
+                                                },
+                                                command: [],
+                                                text: "",
+                                                frame: {
+                                                    number: "",
+                                                    lossOrGain: "UNSELECTED",
+                                                    hitOrGuard: "UNSELECTED",
+                                                    aboveOrBelow: "UNSELECTED",
+                                                },
+                                            };
+                                        });
+                                    }}
+                                    color="#006666"
+                                />
+                            </View>
+                            <View style={{ flex: 4 }}>
+                                <Button
+                                    title="설정 완료"
+                                    onPress={() => {
+                                        props.setIsModalOpen(false);
+                                        props.onChangeFilterInput((prev) => {
+                                            return {
+                                                ...tempFilterInput,
+                                                text: props.filterInput.text,
+                                            };
+                                        });
+                                    }}
+                                    color="#006666"
+                                />
+                            </View>
+                            <Pressable style={{ flex: 1 }}>
+                                <Icon name="help" color={"white"} size={25} />
+                            </Pressable>
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
                             <Pressable
