@@ -1,5 +1,5 @@
 import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } from "react-native";
-import { useState } from "react";
+import * as Linking from "expo-linking";
 import { Icon } from "@rneui/themed";
 
 import convertCommand from "../lib/convertCommand.js";
@@ -8,7 +8,6 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveListFilterKeyboard = (props) => {
-    const [isGuideOpen, setIsGuideOpen] = useState(false);
     const { tempFilterInput, setTempFilterInput } = props;
     const handleNumpadPress = (value) => {
         switch (value) {
@@ -395,7 +394,14 @@ const MoveListFilterKeyboard = (props) => {
                                     color="#006666"
                                 />
                             </View>
-                            <Pressable style={{ flex: 1 }}>
+                            <Pressable
+                                style={{ flex: 1 }}
+                                onPress={() => {
+                                    Linking.openURL(
+                                        "https://continuous-hearing-7ca.notion.site/a38540d97a73454986f1b4c56c5ec163"
+                                    );
+                                }}
+                            >
                                 <Icon name="help" color={"white"} size={25} />
                             </Pressable>
                         </View>
