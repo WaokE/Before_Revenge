@@ -216,12 +216,18 @@ const MoveListFilterKeyboard = (props) => {
     };
 
     return (
-        <Modal transparent visible={props.isModalOpen} animationType="slide">
+        <Modal transparent visible={props.isModalOpen}>
             <Pressable
                 onPress={() => {
                     props.setIsModalOpen(false);
-                    props.onChangeFilterInput(tempFilterInput);
+                    props.onChangeFilterInput((prev) => {
+                        return {
+                            ...tempFilterInput,
+                            text: props.filterInput.text,
+                        };
+                    });
                 }}
+                style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             >
                 <View style={styles.container}>
                     <View style={styles.content}>
@@ -344,7 +350,12 @@ const MoveListFilterKeyboard = (props) => {
                                 title="설정 완료"
                                 onPress={() => {
                                     props.setIsModalOpen(false);
-                                    props.onChangeFilterInput(tempFilterInput);
+                                    props.onChangeFilterInput((prev) => {
+                                        return {
+                                            ...tempFilterInput,
+                                            text: props.filterInput.text,
+                                        };
+                                    });
                                 }}
                             />
                         </View>
@@ -1074,6 +1085,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     numpadText: {
+        fontSize: 11,
+        fontWeight: "bold",
         color: "white",
     },
     showCurrentFilterItem: {
