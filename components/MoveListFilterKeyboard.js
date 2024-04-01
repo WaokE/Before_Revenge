@@ -439,7 +439,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("1");
                                 }}
                             >
-                                <Text style={styles.numpadText}>1</Text>
+                                <Text style={styles.bigNumpadText}>1</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -448,7 +448,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("2");
                                 }}
                             >
-                                <Text style={styles.numpadText}>2</Text>
+                                <Text style={styles.bigNumpadText}>2</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -457,7 +457,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("3");
                                 }}
                             >
-                                <Text style={styles.numpadText}>3</Text>
+                                <Text style={styles.bigNumpadText}>3</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -466,7 +466,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("4");
                                 }}
                             >
-                                <Text style={styles.numpadText}>4</Text>
+                                <Text style={styles.bigNumpadText}>4</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -475,7 +475,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("5");
                                 }}
                             >
-                                <Text style={styles.numpadText}>5</Text>
+                                <Text style={styles.bigNumpadText}>5</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -534,7 +534,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("6");
                                 }}
                             >
-                                <Text style={styles.numpadText}>6</Text>
+                                <Text style={styles.bigNumpadText}>6</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -543,7 +543,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("7");
                                 }}
                             >
-                                <Text style={styles.numpadText}>7</Text>
+                                <Text style={styles.bigNumpadText}>7</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -552,7 +552,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("8");
                                 }}
                             >
-                                <Text style={styles.numpadText}>8</Text>
+                                <Text style={styles.bigNumpadText}>8</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -561,7 +561,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("9");
                                 }}
                             >
-                                <Text style={styles.numpadText}>9</Text>
+                                <Text style={styles.bigNumpadText}>9</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -570,7 +570,7 @@ const MoveListFilterKeyboard = (props) => {
                                     handleNumpadPress("0");
                                 }}
                             >
-                                <Text style={styles.numpadText}>0</Text>
+                                <Text style={styles.bigNumpadText}>0</Text>
                             </Pressable>
                             <Pressable
                                 android_ripple={{ color: "#ffffff" }}
@@ -1132,6 +1132,11 @@ const styles = StyleSheet.create({
     },
     numpadText: {
         fontSize: 11,
+        fontWeight: "bold",
+        color: "white",
+    },
+    bigNumpadText: {
+        fontSize: 15,
         fontWeight: "bold",
         color: "white",
     },
