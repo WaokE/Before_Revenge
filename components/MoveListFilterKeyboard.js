@@ -264,6 +264,25 @@ const MoveListFilterKeyboard = (props) => {
                                     </View>
                                 </Pressable>
                             )}
+                            {tempFilterInput.hitLevel.length > 0 && (
+                                <Pressable
+                                    onPress={() => {
+                                        setTempFilterInput((prev) => {
+                                            return {
+                                                ...prev,
+                                                hitLevel: [],
+                                            };
+                                        });
+                                    }}
+                                >
+                                    <View style={styles.showCurrentFilterItem}>
+                                        <Text style={{ color: "white" }}>
+                                            {tempFilterInput.hitLevel.join(" ")}
+                                        </Text>
+                                        <Icon name="close" size={20} color={"white"} />
+                                    </View>
+                                </Pressable>
+                            )}
                             {(tempFilterInput.frame.hitOrGuard !== "UNSELECTED" ||
                                 tempFilterInput.frame.lossOrGain !== "UNSELECTED" ||
                                 tempFilterInput.frame.number !== "" ||
@@ -403,6 +422,62 @@ const MoveListFilterKeyboard = (props) => {
                                 }}
                             >
                                 <Icon name="help" color={"white"} size={25} />
+                            </Pressable>
+                        </View>
+                        <View
+                            style={{
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Pressable
+                                style={styles.hitlevelButton}
+                                android_ripple={{ color: "#ffffff" }}
+                                onPress={() => {
+                                    setTempFilterInput((prev) => {
+                                        const hitLevel = prev.hitLevel;
+                                        hitLevel.push("상");
+                                        return {
+                                            ...prev,
+                                            hitLevel: hitLevel,
+                                        };
+                                    });
+                                }}
+                            >
+                                <Text style={styles.numpadText}>상단</Text>
+                            </Pressable>
+                            <Pressable
+                                style={styles.hitlevelButton}
+                                android_ripple={{ color: "#ffffff" }}
+                                onPress={() => {
+                                    setTempFilterInput((prev) => {
+                                        const hitLevel = prev.hitLevel;
+                                        hitLevel.push("중");
+                                        return {
+                                            ...prev,
+                                            hitLevel: hitLevel,
+                                        };
+                                    });
+                                }}
+                            >
+                                <Text style={styles.numpadText}>중단</Text>
+                            </Pressable>
+                            <Pressable
+                                style={styles.hitlevelButton}
+                                android_ripple={{ color: "#ffffff" }}
+                                onPress={() => {
+                                    setTempFilterInput((prev) => {
+                                        const hitLevel = prev.hitLevel;
+                                        hitLevel.push("하");
+                                        return {
+                                            ...prev,
+                                            hitLevel: hitLevel,
+                                        };
+                                    });
+                                }}
+                            >
+                                <Text style={styles.numpadText}>하단</Text>
                             </Pressable>
                         </View>
                         <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
@@ -1159,6 +1234,14 @@ const styles = StyleSheet.create({
     },
     pressed: {
         opacity: 0.5,
+    },
+    hitlevelButton: {
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: "white",
+        flex: 1,
+        height: windowWidth * 0.1,
     },
 });
 

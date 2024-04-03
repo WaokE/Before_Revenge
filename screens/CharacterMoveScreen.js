@@ -41,6 +41,7 @@ const CharacterMoveScreen = ({ route }) => {
             hitOrGuard: "UNSELECTED",
             aboveOrBelow: "UNSELECTED",
         },
+        hitLevel: [],
     });
 
     const [tempFilterInput, setTempFilterInput] = useState({
@@ -58,6 +59,7 @@ const CharacterMoveScreen = ({ route }) => {
             hitOrGuard: "UNSELECTED",
             aboveOrBelow: "UNSELECTED",
         },
+        hitLevel: [],
     });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -136,6 +138,31 @@ const CharacterMoveScreen = ({ route }) => {
                                         style={{ width: 20, height: 20 }}
                                     />
                                 )}
+                                <Icon name="close" size={20} color={"white"} />
+                            </View>
+                        </Pressable>
+                    )}
+                    {filterInput.hitLevel.length > 0 && (
+                        <Pressable
+                            onPress={() => {
+                                setTempFilterInput((prev) => {
+                                    return {
+                                        ...prev,
+                                        hitLevel: [],
+                                    };
+                                });
+                                setFilterInput((prev) => {
+                                    return {
+                                        ...prev,
+                                        hitLevel: [],
+                                    };
+                                });
+                            }}
+                        >
+                            <View style={styles.showCurrentFilterItem}>
+                                <Text style={{ color: "white" }}>
+                                    {filterInput.hitLevel.join(" ")}
+                                </Text>
                                 <Icon name="close" size={20} color={"white"} />
                             </View>
                         </Pressable>
@@ -221,6 +248,7 @@ const filterMoveList = (data, filterInput) => {
             const textMatches =
                 move.name.includes(filterInput.text) || move.notes.includes(filterInput.text);
             let frameMatches = true;
+            const hitLevelMatches = move.hitLevel.includes(filterInput.hitLevel.join(" "));
 
             // 유효한 프레임 필터가 있는 경우
             if (
@@ -337,7 +365,7 @@ const filterMoveList = (data, filterInput) => {
             }
 
             if (!Object.values(filterInput.feature).some(Boolean)) {
-                return commandMatches && textMatches && frameMatches;
+                return commandMatches && textMatches && frameMatches && hitLevelMatches;
             } else {
                 return (
                     commandMatches &&
@@ -345,7 +373,8 @@ const filterMoveList = (data, filterInput) => {
                         value ? move.feature.includes(key) : true
                     ) &&
                     textMatches &&
-                    frameMatches
+                    frameMatches &&
+                    hitLevelMatches
                 );
             }
         });
