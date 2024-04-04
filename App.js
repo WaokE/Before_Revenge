@@ -230,6 +230,12 @@ export default function App() {
                         options={{ headerShown: false }}
                         initialParams={{ characterName: "zafina" }}
                     />
+                    <Stack.Screen
+                        name="EddyGordoMoveScreen"
+                        component={CharacterMoveScreen}
+                        options={{ headerShown: false }}
+                        initialParams={{ characterName: "eddy-gordo" }}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </View>

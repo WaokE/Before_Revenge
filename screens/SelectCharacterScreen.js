@@ -1,11 +1,15 @@
+// 프레임워크 API
 import { View, Text, Image, StyleSheet, ScrollView, SafeAreaView, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
+// 컴포넌트
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
+import CharacterIcon from "../components/CharacterIcon";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
+// 캐릭터 이미지 경로를 담은 객체, require 메서드에는 동적으로 경로를 전달할 수 없으므로 사전에 정의하여 사용
 const CharacterImagePaths = {
     니나: require("../assets/CharacterImage/Nina-Williams.png"),
     "데빌 진": require("../assets/CharacterImage/Devil-Jin.png"),
@@ -39,9 +43,8 @@ const CharacterImagePaths = {
     "펭 웨이": require("../assets/CharacterImage/Feng-Wei.png"),
     폴: require("../assets/CharacterImage/Paul-Phoenix.png"),
     화랑: require("../assets/CharacterImage/Hwoarang.png"),
+    에디: require("../assets/CharacterImage/Eddy-Gordo.png"),
 };
-
-import CharacterIcon from "../components/CharacterIcon";
 
 const SelectCharacterScreen = ({ navigation }) => {
     const handleIconPress = (characterName) => {
