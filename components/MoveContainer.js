@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-import TextWithHighlight from "./UI/TextWithHightlight";
+import TextWithHighlight from "./TextWithHightlight";
 
 const sampleMove = {
     name: "Sample Move",
