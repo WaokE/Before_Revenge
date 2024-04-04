@@ -63,13 +63,7 @@ const SelectCharacterScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
-                <View style={styles.bannerContainer}>
-                    <Image
-                        source={require("../assets/tekken_logo.png")}
-                        style={styles.bannerImage}
-                    />
-                    <Text style={styles.bannerText}>movelist</Text>
-                </View>
+                <Image source={require("../assets/banner.png")} style={styles.bannerImage} />
                 <ScrollView contentContainerStyle={styles.characterContainer}>
                     {characterIcons}
                 </ScrollView>
@@ -91,17 +85,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     bannerImage: {
-        width: windowWidth * 0.3,
+        width: windowWidth * 0.8,
         height: windowHeight * 0.1,
         resizeMode: "contain",
     },
-    bannerText: {
-        fontFamily: "tekkenfont",
-        fontSize: windowWidth * 0.07,
-        textAlign: "center",
-        color: "white",
-        paddingLeft: windowWidth * 0.02,
-    },
+    // bannerText: {
+    //     fontFamily: "tekkenfont",
+    //     fontSize: windowWidth * 0.07,
+    //     textAlign: "center",
+    //     color: "white",
+    //     paddingLeft: windowWidth * 0.02,
+    // },
     characterContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
