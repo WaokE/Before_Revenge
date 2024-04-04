@@ -63,34 +63,16 @@ const SelectCharacterScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
-                <View
-                    style={{
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <View style={styles.bannerContainer}>
                     <Image
                         source={require("../assets/tekken_logo.png")}
-                        style={{
-                            width: windowWidth * 0.3,
-                            height: windowHeight * 0.1,
-                            resizeMode: "contain",
-                        }}
+                        style={styles.bannerImage}
                     />
-                    <Text
-                        style={{
-                            fontFamily: "tekkenfont",
-                            fontSize: windowWidth * 0.07,
-                            textAlign: "center",
-                            color: "white",
-                            paddingLeft: windowWidth * 0.02,
-                        }}
-                    >
-                        movelist
-                    </Text>
+                    <Text style={styles.bannerText}>movelist</Text>
                 </View>
-                <ScrollView contentContainerStyle={styles.container}>{characterIcons}</ScrollView>
+                <ScrollView contentContainerStyle={styles.characterContainer}>
+                    {characterIcons}
+                </ScrollView>
             </LinearGradient>
         </SafeAreaView>
     );
@@ -103,7 +85,24 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    container: {
+    bannerContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    bannerImage: {
+        width: windowWidth * 0.3,
+        height: windowHeight * 0.1,
+        resizeMode: "contain",
+    },
+    bannerText: {
+        fontFamily: "tekkenfont",
+        fontSize: windowWidth * 0.07,
+        textAlign: "center",
+        color: "white",
+        paddingLeft: windowWidth * 0.02,
+    },
+    characterContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
