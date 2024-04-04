@@ -24,44 +24,30 @@ import convertFeature from "../lib/convertFeature";
 import importCharacterMoveData from "../lib/importCharacterMoveData";
 import filterMoveList from "../lib/filterMoveList";
 
+const initialFilterInput = {
+    feature: {
+        HM: false,
+        HT: false,
+        PC: false,
+        TN: false,
+    },
+    command: [],
+    text: "",
+    frame: {
+        number: "",
+        lossOrGain: "UNSELECTED",
+        hitOrGuard: "UNSELECTED",
+        aboveOrBelow: "UNSELECTED",
+    },
+    hitLevel: [],
+};
+
 const CharacterMoveScreen = ({ route }) => {
     const { characterName } = route.params;
     const moveData = importCharacterMoveData[characterName];
-    const [filterInput, setFilterInput] = useState({
-        feature: {
-            HM: false,
-            HT: false,
-            PC: false,
-            TN: false,
-        },
-        command: [],
-        text: "",
-        frame: {
-            number: "",
-            lossOrGain: "UNSELECTED",
-            hitOrGuard: "UNSELECTED",
-            aboveOrBelow: "UNSELECTED",
-        },
-        hitLevel: [],
-    });
+    const [filterInput, setFilterInput] = useState(initialFilterInput);
 
-    const [tempFilterInput, setTempFilterInput] = useState({
-        feature: {
-            HM: false,
-            HT: false,
-            PC: false,
-            TN: false,
-        },
-        command: [],
-        text: "",
-        frame: {
-            number: "",
-            lossOrGain: "UNSELECTED",
-            hitOrGuard: "UNSELECTED",
-            aboveOrBelow: "UNSELECTED",
-        },
-        hitLevel: [],
-    });
+    const [tempFilterInput, setTempFilterInput] = useState(initialFilterInput);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
