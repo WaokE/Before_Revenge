@@ -17,6 +17,7 @@ import { Icon } from "@rneui/themed";
 // 컴포넌트
 import MoveContainer from "../components/MoveContainer";
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
+import NoFilterResult from "../components/NoFilterResult";
 
 // 라이브러리
 import convertCommand from "../lib/convertCommand";
@@ -54,7 +55,6 @@ const CharacterMoveScreen = ({ route }) => {
     return (
         <SafeAreaView style={styles.moveScreen}>
             <LinearGradient colors={["#214C5C", "#000000"]} style={{ flex: 1 }}>
-                {/* 필터 키보드  */}
                 <MoveListFilterKeyboard
                     filterInput={filterInput}
                     onChangeFilterInput={setFilterInput}
@@ -227,36 +227,39 @@ const CharacterMoveScreen = ({ route }) => {
     );
 };
 
-const MemoizedMoveList = memo(
-    ({ data, filterInput }) => (
-        console.log("MoveList rendered"),
-        (
-            <SectionList
-                sections={filterMoveList(data, filterInput)}
-                renderItem={({ item }) => (
-                    <MoveContainer
-                        name={item.name ? item.name : "이름 없음"}
-                        command={convertCommand(item.command)}
-                        hitLevel={item.hitLevel}
-                        damage={item.damage}
-                        startUpFrame={item.startUpFrame}
-                        blockFrame={item.blockFrame}
-                        hitFrame={item.hitFrame}
-                        counterHitFrame={item.counterHitFrame}
-                        feature={convertFeature(item.feature)}
-                        notes={item.notes}
-                        highlight={filterInput.text}
-                    />
-                )}
-                renderSectionHeader={({ section: { title } }) => (
-                    <Text style={styles.sectionHeaderText}>{title}</Text>
-                )}
-                keyExtractor={(item, index) => index.toString()}
-                extraData={filterInput}
-            />
-        )
-    )
-);
+const MemoizedMoveList = memo(({ data, filterInput }) => {
+    console.log("MoveList rendered");
+
+    const filteredMoveList = filterMoveList(data, filterInput);
+
+    return filteredMoveList.length === 0 ? (
+        <NoFilterResult />
+    ) : (
+        <SectionList
+            sections={filteredMoveList}
+            renderItem={({ item }) => (
+                <MoveContainer
+                    name={item.name ? item.name : "이름 없음"}
+                    command={convertCommand(item.command)}
+                    hitLevel={item.hitLevel}
+                    damage={item.damage}
+                    startUpFrame={item.startUpFrame}
+                    blockFrame={item.blockFrame}
+                    hitFrame={item.hitFrame}
+                    counterHitFrame={item.counterHitFrame}
+                    feature={convertFeature(item.feature)}
+                    notes={item.notes}
+                    highlight={filterInput.text}
+                />
+            )}
+            renderSectionHeader={({ section: { title } }) => (
+                <Text style={styles.sectionHeaderText}>{title}</Text>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+            extraData={filterInput}
+        />
+    );
+});
 
 const styles = StyleSheet.create({
     moveScreen: {
