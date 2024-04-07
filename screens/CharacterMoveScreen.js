@@ -11,7 +11,7 @@ import {
     SafeAreaView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import { Icon } from "@rneui/themed";
 
 // 컴포넌트
@@ -47,10 +47,14 @@ const CharacterMoveScreen = ({ route }) => {
     const { characterName } = route.params;
     const moveData = importCharacterMoveData[characterName];
     const [filterInput, setFilterInput] = useState(initialFilterInput);
-
     const [tempFilterInput, setTempFilterInput] = useState(initialFilterInput);
-
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        console.log("CharacterMoveScreen rendered, clear filter input");
+        setFilterInput(initialFilterInput);
+        setTempFilterInput(initialFilterInput);
+    }, []);
 
     return (
         <SafeAreaView style={styles.moveScreen}>
