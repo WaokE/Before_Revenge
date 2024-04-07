@@ -1143,7 +1143,7 @@ const MoveListFilterKeyboard = (props) => {
                                     setTempFilterInput((prev) => {
                                         return {
                                             ...prev,
-                                            command: [...prev.command, "WS"],
+                                            command: [...prev.command, "일어나며"],
                                         };
                                     });
                                 }}
