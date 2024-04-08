@@ -423,6 +423,14 @@ const MoveListFilterKeyboard = (props) => {
                             >
                                 <Icon name="help" color={"white"} size={25} />
                             </Pressable>
+                            <Pressable
+                                style={{ flex: 1 }}
+                                onPress={() => {
+                                    props.setIsModalOpen(false);
+                                }}
+                            >
+                                <Icon name="close" color={"white"} size={25} />
+                            </Pressable>
                         </View>
                         <View
                             style={{
