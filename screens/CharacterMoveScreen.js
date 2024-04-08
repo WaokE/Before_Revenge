@@ -277,10 +277,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "center",
         backgroundColor: "#1b3e4b",
-        borderRightWidth: 1,
-        borderLeftWidth: 1,
-        borderColor: "#999999",
+        borderBottomWidth: 1,
+        borderBottomColor: "white",
         marginHorizontal: 4,
+        padding: 8,
     },
     showCurrentFilterItem: {
         flexDirection: "row",
