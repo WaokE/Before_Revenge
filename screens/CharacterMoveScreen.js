@@ -261,6 +261,7 @@ const MemoizedMoveList = memo(({ data, filterInput }) => {
             )}
             keyExtractor={(item, index) => index.toString()}
             extraData={filterInput}
+            stickySectionHeadersEnabled={true}
         />
     );
 });
