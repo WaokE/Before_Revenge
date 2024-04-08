@@ -89,13 +89,6 @@ const styles = StyleSheet.create({
         height: windowHeight * 0.1,
         resizeMode: "contain",
     },
-    // bannerText: {
-    //     fontFamily: "tekkenfont",
-    //     fontSize: windowWidth * 0.07,
-    //     textAlign: "center",
-    //     color: "white",
-    //     paddingLeft: windowWidth * 0.02,
-    // },
     characterContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
