@@ -3,6 +3,7 @@ import * as Linking from "expo-linking";
 import { Icon } from "@rneui/themed";
 
 import convertCommand from "../lib/convertCommand.js";
+import initialFilterInput from "../lib/initialFilterInput";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -358,42 +359,8 @@ const MoveListFilterKeyboard = (props) => {
                                 <Button
                                     title="모든 필터 초기화"
                                     onPress={() => {
-                                        setTempFilterInput((prev) => {
-                                            return {
-                                                feature: {
-                                                    HM: false,
-                                                    HT: false,
-                                                    PC: false,
-                                                    TN: false,
-                                                },
-                                                command: [],
-                                                text: "",
-                                                frame: {
-                                                    number: "",
-                                                    lossOrGain: "UNSELECTED",
-                                                    hitOrGuard: "UNSELECTED",
-                                                    aboveOrBelow: "UNSELECTED",
-                                                },
-                                            };
-                                        });
-                                        props.onChangeFilterInput((prev) => {
-                                            return {
-                                                feature: {
-                                                    HM: false,
-                                                    HT: false,
-                                                    PC: false,
-                                                    TN: false,
-                                                },
-                                                command: [],
-                                                text: "",
-                                                frame: {
-                                                    number: "",
-                                                    lossOrGain: "UNSELECTED",
-                                                    hitOrGuard: "UNSELECTED",
-                                                    aboveOrBelow: "UNSELECTED",
-                                                },
-                                            };
-                                        });
+                                        setTempFilterInput(initialFilterInput);
+                                        props.onChangeFilterInput(initialFilterInput);
                                     }}
                                     color="#006666"
                                 />

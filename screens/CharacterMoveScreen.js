@@ -24,24 +24,7 @@ import convertCommand from "../lib/convertCommand";
 import convertFeature from "../lib/convertFeature";
 import importCharacterMoveData from "../lib/importCharacterMoveData";
 import filterMoveList from "../lib/filterMoveList";
-
-const initialFilterInput = {
-    feature: {
-        HM: false,
-        HT: false,
-        PC: false,
-        TN: false,
-    },
-    command: [],
-    text: "",
-    frame: {
-        number: "",
-        lossOrGain: "UNSELECTED",
-        hitOrGuard: "UNSELECTED",
-        aboveOrBelow: "UNSELECTED",
-    },
-    hitLevel: [],
-};
+import initialFilterInput from "../lib/initialFilterInput";
 
 const CharacterMoveScreen = ({ route }) => {
     const { characterName } = route.params;
