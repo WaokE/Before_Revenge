@@ -41,7 +41,7 @@ const CharacterMoveScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={styles.moveScreen}>
-            <LinearGradient colors={["#214C5C", "#000000"]} style={{ flex: 1 }}>
+            <View style={{ backgroundColor: "#363636", flex: 1 }}>
                 <MoveListFilterKeyboard
                     filterInput={filterInput}
                     onChangeFilterInput={setFilterInput}
@@ -209,7 +209,7 @@ const CharacterMoveScreen = ({ route }) => {
                     )}
                 </View>
                 <MemoizedMoveList data={moveData} filterInput={filterInput} />
-            </LinearGradient>
+            </View>
         </SafeAreaView>
     );
 };
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
-        backgroundColor: "#1b3e4b",
+        backgroundColor: "#202124",
         borderBottomWidth: 1,
         borderBottomColor: "white",
         marginHorizontal: 4,
