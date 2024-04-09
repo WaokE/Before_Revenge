@@ -11,6 +11,7 @@ import {
     Pressable,
 } from "react-native";
 import { Icon } from "@rneui/themed";
+import { useState } from "react";
 
 // 컴포넌트
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
@@ -56,6 +57,7 @@ const CharacterImagePaths = {
 };
 
 const SelectCharacterScreen = ({ navigation }) => {
+    const [searchInput, setSearchInput] = useState("");
     const handleIconPress = (characterName) => {
         navigation.navigate(navigateCharacterMoveScreen(characterName));
     };
@@ -71,38 +73,44 @@ const SelectCharacterScreen = ({ navigation }) => {
                     placeholder="캐릭터 검색"
                     placeholderTextColor={"#6B6B6B"}
                     style={styles.searchInput}
+                    onChangeText={(text) => setSearchInput(text)}
                 />
             </View>
             <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-                {Object.keys(CharacterImagePaths).map((characterName, index) => (
-                    <Pressable
-                        android_ripple={{ color: "gray" }}
-                        onPress={() => {
-                            console.log(`${characterName} pressed`);
-                            handleIconPress(characterName);
-                        }}
-                        key={characterName}
-                    >
-                        <View
-                            style={
-                                index === 0
-                                    ? styles.characterContentContainerIndexZero
-                                    : styles.characterContentContainer
-                            }
+                {Object.keys(CharacterImagePaths).map((characterName, index) => {
+                    if (searchInput.length > 0 && !characterName.includes(searchInput)) {
+                        return null;
+                    }
+                    return (
+                        <Pressable
+                            android_ripple={{ color: "gray" }}
+                            onPress={() => {
+                                console.log(`${characterName} pressed`);
+                                handleIconPress(characterName);
+                            }}
+                            key={characterName}
                         >
-                            <View style={styles.characterImageContainer}>
-                                <Image
-                                    source={CharacterImagePaths[characterName]}
-                                    style={styles.characterImage}
-                                />
+                            <View
+                                style={
+                                    index === 0
+                                        ? styles.characterContentContainerIndexZero
+                                        : styles.characterContentContainer
+                                }
+                            >
+                                <View style={styles.characterImageContainer}>
+                                    <Image
+                                        source={CharacterImagePaths[characterName]}
+                                        style={styles.characterImage}
+                                    />
+                                </View>
+                                <Text style={styles.characterName}>{characterName}</Text>
+                                <View style={styles.arrowIconContainer}>
+                                    <Icon name="arrow-forward-ios" color="#6B6B6B" size={20} />
+                                </View>
                             </View>
-                            <Text style={styles.characterName}>{characterName}</Text>
-                            <View style={styles.arrowIconContainer}>
-                                <Icon name="arrow-forward-ios" color="#6B6B6B" size={20} />
-                            </View>
-                        </View>
-                    </Pressable>
-                ))}
+                        </Pressable>
+                    );
+                })}
             </ScrollView>
         </SafeAreaView>
     );
