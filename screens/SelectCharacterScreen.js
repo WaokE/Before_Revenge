@@ -1,10 +1,19 @@
 // 프레임워크 API
-import { View, Text, Image, StyleSheet, ScrollView, SafeAreaView, Dimensions } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    ScrollView,
+    SafeAreaView,
+    Dimensions,
+    TextInput,
+    Pressable,
+} from "react-native";
+import { Icon } from "@rneui/themed";
 
 // 컴포넌트
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
-import CharacterIcon from "../components/CharacterIcon";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -51,44 +60,103 @@ const SelectCharacterScreen = ({ navigation }) => {
         navigation.navigate(navigateCharacterMoveScreen(characterName));
     };
 
-    const characterIcons = Object.keys(CharacterImagePaths).map((characterName) => (
-        <CharacterIcon
-            key={characterName}
-            name={characterName}
-            imagePath={CharacterImagePaths[characterName]}
-            onPressIcon={handleIconPress}
-        />
-    ));
-
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <LinearGradient colors={["#214C5C", "#000000"]} style={styles.appContainer}>
+        <SafeAreaView style={styles.screenContainer}>
+            <View style={{ justifyContent: "center", alignItems: "center" }}>
                 <Image source={require("../assets/banner.png")} style={styles.bannerImage} />
-                <ScrollView contentContainerStyle={styles.characterContainer}>
-                    {characterIcons}
-                </ScrollView>
-            </LinearGradient>
+            </View>
+            <View style={styles.searchInputContainer}>
+                <Icon name="search" color="#6B6B6B" size={20} />
+                <TextInput
+                    placeholder="캐릭터 검색"
+                    placeholderTextColor={"#6B6B6B"}
+                    style={styles.searchInput}
+                />
+            </View>
+            <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+                {Object.keys(CharacterImagePaths).map((characterName, index) => (
+                    <Pressable
+                        android_ripple={{ color: "gray" }}
+                        onPress={() => {
+                            console.log(`${characterName} pressed`);
+                            handleIconPress(characterName);
+                        }}
+                        key={characterName}
+                    >
+                        <View
+                            style={
+                                index === 0
+                                    ? styles.characterContentContainerIndexZero
+                                    : styles.characterContentContainer
+                            }
+                        >
+                            <View style={styles.characterImageContainer}>
+                                <Image
+                                    source={CharacterImagePaths[characterName]}
+                                    style={styles.characterImage}
+                                />
+                            </View>
+                            <Text style={styles.characterName}>{characterName}</Text>
+                            <View style={styles.arrowIconContainer}>
+                                <Icon name="arrow-forward-ios" color="#6B6B6B" size={20} />
+                            </View>
+                        </View>
+                    </Pressable>
+                ))}
+            </ScrollView>
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
-    appContainer: {
-        flex: 1,
-        flexDirection: "column",
+    screenContainer: { flex: 1, backgroundColor: "#363636" },
+    bannerText: { color: "white", fontSize: 25, textAlign: "center", padding: 10 },
+    searchInputContainer: {
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
+        backgroundColor: "#202124",
+        padding: 8,
+        marginHorizontal: 10,
+        marginBottom: 10,
+        gap: 10,
+        borderRadius: 10,
     },
     bannerImage: {
         width: windowWidth * 0.8,
         height: windowHeight * 0.1,
         resizeMode: "contain",
     },
-    characterContainer: {
-        flexDirection: "row",
-        flexWrap: "wrap",
+    searchInput: { color: "white", flex: 1 },
+    scrollViewContainer: {
+        backgroundColor: "#292929",
+        flexDirection: "column",
         justifyContent: "space-between",
-        rowGap: 16,
+    },
+    characterContentContainerIndexZero: {
+        flexDirection: "row",
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: "#6B6B6B",
+    },
+    characterContentContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "#6B6B6B",
+    },
+    characterImageContainer: { backgroundColor: "#202124", margin: 10, borderRadius: 10 },
+    characterImage: {
+        width: windowWidth * 0.15,
+        height: windowWidth * 0.15,
+        borderRadius: windowWidth * 0.15 * 0.25,
+    },
+    characterName: { color: "white", marginLeft: 6, fontWeight: "bold" },
+    arrowIconContainer: {
+        flex: 1,
+        alignItems: "flex-end",
+        marginRight: 10,
     },
 });
 
