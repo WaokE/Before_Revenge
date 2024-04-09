@@ -20,8 +20,8 @@ import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import NoFilterResult from "../components/NoFilterResult";
 
 // 라이브러리
-import convertCommand from "../lib/convertCommand";
-import convertFeature from "../lib/convertFeature";
+import convertCommand from "../lib/convertDataToImage/convertCommand";
+import convertFeature from "../lib/convertDataToImage/convertFeature";
 import importCharacterMoveData from "../lib/importCharacterMoveData";
 import filterMoveList from "../lib/filterMoveList";
 import initialFilterInput from "../lib/initialFilterInput";

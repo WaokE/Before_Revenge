@@ -79,11 +79,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    bannerContainer: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-    },
     bannerImage: {
         width: windowWidth * 0.8,
         height: windowHeight * 0.1,

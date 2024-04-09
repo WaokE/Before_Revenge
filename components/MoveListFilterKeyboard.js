@@ -2,7 +2,7 @@ import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } f
 import * as Linking from "expo-linking";
 import { Icon } from "@rneui/themed";
 
-import convertCommand from "../lib/convertCommand.js";
+import convertCommand from "../lib/convertDataToImage/convertCommand";
 import initialFilterInput from "../lib/initialFilterInput";
 
 const windowWidth = Dimensions.get("window").width;

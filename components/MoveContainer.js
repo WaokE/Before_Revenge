@@ -2,19 +2,20 @@ import { View, Text, StyleSheet } from "react-native";
 
 import TextWithHighlight from "./TextWithHightlight";
 
-const sampleMove = {
-    name: "Sample Move",
-    command: "FF3",
-    hitLevel: "M",
-    damage: "20",
-    startUpFrame: "23F",
-    blockFrame: "0",
-    hitFrame: "다운",
-    counterHitFrame: "시동",
-    feature: "HT / PC / TN",
-    notes: "통칭 좌종 / 주력기",
-};
+// const sampleMove = {
+//     name: "Sample Move",
+//     command: "FF3",
+//     hitLevel: "M",
+//     damage: "20",
+//     startUpFrame: "23F",
+//     blockFrame: "0",
+//     hitFrame: "다운",
+//     counterHitFrame: "시동",
+//     feature: "HT / PC / TN",
+//     notes: "통칭 좌종 / 주력기",
+// };
 
+// 기술 하나의 정보들을 props로 전달받아, 렌더링하는 컴포넌트
 const MoveContainer = (props) => {
     return (
         <View style={styles.moveContainer}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
+// 특정 텍스트를 하이라이트하는 컴포넌트
 const TextWithHighlight = ({ text, wantToHighlight, style }) => {
     if (!text) return null;
     const highlightIndex = text.indexOf(wantToHighlight);

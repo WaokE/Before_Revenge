@@ -5,6 +5,7 @@ const windowWidth = Dimensions.get("window").width;
 const iconSize = windowWidth * 0.3;
 const textSize = windowWidth * 0.04;
 
+// 캐릭터 선택 화면에서 사용되는 캐릭터 아이콘 컴포넌트
 const CharacterIcon = ({ name, imagePath, onPressIcon }) => {
     return (
         <View style={styles.iconContainer}>
