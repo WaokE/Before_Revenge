@@ -18,6 +18,7 @@ import { Icon } from "@rneui/themed";
 import MoveContainer from "../components/MoveContainer";
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import NoFilterResult from "../components/NoFilterResult";
+import SearchBar from "../components/SearchBar";
 import SectionChips from "../components/SectionChipContainer/SectionChips";
 
 // 라이브러리
@@ -50,15 +51,12 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                     <Icon name="close" color="white" />
                 </View>
             </View>
-            <View style={styles.searchInputContainer}>
-                <Icon name="search" color="#6B6B6B" size={20} />
-                <TextInput
-                    placeholder="기술명 검색(초풍...)"
-                    placeholderTextColor={"#6B6B6B"}
-                    style={styles.searchInput}
-                    onChangeText={(text) => null}
-                />
-            </View>
+            <SearchBar
+                placeholder="기술명 검색(초풍...)"
+                onChangeText={(text) => {
+                    console.log(text);
+                }}
+            />
             <SectionChips
                 moveData={moveData}
                 selectedSection={selectedSection}
@@ -85,19 +83,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "Pretendard-Bold",
         marginLeft: 10,
-    },
-    searchInputContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#202124",
-        padding: 8,
-        marginHorizontal: 10,
-        gap: 10,
-        borderRadius: 5,
-    },
-    searchInput: {
-        color: "white",
-        flex: 1,
     },
     moveListContainer: {
         flex: 1,
