@@ -20,6 +20,7 @@ import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import NoFilterResult from "../components/NoFilterResult";
 import SearchBar from "../components/SearchBar";
 import SectionChips from "../components/SectionChipContainer/SectionChips";
+import MoveList from "../components/MoveList/MoveList";
 
 // 라이브러리
 import convertCommand from "../lib/convertDataToImage/convertCommand";
@@ -62,7 +63,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                 selectedSection={selectedSection}
                 setSelectedSection={setSelectedSection}
             />
-            <View style={styles.moveListContainer}></View>
+            <MoveList moveData={moveData} selectedSection={selectedSection} />
         </View>
     );
 };
@@ -83,10 +84,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "Pretendard-Bold",
         marginLeft: 10,
-    },
-    moveListContainer: {
-        flex: 1,
-        backgroundColor: "#363636",
     },
 });
 
