@@ -25,10 +25,12 @@ const MoveContainer = (props) => {
                     wantToHighlight={props.highlight}
                     style={styles.commandName}
                 />
-                <View style={{ flexDirection: "row", gap: 4 }}>
-                    <Text style={styles.judgeInfoText}>{props.hitLevel}</Text>
-                    <Text style={styles.judgeInfoText}>{props.damage}</Text>
-                </View>
+                {props.hitLevel || props.damage ? (
+                    <View style={{ flexDirection: "row", gap: 4 }}>
+                        <Text style={styles.judgeInfoText}>{props.hitLevel}</Text>
+                        <Text style={styles.judgeInfoText}>{props.damage}</Text>
+                    </View>
+                ) : null}
                 <View>{props.command}</View>
                 <TextWithHighlight
                     text={props.notes}
