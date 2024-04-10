@@ -117,7 +117,7 @@ const SelectCharacterScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    screenContainer: { flex: 1, backgroundColor: "#363636" },
+    screenContainer: { flex: 1, backgroundColor: "#3E3E3E" },
     bannerText: { color: "white", fontSize: 25, textAlign: "center", padding: 10 },
     searchInputContainer: {
         flexDirection: "row",
@@ -127,30 +127,29 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginBottom: 10,
         gap: 10,
-        borderRadius: 10,
+        borderRadius: 5,
     },
     bannerImage: {
         width: windowWidth * 0.8,
-        height: windowHeight * 0.1,
+        height: windowHeight * 0.08,
         resizeMode: "contain",
     },
     searchInput: { color: "white", flex: 1 },
     scrollViewContainer: {
-        backgroundColor: "#292929",
+        backgroundColor: "#363636",
         flexDirection: "column",
         justifyContent: "space-between",
     },
     characterContentContainerIndexZero: {
         flexDirection: "row",
         alignItems: "center",
-        borderWidth: 1,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
         borderColor: "#6B6B6B",
     },
     characterContentContainer: {
         flexDirection: "row",
         alignItems: "center",
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
         borderBottomWidth: 1,
         borderColor: "#6B6B6B",
     },
@@ -160,7 +159,7 @@ const styles = StyleSheet.create({
         height: windowWidth * 0.15,
         borderRadius: windowWidth * 0.15 * 0.25,
     },
-    characterName: { color: "white", marginLeft: 6, fontWeight: "bold" },
+    characterName: { color: "white", marginLeft: 6, fontFamily: "Pretendard-Bold" },
     arrowIconContainer: {
         flex: 1,
         alignItems: "flex-end",
