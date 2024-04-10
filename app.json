@@ -25,14 +25,6 @@
         "web": {
             "favicon": "./assets/favicon.png"
         },
-        "plugins": [
-            [
-                "expo-font",
-                {
-                    "fonts": ["./assets/fonts/tekkenfont.ttf"]
-                }
-            ]
-        ],
         "extra": {
             "eas": {
                 "projectId": "7f3f3721-442a-4a80-84e3-1285ec98945a"
