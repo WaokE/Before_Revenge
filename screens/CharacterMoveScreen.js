@@ -18,6 +18,7 @@ import { Icon } from "@rneui/themed";
 import MoveContainer from "../components/MoveContainer";
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import NoFilterResult from "../components/NoFilterResult";
+import SectionChips from "../components/SectionChips";
 
 // 라이브러리
 import convertCommand from "../lib/convertDataToImage/convertCommand";
@@ -58,47 +59,11 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                     onChangeText={(text) => null}
                 />
             </View>
-            <View style={styles.filterChipContainer}>
-                <Pressable
-                    style={
-                        selectedSection === "전체" ? styles.filterChipSelected : styles.filterChip
-                    }
-                    onPress={() => setSelectedSection("전체")}
-                    android_ripple={{ color: "#3E3E3E" }}
-                >
-                    <Text
-                        style={
-                            selectedSection === "전체"
-                                ? styles.filterChipTextSelected
-                                : styles.filterChipText
-                        }
-                    >
-                        전체
-                    </Text>
-                </Pressable>
-                {moveData.map((section) => (
-                    <Pressable
-                        style={
-                            selectedSection === section.title
-                                ? styles.filterChipSelected
-                                : styles.filterChip
-                        }
-                        key={section.title}
-                        onPress={() => setSelectedSection(section.title)}
-                        android_ripple={{ color: "#3E3E3E" }}
-                    >
-                        <Text
-                            style={
-                                selectedSection === section.title
-                                    ? styles.filterChipTextSelected
-                                    : styles.filterChipText
-                            }
-                        >
-                            {section.title}
-                        </Text>
-                    </Pressable>
-                ))}
-            </View>
+            <SectionChips
+                moveData={moveData}
+                selectedSection={selectedSection}
+                setSelectedSection={setSelectedSection}
+            />
             <View style={styles.moveListContainer}></View>
         </View>
     );
@@ -133,30 +98,6 @@ const styles = StyleSheet.create({
     searchInput: {
         color: "white",
         flex: 1,
-    },
-    filterChipContainer: {
-        flexDirection: "row",
-        gap: 10,
-        marginVertical: 10,
-        marginHorizontal: 10,
-    },
-    filterChip: {
-        backgroundColor: "transparent",
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        borderRadius: 18,
-    },
-    filterChipSelected: {
-        backgroundColor: "#202124",
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        borderRadius: 18,
-    },
-    filterChipText: {
-        color: "#6B6B6B",
-    },
-    filterChipTextSelected: {
-        color: "white",
     },
     moveListContainer: {
         flex: 1,
