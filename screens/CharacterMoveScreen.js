@@ -64,6 +64,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                         selectedSection === "전체" ? styles.filterChipSelected : styles.filterChip
                     }
                     onPress={() => setSelectedSection("전체")}
+                    android_ripple={{ color: "#3E3E3E" }}
                 >
                     <Text
                         style={
@@ -84,6 +85,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                         }
                         key={section.title}
                         onPress={() => setSelectedSection(section.title)}
+                        android_ripple={{ color: "#3E3E3E" }}
                     >
                         <Text
                             style={
