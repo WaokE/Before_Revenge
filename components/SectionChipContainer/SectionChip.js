@@ -34,9 +34,11 @@ const styles = StyleSheet.create({
         borderRadius: 18,
     },
     filterChipText: {
+        fontFamily: "Pretendard-Medium",
         color: "#6B6B6B",
     },
     filterChipTextSelected: {
+        fontFamily: "Pretendard-Medium",
         color: "white",
     },
 });
