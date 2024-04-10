@@ -18,7 +18,7 @@ import { Icon } from "@rneui/themed";
 import MoveContainer from "../components/MoveContainer";
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import NoFilterResult from "../components/NoFilterResult";
-import SectionChips from "../components/SectionChips";
+import SectionChips from "../components/SectionChipContainer/SectionChips";
 
 // 라이브러리
 import convertCommand from "../lib/convertDataToImage/convertCommand";
