@@ -38,9 +38,6 @@ const MoveContainer = ({ move }) => {
                     <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
                     <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
                     <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
-                    <View style={styles.expandIconContainer}>
-                        <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
-                    </View>
                 </View>
             </Pressable>
             <Animated.View
@@ -56,6 +53,9 @@ const MoveContainer = ({ move }) => {
                     <Text style={{ color: "white" }}>{move.notes}</Text>
                 )}
             </Animated.View>
+            <View style={styles.expandIconContainer}>
+                <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
+            </View>
         </View>
     );
 };
