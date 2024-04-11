@@ -40,19 +40,22 @@ const MoveContainer = ({ move }) => {
                     <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
                 </View>
             </Pressable>
-            <Animated.View
-                style={{
-                    ...styles.noteContaier,
-                    height: heightAnim.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [0, windowHeight * 0.1],
-                    }),
-                }}
-            >
-                {isNoteVisible && move.notes.length > 0 && (
-                    <Text style={{ color: "white" }}>{move.notes}</Text>
-                )}
-            </Animated.View>
+            {move.notes.length > 0 && (
+                <Animated.View
+                    style={{
+                        ...styles.noteContaier,
+                        height: heightAnim.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0, windowHeight * 0.1],
+                        }),
+                    }}
+                >
+                    {isNoteVisible && move.notes.length > 0 && (
+                        <Text style={{ color: "white" }}>{move.notes}</Text>
+                    )}
+                </Animated.View>
+            )}
+
             <View style={styles.expandIconContainer}>
                 <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
             </View>
