@@ -3,6 +3,11 @@ import { View, Text, StyleSheet, SectionList } from "react-native";
 import MoveContainer from "./MoveContainer";
 
 const MoveList = ({ moveData, selectedSection }) => {
+    console.log("MoveList rendered");
+    const filteredMoveData =
+        selectedSection === "전체"
+            ? moveData
+            : moveData.filter((data) => data.title === selectedSection);
     return (
         <View style={styles.moveListContainer}>
             <View style={styles.moveListHeader}>
@@ -13,7 +18,7 @@ const MoveList = ({ moveData, selectedSection }) => {
                 <Text style={styles.moveListCounterColumn}>카운터</Text>
             </View>
             <SectionList
-                sections={moveData}
+                sections={filteredMoveData}
                 renderItem={({ item }) => <MoveContainer move={item} />}
                 renderSectionHeader={({ section: { title } }) => (
                     <Text style={styles.sectionHeaderText}>{title}</Text>
