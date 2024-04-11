@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Pressable, Animated } from "react-native";
 import { useState } from "react";
+import React from "react";
 
 import ExpandNoteIcon from "../ExpandNoteIcon";
 
@@ -10,10 +11,20 @@ const windowHeight = Dimensions.get("window").height;
 
 const MoveContainer = ({ move }) => {
     const [isNoteVisible, setIsNoteVisible] = useState(false);
+    const heightAnim = React.useRef(new Animated.Value(0)).current;
+
+    const toggleNoteVisibility = () => {
+        setIsNoteVisible(!isNoteVisible);
+        Animated.timing(heightAnim, {
+            toValue: isNoteVisible ? 0 : 1,
+            duration: 300,
+            useNativeDriver: false,
+        }).start();
+    };
 
     return (
         <View style={styles.moveContainer}>
-            <Pressable onPress={() => setIsNoteVisible(!isNoteVisible)}>
+            <Pressable onPress={toggleNoteVisibility}>
                 <View style={styles.mainContainer}>
                     <View style={styles.moveContainerMainColumn}>
                         <Text style={styles.moveContainerName}>{move.name}</Text>
@@ -32,11 +43,19 @@ const MoveContainer = ({ move }) => {
                     </View>
                 </View>
             </Pressable>
-            {isNoteVisible && move.notes.length > 0 && (
-                <View style={styles.noteContaier}>
+            <Animated.View
+                style={{
+                    ...styles.noteContaier,
+                    height: heightAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, windowHeight * 0.1],
+                    }),
+                }}
+            >
+                {isNoteVisible && move.notes.length > 0 && (
                     <Text style={{ color: "white" }}>{move.notes}</Text>
-                </View>
-            )}
+                )}
+            </Animated.View>
         </View>
     );
 };
@@ -57,7 +76,6 @@ const styles = StyleSheet.create({
     },
     noteContaier: {
         width: windowWidth,
-        height: windowHeight * 0.1,
         backgroundColor: "#363636",
         justifyContent: "center",
         alignItems: "center",
