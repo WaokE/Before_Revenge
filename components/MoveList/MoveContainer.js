@@ -1,4 +1,7 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
+import { useState } from "react";
+
+import ExpandNoteIcon from "../ExpandNoteIcon";
 
 import convertCommand from "../../lib/convertDataToImage/convertCommand";
 
@@ -6,34 +9,58 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveContainer = ({ move }) => {
+    const [isNoteVisible, setIsNoteVisible] = useState(false);
+
     return (
         <View style={styles.moveContainer}>
-            <View style={styles.moveContainerMainColumn}>
-                <Text style={styles.moveContainerName}>{move.name}</Text>
-                <View style={{ flexDirection: "row" }}>
-                    <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
-                    <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
+            <Pressable onPress={() => setIsNoteVisible(!isNoteVisible)}>
+                <View style={styles.mainContainer}>
+                    <View style={styles.moveContainerMainColumn}>
+                        <Text style={styles.moveContainerName}>{move.name}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
+                            <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
+                        </View>
+                        {convertCommand(move.command)}
+                    </View>
+                    <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
+                    <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
+                    <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
+                    <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
+                    <View style={styles.expandIconContainer}>
+                        <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
+                    </View>
                 </View>
-                {convertCommand(move.command)}
-            </View>
-            <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
-            <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
-            <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
-            <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
+            </Pressable>
+            {isNoteVisible && move.notes.length > 0 && (
+                <View style={styles.noteContaier}>
+                    <Text style={{ color: "white" }}>{move.notes}</Text>
+                </View>
+            )}
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     moveContainer: {
+        flexDirection: "column",
+        borderBottomWidth: 1,
+        borderColor: "#8B8B8B",
+    },
+    mainContainer: {
         width: windowWidth,
         height: windowHeight * 0.12,
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: 10,
         paddingHorizontal: 10,
-        borderBottomWidth: 1,
-        borderColor: "#8B8B8B",
+    },
+    noteContaier: {
+        width: windowWidth,
+        height: windowHeight * 0.1,
+        backgroundColor: "#363636",
+        justifyContent: "center",
+        alignItems: "center",
     },
     moveContainerMainColumn: {
         flex: 3,
@@ -70,6 +97,11 @@ const styles = StyleSheet.create({
         color: "white",
         flex: 1,
         textAlign: "center",
+    },
+    expandIconContainer: {
+        position: "absolute",
+        right: windowWidth * 0.5,
+        bottom: windowHeight * 0.005,
     },
 });
 
