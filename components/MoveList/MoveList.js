@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, SectionList } from "react-native";
 
 import MoveContainer from "./MoveContainer";
+import NoFilterResult from "../NoFilterResult";
 
 import filterMoveList from "../../lib/filterMoveList";
 
@@ -11,6 +12,7 @@ const MoveList = ({ moveData, selectedSection, filterInput }) => {
             ? moveData
             : moveData.filter((data) => data.title === selectedSection);
     filteredMoveData = filterMoveList(filteredMoveData, filterInput);
+    if (filteredMoveData.length === 0) return <NoFilterResult />;
 
     return (
         <View style={styles.moveListContainer}>
