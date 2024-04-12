@@ -9,7 +9,6 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const MoveListFilterKeyboard = (props) => {
-    const { s } = props;
     const handleNumpadPress = (value) => {
         switch (value) {
             case "막히고": {

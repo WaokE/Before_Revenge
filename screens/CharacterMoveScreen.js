@@ -1,32 +1,17 @@
 // 프레임워크 API
-import {
-    View,
-    StyleSheet,
-    Image,
-    Button,
-    Pressable,
-    SectionList,
-    Text,
-    TextInput,
-    SafeAreaView,
-    Dimensions,
-    ScrollView,
-} from "react-native";
+import { View, StyleSheet, Image, Pressable, Text, Dimensions, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
 import { Icon } from "@rneui/themed";
 
 // 컴포넌트
 import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
-import NoFilterResult from "../components/NoFilterResult";
 import SearchBar from "../components/SearchBar";
 import SectionChips from "../components/SectionChipContainer/SectionChips";
 import MoveList from "../components/MoveList/MoveList";
 
 // 라이브러리
 import convertCommand from "../lib/convertDataToImage/convertCommand";
-import convertFeature from "../lib/convertDataToImage/convertFeature";
 import importCharacterMoveData from "../lib/importCharacterMoveData";
-import filterMoveList from "../lib/filterMoveList";
 import initialFilterInput from "../lib/initialFilterInput";
 import { convertCharNameEngToKor } from "../lib/convertCharNameBetweenEngKor";
 
@@ -50,8 +35,6 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                 onChangeFilterInput={setFilterInput}
                 isModalOpen={isKeyboardOpen}
                 setIsModalOpen={setIsKeyboardOpen}
-                // tempFilterInput={tempFilterInput}
-                // setTempFilterInput={setTempFilterInput}
             />
             <View style={styles.headerContainer}>
                 <Pressable onPress={() => navigation.goBack()}>
