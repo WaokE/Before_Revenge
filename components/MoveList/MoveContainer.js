@@ -5,6 +5,7 @@ import React from "react";
 import ExpandNoteIcon from "../ExpandNoteIcon";
 
 import convertCommand from "../../lib/convertDataToImage/convertCommand";
+import convertFeature from "../../lib/convertDataToImage/convertFeature";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -31,12 +32,14 @@ const MoveContainer = ({ move }) => {
                         contentContainerStyle={{
                             flexDirection: "column",
                             flexGrow: 1,
+                            gap: 4,
                         }}
                     >
                         <Text style={styles.moveContainerName}>{move.name}</Text>
-                        <View style={{ flexDirection: "row", gap: 4 }}>
+                        <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
                             <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
                             <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
+                            {convertFeature(move.feature)}
                         </View>
                         {convertCommand(move.command)}
                     </ScrollView>
