@@ -34,7 +34,7 @@ const MoveContainer = ({ move }) => {
                         }}
                     >
                         <Text style={styles.moveContainerName}>{move.name}</Text>
-                        <View style={{ flexDirection: "row" }}>
+                        <View style={{ flexDirection: "row", gap: 4 }}>
                             <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
                             <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
                         </View>
