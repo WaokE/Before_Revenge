@@ -48,7 +48,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
             <SearchBar
                 placeholder="기술명 검색(초풍...)"
                 onChangeText={(text) => {
-                    console.log(text);
+                    setFilterInput((prev) => ({ ...prev, text: text }));
                 }}
             />
             <SectionChips
