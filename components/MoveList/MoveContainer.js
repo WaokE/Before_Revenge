@@ -24,43 +24,42 @@ const MoveContainer = ({ move }) => {
 
     return (
         <View style={styles.moveContainer}>
-            <Pressable onPress={toggleNoteVisibility}>
-                <View style={styles.mainContainer}>
-                    <View style={styles.moveContainerMainColumn}>
-                        <ScrollView
-                            horizontal={true}
-                            contentContainerStyle={{ flexDirection: "column" }}
-                        >
-                            <Text style={styles.moveContainerName}>{move.name}</Text>
-                            <View style={{ flexDirection: "row" }}>
-                                <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
-                                <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
-                            </View>
-                            {convertCommand(move.command)}
-                        </ScrollView>
-                    </View>
-                    <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
-                    <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
-                    <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
-                    <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
-                </View>
-
-                {move.notes.length > 0 && (
-                    <Animated.View
-                        style={{
-                            ...styles.noteContaier,
-                            height: heightAnim.interpolate({
-                                inputRange: [0, 1],
-                                outputRange: [0, windowHeight * 0.1],
-                            }),
-                        }}
+            <View style={styles.mainContainer}>
+                <View style={styles.moveContainerMainColumn}>
+                    <ScrollView
+                        horizontal={true}
+                        contentContainerStyle={{ flexDirection: "column" }}
                     >
-                        {isNoteVisible && move.notes.length > 0 && (
-                            <Text style={{ color: "white" }}>{move.notes}</Text>
-                        )}
-                    </Animated.View>
-                )}
+                        <Text style={styles.moveContainerName}>{move.name}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
+                            <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
+                        </View>
+                        {convertCommand(move.command)}
+                    </ScrollView>
+                </View>
+                <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
+                <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
+                <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
+                <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
+            </View>
 
+            {move.notes.length > 0 && (
+                <Animated.View
+                    style={{
+                        ...styles.noteContaier,
+                        height: heightAnim.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0, windowHeight * 0.1],
+                        }),
+                    }}
+                >
+                    {isNoteVisible && move.notes.length > 0 && (
+                        <Text style={{ color: "white" }}>{move.notes}</Text>
+                    )}
+                </Animated.View>
+            )}
+            <Pressable onPress={toggleNoteVisibility}>
                 <View style={styles.expandIconContainer}>
                     <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
                 </View>
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     },
     expandIconContainer: {
         position: "absolute",
-        right: windowWidth * 0.5,
+        right: windowWidth * 0.05,
         bottom: windowHeight * 0.005,
     },
 });
