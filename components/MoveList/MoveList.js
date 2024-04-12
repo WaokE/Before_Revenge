@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
-        flex: 3,
+        flex: 5,
     },
     moveListActivateColumn: {
         fontFamily: "Pretendard-Bold",

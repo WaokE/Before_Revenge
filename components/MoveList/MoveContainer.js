@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     moveContainerMainColumn: {
-        flex: 3,
+        flex: 5,
         flexDirection: "column",
     },
     moveContainerName: {
