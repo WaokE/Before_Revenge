@@ -28,7 +28,10 @@ const MoveContainer = ({ move }) => {
                 <View style={styles.moveContainerMainColumn}>
                     <ScrollView
                         horizontal={true}
-                        contentContainerStyle={{ flexDirection: "column" }}
+                        contentContainerStyle={{
+                            flexDirection: "column",
+                            flexGrow: 1,
+                        }}
                     >
                         <Text style={styles.moveContainerName}>{move.name}</Text>
                         <View style={{ flexDirection: "row" }}>
