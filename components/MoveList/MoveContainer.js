@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, Pressable, Animated } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Pressable, Animated, ScrollView } from "react-native";
 import { useState } from "react";
 import React from "react";
 
@@ -27,18 +27,24 @@ const MoveContainer = ({ move }) => {
             <Pressable onPress={toggleNoteVisibility}>
                 <View style={styles.mainContainer}>
                     <View style={styles.moveContainerMainColumn}>
-                        <Text style={styles.moveContainerName}>{move.name}</Text>
-                        <View style={{ flexDirection: "row" }}>
-                            <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
-                            <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
-                        </View>
-                        {convertCommand(move.command)}
+                        <ScrollView
+                            horizontal={true}
+                            contentContainerStyle={{ flexDirection: "column" }}
+                        >
+                            <Text style={styles.moveContainerName}>{move.name}</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
+                                <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
+                            </View>
+                            {convertCommand(move.command)}
+                        </ScrollView>
                     </View>
                     <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
                     <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
                     <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
                     <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
                 </View>
+
                 {move.notes.length > 0 && (
                     <Animated.View
                         style={{
