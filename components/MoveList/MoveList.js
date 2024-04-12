@@ -2,12 +2,16 @@ import { View, Text, StyleSheet, SectionList } from "react-native";
 
 import MoveContainer from "./MoveContainer";
 
-const MoveList = ({ moveData, selectedSection }) => {
+import filterMoveList from "../../lib/filterMoveList";
+
+const MoveList = ({ moveData, selectedSection, filterInput }) => {
     console.log("MoveList rendered");
-    const filteredMoveData =
+    let filteredMoveData =
         selectedSection === "전체"
             ? moveData
             : moveData.filter((data) => data.title === selectedSection);
+    filteredMoveData = filterMoveList(filteredMoveData, filterInput);
+
     return (
         <View style={styles.moveListContainer}>
             <View style={styles.moveListHeader}>

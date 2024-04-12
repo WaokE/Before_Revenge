@@ -205,7 +205,11 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                     </View>
                 </ScrollView>
             </View>
-            <MoveList moveData={moveData} selectedSection={selectedSection} />
+            <MoveList
+                moveData={moveData}
+                selectedSection={selectedSection}
+                filterInput={filterInput}
+            />
         </View>
     );
 };
