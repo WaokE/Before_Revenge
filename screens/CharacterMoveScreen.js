@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Icon } from "@rneui/themed";
 
 // 컴포넌트
-import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
+import MoveListFilterKeyboard from "../components/Filter/MoveListFilterKeyboard";
 import SearchBar from "../components/SearchBar";
 import SectionChips from "../components/SectionChipContainer/SectionChips";
 import MoveList from "../components/MoveList/MoveList";
