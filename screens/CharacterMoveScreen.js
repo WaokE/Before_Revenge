@@ -41,9 +41,6 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                     <Icon name="arrow-back" color="white" />
                 </Pressable>
                 <Text style={styles.headerText}>{convertCharNameEngToKor(characterName)}</Text>
-                <View style={{ marginLeft: "auto" }}>
-                    <Icon name="close" color="white" />
-                </View>
             </View>
             <SearchBar
                 placeholder="기술명 검색(초풍...)"
