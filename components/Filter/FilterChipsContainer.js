@@ -31,25 +31,25 @@ const FilterChipsContainer = ({ filterInput, setFilterInput, setIsKeyboardOpen }
                             <View style={styles.showCurrentFilterItem}>
                                 {filterInput.feature.HM && (
                                     <Image
-                                        source={require("../assets/FeatureIcon/HMicon.png")}
+                                        source={require("../../assets/FeatureIcon/HMicon.png")}
                                         style={{ width: 20, height: 20 }}
                                     />
                                 )}
                                 {filterInput.feature.HT && (
                                     <Image
-                                        source={require("../assets/FeatureIcon/HTicon.png")}
+                                        source={require("../../assets/FeatureIcon/HTicon.png")}
                                         style={{ width: 20, height: 20 }}
                                     />
                                 )}
                                 {filterInput.feature.PC && (
                                     <Image
-                                        source={require("../assets/FeatureIcon/PCicon.png")}
+                                        source={require("../../assets/FeatureIcon/PCicon.png")}
                                         style={{ width: 20, height: 20 }}
                                     />
                                 )}
                                 {filterInput.feature.TN && (
                                     <Image
-                                        source={require("../assets/FeatureIcon/TNicon.png")}
+                                        source={require("../../assets/FeatureIcon/TNicon.png")}
                                         style={{ width: 20, height: 20 }}
                                     />
                                 )}

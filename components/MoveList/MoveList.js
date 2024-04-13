@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, SectionList } from "react-native";
 
 import MoveContainer from "./MoveContainer";
-import NoFilterResult from "../NoFilterResult";
+import NoFilterResult from "../Filter/NoFilterResult";
 
 import filterMoveList from "../../lib/filterMoveList";
 

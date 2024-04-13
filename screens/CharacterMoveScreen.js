@@ -8,7 +8,7 @@ import MoveListFilterKeyboard from "../components/MoveListFilterKeyboard";
 import SearchBar from "../components/SearchBar";
 import SectionChips from "../components/SectionChipContainer/SectionChips";
 import MoveList from "../components/MoveList/MoveList";
-import FilterChipsContainer from "../components/FilterChipsContainer";
+import FilterChipsContainer from "../components/Filter/FilterChipsContainer";
 
 // 라이브러리
 import importCharacterMoveData from "../lib/importCharacterMoveData";
