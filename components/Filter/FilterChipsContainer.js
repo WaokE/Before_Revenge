@@ -1,6 +1,8 @@
 import { View, Text, Pressable, ScrollView, Image, StyleSheet } from "react-native";
 import { Icon } from "@rneui/themed";
 
+import convertCommand from "../../lib/convertDataToImage/convertCommand";
+
 const FilterChipsContainer = ({ filterInput, setFilterInput, setIsKeyboardOpen }) => {
     return (
         <View style={styles.filterContainer}>
