@@ -24,7 +24,7 @@ const TextWithHighlight = ({ text, wantToHighlight, style }) => {
 
 const styles = StyleSheet.create({
     highlight: {
-        backgroundColor: "#660066",
+        backgroundColor: "#e6ac00",
     },
 });
 

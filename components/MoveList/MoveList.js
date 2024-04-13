@@ -25,7 +25,9 @@ const MoveList = ({ moveData, selectedSection, filterInput }) => {
             </View>
             <SectionList
                 sections={filteredMoveData}
-                renderItem={({ item }) => <MoveContainer move={item} />}
+                renderItem={({ item }) => (
+                    <MoveContainer move={item} highLight={filterInput.text} />
+                )}
                 renderSectionHeader={({ section: { title } }) => (
                     <Text style={styles.sectionHeaderText}>{title}</Text>
                 )}

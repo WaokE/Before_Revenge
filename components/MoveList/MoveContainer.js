@@ -3,6 +3,7 @@ import { useState } from "react";
 import React from "react";
 
 import ExpandNoteIcon from "../ExpandNoteIcon";
+import TextWithHighlight from "../Filter/TextWithHightlight";
 
 import convertCommand from "../../lib/convertDataToImage/convertCommand";
 import convertFeature from "../../lib/convertDataToImage/convertFeature";
@@ -10,7 +11,7 @@ import convertFeature from "../../lib/convertDataToImage/convertFeature";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const MoveContainer = ({ move }) => {
+const MoveContainer = ({ move, highLight }) => {
     const [isNoteVisible, setIsNoteVisible] = useState(false);
     const heightAnim = React.useRef(new Animated.Value(0)).current;
 
@@ -35,7 +36,11 @@ const MoveContainer = ({ move }) => {
                             gap: 4,
                         }}
                     >
-                        <Text style={styles.moveContainerName}>{move.name}</Text>
+                        <TextWithHighlight
+                            text={move.name}
+                            wantToHighlight={highLight}
+                            style={styles.moveContainerName}
+                        />
                         <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
                             <Text style={styles.moveListContainerjudge}>{move.hitLevel}</Text>
                             <Text style={styles.moveListContainerjudge}>{move.damage}</Text>
@@ -61,13 +66,21 @@ const MoveContainer = ({ move }) => {
                     }}
                 >
                     {isNoteVisible && move.notes.length > 0 && (
-                        <Text style={{ color: "white" }}>{move.notes}</Text>
+                        <TextWithHighlight
+                            text={move.notes}
+                            wantToHighlight={highLight}
+                            style={{ color: "white" }}
+                        />
                     )}
                 </Animated.View>
             )}
             <Pressable onPress={toggleNoteVisibility}>
                 <View style={styles.expandIconContainer}>
-                    <ExpandNoteIcon notes={move.notes} isNoteVisible={isNoteVisible} />
+                    <ExpandNoteIcon
+                        notes={move.notes}
+                        isNoteVisible={isNoteVisible}
+                        highLight={highLight}
+                    />
                 </View>
             </Pressable>
         </View>
