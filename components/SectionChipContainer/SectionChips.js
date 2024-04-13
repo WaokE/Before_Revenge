@@ -5,7 +5,7 @@ import SectionChip from "./SectionChip";
 const SectionChips = ({ moveData, selectedSection, setSelectedSection }) => {
     return (
         <View style={styles.filterChipContainer}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <ScrollView horizontal={true} persistentScrollbar={true}>
                 <SectionChip
                     title="전체"
                     selectedSection={selectedSection}
