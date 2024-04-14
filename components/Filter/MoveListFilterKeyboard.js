@@ -354,27 +354,12 @@ const MoveListFilterKeyboard = (props) => {
                                 alignItems: "center",
                             }}
                         >
-                            <View style={{ flex: 4 }}>
+                            <View style={{ flex: 8 }}>
                                 <Button
                                     title="모든 필터 초기화"
                                     onPress={() => {
                                         props.onChangeFilterInput(initialFilterInput);
                                         props.onChangeFilterInput(initialFilterInput);
-                                    }}
-                                    color="#006666"
-                                />
-                            </View>
-                            <View style={{ flex: 4 }}>
-                                <Button
-                                    title="설정 완료"
-                                    onPress={() => {
-                                        props.setIsModalOpen(false);
-                                        props.onChangeFilterInput((prev) => {
-                                            return {
-                                                ...props.filterInput,
-                                                text: props.filterInput.text,
-                                            };
-                                        });
                                     }}
                                     color="#006666"
                                 />
