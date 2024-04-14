@@ -1,6 +1,6 @@
-## 비포리벤지 프로젝트 소개 👊
-![BeforeRevenge feature graphic](https://github.com/WaokE/Before_Revenge/assets/128684924/83ddc42b-526d-4804-9353-a3f41211289e)
-  
+## 프로젝트 소개 👊
+![feature graphics](https://github.com/WaokE/Before_Revenge/assets/128684924/bc53fc08-3476-4480-868c-22b969590113)
+
 비포리벤지는 비디오 게임 철권 8 플레이어들을 위해 각 캐릭터별 기술 정보를 제공해주는 어플리케이션입니다. 
 
 유사 서비스를 이용하던 중 불편함을 느끼게 되었고, 직접 이를 개선하고자 프로젝트를 기획, 개발하게 되었습니다.
@@ -28,21 +28,21 @@
 ### 캐릭터별 무브리스트 조회 기능
 
   
-![KakaoTalk_20240408_040819084_04](https://github.com/WaokE/Before_Revenge/assets/128684924/7d201c1b-efe5-4ea2-8cc2-087349f0a8d3)
+![KakaoTalk_20240415_020919228](https://github.com/WaokE/Before_Revenge/assets/128684924/e8d4ea34-b6b5-4cf1-894a-e81bef6adcaa)
 
 캐릭터 선택 화면입니다. 각 캐릭터 아이콘을 클릭하여 해당 캐릭터의 무브리스트를 조회 가능합니다.
 
-![KakaoTalk_20240408_040819084](https://github.com/WaokE/Before_Revenge/assets/128684924/bbabed8d-d017-4ada-b00e-ae4ec2fa112c)
+![기술 조회](https://github.com/WaokE/Before_Revenge/assets/128684924/46c161de-18af-4dc6-9472-09a1522675ab)
 
 무브리스트 화면. 번역된 기술명, 기술 특징 등 유사 서비스와 차별화 된 질의 데이터를 제공합니다.
 
-![KakaoTalk_20240408_040819084_01](https://github.com/WaokE/Before_Revenge/assets/128684924/9002c58b-1601-4c72-b671-4be8a3bdfebc)
+![KakaoTalk_20240415_020930136](https://github.com/WaokE/Before_Revenge/assets/128684924/ec521d92-bf09-424f-ac22-4ac499e6b2a7)
 
 필터 추가 화면. 기술명, 노트 검색 외에 다양한 필터를 추가하여 원하는 기술들의 정보를 검색할 수 있습니다. [필터 사용법](https://continuous-hearing-7ca.notion.site/a38540d97a73454986f1b4c56c5ec163?pvs=74)
   
-![KakaoTalk_20240408_040819084_03](https://github.com/WaokE/Before_Revenge/assets/128684924/c600fa40-5d98-4591-a1df-84fa64efaed9)![KakaoTalk_20240408_042709350](https://github.com/WaokE/Before_Revenge/assets/128684924/7128dd00-a1f6-4531-ba3c-8e39a0490a61)
+![기술 필터 결과 조회](https://github.com/WaokE/Before_Revenge/assets/128684924/bb6ff8c4-6e36-4b82-bb65-ac3faaaf5c7c)
 
-원하는 기술들을 다양한 필터링 기능을 통해 검색한 모습
+원하는 기술들을 필터링 기능을 통해 검색한 모습
 
 </div>
 
