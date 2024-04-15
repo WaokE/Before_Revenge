@@ -54,27 +54,26 @@ const MoveContainer = ({ move, highLight }) => {
                 <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
                 <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
             </View>
-
-            {move.notes.length > 0 && (
-                <Animated.View
-                    style={{
-                        ...styles.noteContaier,
-                        height: heightAnim.interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0, windowHeight * 0.1],
-                        }),
-                    }}
-                >
-                    {isNoteVisible && move.notes.length > 0 && (
-                        <TextWithHighlight
-                            text={move.notes}
-                            wantToHighlight={highLight}
-                            style={{ color: "white" }}
-                        />
-                    )}
-                </Animated.View>
-            )}
             <Pressable onPress={toggleNoteVisibility}>
+                {move.notes.length > 0 && (
+                    <Animated.View
+                        style={{
+                            ...styles.noteContaier,
+                            height: heightAnim.interpolate({
+                                inputRange: [0, 1],
+                                outputRange: [0, windowHeight * 0.1],
+                            }),
+                        }}
+                    >
+                        {isNoteVisible && move.notes.length > 0 && (
+                            <TextWithHighlight
+                                text={move.notes}
+                                wantToHighlight={highLight}
+                                style={{ color: "white" }}
+                            />
+                        )}
+                    </Animated.View>
+                )}
                 <View style={styles.expandIconContainer}>
                     <ExpandNoteIcon
                         notes={move.notes}
