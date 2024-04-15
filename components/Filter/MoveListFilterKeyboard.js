@@ -367,7 +367,7 @@ const MoveListFilterKeyboard = (props) => {
                                         props.onChangeFilterInput(initialFilterInput);
                                         props.onChangeFilterInput(initialFilterInput);
                                     }}
-                                    color="#006666"
+                                    color="#EC3656"
                                 />
                             </View>
                             <Pressable
