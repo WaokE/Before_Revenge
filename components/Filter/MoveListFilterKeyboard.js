@@ -201,7 +201,13 @@ const MoveListFilterKeyboard = (props) => {
     };
 
     return (
-        <Modal transparent visible={props.isModalOpen}>
+        <Modal
+            transparent
+            visible={props.isModalOpen}
+            onRequestClose={() => {
+                props.setIsModalOpen(false);
+            }}
+        >
             <Pressable
                 onPress={() => {
                     props.setIsModalOpen(false);
