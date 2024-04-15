@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Dimensions, Pressable, Animated, ScrollView } from "react-native";
 import { useState } from "react";
 import React from "react";
+import { Icon } from "@rneui/themed";
 
 import ExpandNoteIcon from "../ExpandNoteIcon";
 import TextWithHighlight from "../Filter/TextWithHightlight";
@@ -66,11 +67,16 @@ const MoveContainer = ({ move, highLight }) => {
                         }}
                     >
                         {isNoteVisible && move.notes.length > 0 && (
-                            <TextWithHighlight
-                                text={move.notes}
-                                wantToHighlight={highLight}
-                                style={{ color: "white" }}
-                            />
+                            <View style={styles.noteContent}>
+                                <Icon name="description" color="white" />
+                                <View style={styles.noteTextContainer}>
+                                    <TextWithHighlight
+                                        text={move.notes}
+                                        wantToHighlight={highLight}
+                                        style={styles.noteText}
+                                    />
+                                </View>
+                            </View>
                         )}
                     </Animated.View>
                 )}
@@ -102,9 +108,23 @@ const styles = StyleSheet.create({
     },
     noteContaier: {
         width: windowWidth,
-        backgroundColor: "#363636",
-        justifyContent: "center",
+    },
+    noteContent: {
+        flex: 1,
+        marginHorizontal: 10,
+        gap: 5,
+        flexDirection: "row",
         alignItems: "center",
+    },
+    noteTextContainer: {
+        flex: 1,
+        borderRadius: 5,
+        backgroundColor: "#202124",
+        padding: 10,
+    },
+    noteText: {
+        fontFamily: "Pretendard-Medium",
+        color: "white",
     },
     moveContainerMainColumn: {
         flex: 5,
@@ -144,8 +164,13 @@ const styles = StyleSheet.create({
     },
     expandIconContainer: {
         position: "absolute",
-        right: windowWidth * 0.05,
-        bottom: windowHeight * 0.005,
+        flexDirection: "row",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        width: windowWidth * 0.13,
+        height: windowWidth * 0.13,
+        right: 0,
+        bottom: 0,
     },
 });
 
