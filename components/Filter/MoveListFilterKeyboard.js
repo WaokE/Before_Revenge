@@ -365,7 +365,6 @@ const MoveListFilterKeyboard = (props) => {
                                     title="모든 필터 초기화"
                                     onPress={() => {
                                         props.onChangeFilterInput(initialFilterInput);
-                                        props.onChangeFilterInput(initialFilterInput);
                                     }}
                                     color="#EC3656"
                                 />
@@ -401,11 +400,9 @@ const MoveListFilterKeyboard = (props) => {
                                 android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     props.onChangeFilterInput((prev) => {
-                                        const hitLevel = prev.hitLevel;
-                                        hitLevel.push("상");
                                         return {
                                             ...prev,
-                                            hitLevel: hitLevel,
+                                            hitLevel: [...prev.hitLevel, "상"],
                                         };
                                     });
                                 }}
@@ -417,11 +414,9 @@ const MoveListFilterKeyboard = (props) => {
                                 android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     props.onChangeFilterInput((prev) => {
-                                        const hitLevel = prev.hitLevel;
-                                        hitLevel.push("중");
                                         return {
                                             ...prev,
-                                            hitLevel: hitLevel,
+                                            hitLevel: [...prev.hitLevel, "중"],
                                         };
                                     });
                                 }}
@@ -433,11 +428,9 @@ const MoveListFilterKeyboard = (props) => {
                                 android_ripple={{ color: "#ffffff" }}
                                 onPress={() => {
                                     props.onChangeFilterInput((prev) => {
-                                        const hitLevel = prev.hitLevel;
-                                        hitLevel.push("하");
                                         return {
                                             ...prev,
-                                            hitLevel: hitLevel,
+                                            hitLevel: [...prev.hitLevel, "하"],
                                         };
                                     });
                                 }}
