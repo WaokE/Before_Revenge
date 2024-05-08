@@ -32,8 +32,6 @@ const MoveList = ({ moveData, selectedSection, filterInput }) => {
                     <Text style={styles.sectionHeaderText}>{title}</Text>
                 )}
                 keyExtractor={(item, index) => index.toString()}
-                // extraData={moveData}
-                // stickySectionHeadersEnabled={true}
             />
         </View>
     );
