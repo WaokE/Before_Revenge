@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     mainContainer: {
         width: windowWidth,
-        height: windowHeight * 0.12,
+        height: 90,
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: 10,
