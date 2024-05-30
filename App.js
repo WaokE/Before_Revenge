@@ -1,32 +1,19 @@
 // 프레임워크 API
-import React, { useCallback, useEffect, useState } from "react";
-import { View, StatusBar, Alert } from "react-native";
-import { Link, NavigationContainer } from "@react-navigation/native";
+import React, { useCallback } from "react";
+import { View, StyleSheet, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import * as Linking from "expo-linking";
-import VersionCheck from "react-native-version-check-expo";
 
 // 컴포넌트
 import SelectCharacterScreen from "./screens/SelectCharacterScreen";
 import CharacterMoveScreen from "./screens/CharacterMoveScreen";
-import NeedUpdateModal from "./components/NeedUpdateModal";
 
 // 네비게이션 스택
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-    const [isNeedUpdate, setIsNeedUpdate] = useState(false);
-
-    useEffect(() => {
-        VersionCheck.needUpdate().then(async (res) => {
-            if (res.isNeeded) {
-                setIsNeedUpdate(true);
-            }
-        });
-    }, []);
-
     const [fontsLoaded, fontError] = useFonts({
         "Pretendard-Black": require("./assets/fonts/Pretendard-Black.otf"),
         "Pretendard-Bold": require("./assets/fonts/Pretendard-Bold.otf"),
@@ -51,7 +38,6 @@ export default function App() {
 
     return (
         <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-            {isNeedUpdate && <NeedUpdateModal onClickClose={setIsNeedUpdate} />}
             <StatusBar backgroundColor="black" barStyle="light-content" />
             <NavigationContainer>
                 <Stack.Navigator>
