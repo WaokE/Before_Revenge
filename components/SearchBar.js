@@ -1,5 +1,9 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, PixelRatio } from "react-native";
 import { Icon } from "@rneui/themed";
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const SearchBar = ({ placeholder, onChangeText }) => {
     return (
@@ -26,6 +30,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     searchInput: {
+        fontSize: normalizeFontSize(18),
         color: "white",
         flex: 1,
     },

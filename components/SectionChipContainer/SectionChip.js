@@ -1,4 +1,8 @@
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, Pressable, StyleSheet, PixelRatio } from "react-native";
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const SectionChip = ({ title, selectedSection, setSelectedSection }) => {
     return (
@@ -34,10 +38,12 @@ const styles = StyleSheet.create({
         borderRadius: 18,
     },
     filterChipText: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Medium",
         color: "#6B6B6B",
     },
     filterChipTextSelected: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Medium",
         color: "white",
     },

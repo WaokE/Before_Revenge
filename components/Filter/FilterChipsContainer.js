@@ -1,5 +1,9 @@
-import { View, Text, Pressable, ScrollView, Image, StyleSheet } from "react-native";
+import { View, Text, Pressable, ScrollView, Image, StyleSheet, PixelRatio } from "react-native";
 import { Icon } from "@rneui/themed";
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 import convertCommand from "../../lib/convertDataToImage/convertCommand";
 
@@ -71,7 +75,7 @@ const FilterChipsContainer = ({ filterInput, setFilterInput, setIsKeyboardOpen }
                             }}
                         >
                             <View style={styles.showCurrentFilterItem}>
-                                <Text style={{ color: "white" }}>
+                                <Text style={styles.filterChipText}>
                                     {filterInput.hitLevel.join(" ")}
                                 </Text>
                                 <Icon name="close" size={20} color={"white"} />
@@ -97,22 +101,22 @@ const FilterChipsContainer = ({ filterInput, setFilterInput, setIsKeyboardOpen }
                         >
                             <View style={styles.showCurrentFilterCommand}>
                                 {filterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                                    <Text style={{ color: "white" }}>
+                                    <Text style={styles.filterChipText}>
                                         {filterInput.frame.hitOrGuard}
                                     </Text>
                                 )}
                                 {filterInput.frame.lossOrGain !== "UNSELECTED" && (
-                                    <Text style={{ color: "white" }}>
+                                    <Text style={styles.filterChipText}>
                                         {filterInput.frame.lossOrGain}
                                     </Text>
                                 )}
                                 {filterInput.frame.number !== "" && (
-                                    <Text style={{ color: "white" }}>
+                                    <Text style={styles.filterChipText}>
                                         {filterInput.frame.number}
                                     </Text>
                                 )}
                                 {filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
-                                    <Text style={{ color: "white" }}>
+                                    <Text style={styles.filterChipText}>
                                         {filterInput.frame.aboveOrBelow}
                                     </Text>
                                 )}
@@ -166,6 +170,10 @@ const styles = StyleSheet.create({
         padding: 2,
         margin: 2,
         gap: 2,
+    },
+    filterChipText: {
+        fontSize: normalizeFontSize(14),
+        color: "white",
     },
 });
 

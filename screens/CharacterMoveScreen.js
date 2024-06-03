@@ -1,5 +1,5 @@
 // 프레임워크 API
-import { View, StyleSheet, Pressable, Text, Dimensions } from "react-native";
+import { View, StyleSheet, Pressable, Text, Dimensions, PixelRatio } from "react-native";
 import { useState, useEffect } from "react";
 import { Icon } from "@rneui/themed";
 
@@ -17,6 +17,10 @@ import { convertCharNameEngToKor } from "../lib/convertCharNameBetweenEngKor";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const CharacterMoveScreen = ({ route, navigation }) => {
     const { characterName } = route.params;
@@ -79,8 +83,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     },
     headerText: {
+        fontSize: normalizeFontSize(20),
         color: "white",
-        fontSize: 20,
         fontFamily: "Pretendard-Bold",
         marginLeft: 10,
     },

@@ -1,4 +1,14 @@
-import { Pressable, View, Text, Image, Dimensions, StyleSheet, Modal, Button } from "react-native";
+import {
+    Pressable,
+    View,
+    Text,
+    Image,
+    Dimensions,
+    StyleSheet,
+    Modal,
+    Button,
+    PixelRatio,
+} from "react-native";
 import * as Linking from "expo-linking";
 import { Icon } from "@rneui/themed";
 
@@ -7,6 +17,10 @@ import initialFilterInput from "../../lib/initialFilterInput";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const MoveListFilterKeyboard = (props) => {
     const handleNumpadPress = (value) => {
@@ -282,7 +296,7 @@ const MoveListFilterKeyboard = (props) => {
                                     }}
                                 >
                                     <View style={styles.showCurrentFilterItem}>
-                                        <Text style={{ color: "white" }}>
+                                        <Text style={styles.filterChipText}>
                                             {props.filterInput.hitLevel.join(" ")}
                                         </Text>
                                         <Icon name="close" size={20} color={"white"} />
@@ -310,22 +324,22 @@ const MoveListFilterKeyboard = (props) => {
                                 >
                                     <View style={styles.showCurrentFilterCommand}>
                                         {props.filterInput.frame.hitOrGuard !== "UNSELECTED" && (
-                                            <Text style={{ color: "white" }}>
+                                            <Text style={styles.filterChipText}>
                                                 {props.filterInput.frame.hitOrGuard}
                                             </Text>
                                         )}
                                         {props.filterInput.frame.lossOrGain !== "UNSELECTED" && (
-                                            <Text style={{ color: "white" }}>
+                                            <Text style={styles.filterChipText}>
                                                 {props.filterInput.frame.lossOrGain}
                                             </Text>
                                         )}
                                         {props.filterInput.frame.number !== "" && (
-                                            <Text style={{ color: "white" }}>
+                                            <Text style={styles.filterChipText}>
                                                 {props.filterInput.frame.number}
                                             </Text>
                                         )}
                                         {props.filterInput.frame.aboveOrBelow !== "UNSELECTED" && (
-                                            <Text style={{ color: "white" }}>
+                                            <Text style={styles.filterChipText}>
                                                 {props.filterInput.frame.aboveOrBelow}
                                             </Text>
                                         )}
@@ -1164,12 +1178,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     numpadText: {
-        fontSize: 11,
+        fontSize: normalizeFontSize(14),
         fontWeight: "bold",
         color: "white",
     },
     bigNumpadText: {
-        fontSize: 15,
+        fontSize: normalizeFontSize(20),
         fontWeight: "bold",
         color: "white",
     },
@@ -1200,6 +1214,10 @@ const styles = StyleSheet.create({
         borderColor: "white",
         flex: 1,
         height: windowWidth * 0.1,
+    },
+    filterChipText: {
+        fontSize: normalizeFontSize(14),
+        color: "white",
     },
 });
 

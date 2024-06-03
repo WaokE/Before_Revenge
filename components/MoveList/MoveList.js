@@ -1,9 +1,13 @@
-import { View, Text, StyleSheet, SectionList } from "react-native";
+import { View, Text, StyleSheet, SectionList, PixelRatio } from "react-native";
 
 import MoveContainer from "./MoveContainer";
 import NoFilterResult from "../Filter/NoFilterResult";
 
 import filterMoveList from "../../lib/filterMoveList";
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const MoveList = ({ moveData, selectedSection, filterInput }) => {
     console.log("MoveList rendered");
@@ -53,38 +57,43 @@ const styles = StyleSheet.create({
         borderColor: "#8B8B8B",
     },
     moveListMainColumn: {
+        fontSize: normalizeFontSize(16),
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
         flex: 5,
     },
     moveListActivateColumn: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
         flex: 1,
     },
     moveListGuardColumn: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
         flex: 1,
     },
     moveListHitColumn: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
         flex: 1,
     },
     moveListCounterColumn: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Bold",
         textAlign: "center",
         color: "#8B8B8B",
         flex: 1,
     },
     sectionHeaderText: {
+        fontSize: normalizeFontSize(20),
         color: "white",
-        fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
         backgroundColor: "#202124",

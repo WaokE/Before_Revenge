@@ -154,24 +154,28 @@ const styles = StyleSheet.create({
         color: "#8B8B8B",
     },
     moveContainerActivateColumn: {
+        fontSize: normalizeFontSize(18),
         fontFamily: "Pretendard-Bold",
         color: "white",
         flex: 1,
         textAlign: "center",
     },
     moveContainerGuardColumn: {
+        fontSize: normalizeFontSize(18),
         fontFamily: "Pretendard-Bold",
         color: "white",
         flex: 1,
         textAlign: "center",
     },
     moveContainerHitColumn: {
+        fontSize: normalizeFontSize(18),
         fontFamily: "Pretendard-Bold",
         color: "white",
         flex: 1,
         textAlign: "center",
     },
     moveContainerCounterColumn: {
+        fontSize: normalizeFontSize(18),
         fontFamily: "Pretendard-Bold",
         color: "white",
         flex: 1,
