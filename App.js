@@ -1,10 +1,12 @@
 // 프레임워크 API
-import React, { useCallback } from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
+import React, { useCallback, useEffect } from "react";
+import { View, StatusBar, Alert, Linking } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import axios from "axios";
+import * as Application from "expo-application";
 
 // 컴포넌트
 import SelectCharacterScreen from "./screens/SelectCharacterScreen";
@@ -14,6 +16,30 @@ import CharacterMoveScreen from "./screens/CharacterMoveScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+    useEffect(() => {
+        const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+        axios.get(apiUrl + "VersionData.json").then((response) => {
+            const LatestVersionCode = response.data.AndroidLatestVersionCode;
+            const currentVersionCode = Application.nativeBuildVersion;
+
+            if (parseInt(LatestVersionCode) > parseInt(currentVersionCode)) {
+                Alert.alert("최신 버전이 존재합니다.", "업데이트를 진행해주세요.", [
+                    {
+                        text: "무시하고 실행",
+                        style: "cancel",
+                    },
+                    {
+                        text: "업데이트",
+                        onPress: () =>
+                            Linking.openURL(
+                                "https://play.google.com/store/apps/details?id=com.waoke.TF8&pcampaignid=web_share"
+                            ),
+                    },
+                ]);
+            }
+        });
+    }, []);
+
     const [fontsLoaded, fontError] = useFonts({
         "Pretendard-Black": require("./assets/fonts/Pretendard-Black.otf"),
         "Pretendard-Bold": require("./assets/fonts/Pretendard-Bold.otf"),
