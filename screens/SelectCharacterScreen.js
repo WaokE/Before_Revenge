@@ -9,9 +9,11 @@ import {
     Dimensions,
     TextInput,
     Pressable,
+    Alert,
 } from "react-native";
 import { Icon } from "@rneui/themed";
 import { useState } from "react";
+import * as MailComposer from "expo-mail-composer";
 
 // 컴포넌트
 import navigateCharacterMoveScreen from "../lib/navigateCharacterMoveScreen";
@@ -56,6 +58,16 @@ const CharacterImagePaths = {
     에디: require("../assets/CharacterImage/Eddy-Gordo.png"),
 };
 
+const sendEmail = () => {
+    MailComposer.composeAsync({
+        recipients: ["waoke.dev@gmail.com"],
+        subject: "TF8 문의사항",
+        body: "정보의 오류/누락, 있었으면 하는 기능, 건의사항 등을 자유롭게 작성해주세요.",
+    }).catch((error) => {
+        Alert.alert("메일 전송에 실패했습니다.", error.message);
+    });
+};
+
 const SelectCharacterScreen = ({ navigation }) => {
     const [searchInput, setSearchInput] = useState("");
     const handleIconPress = (characterName) => {
@@ -64,14 +76,34 @@ const SelectCharacterScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.screenContainer}>
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <View
+                style={{
+                    height: 50,
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    marginHorizontal: 10,
+                }}
+            >
+                <View>
+                    <Icon name="menu" color="#3E3E3E" size={30} />
+                </View>
                 <Image source={require("../assets/banner.png")} style={styles.bannerImage} />
+                <Pressable
+                    onPress={() => {
+                        console.log("email pressed");
+                        sendEmail();
+                    }}
+                >
+                    <Icon name="email" color="gray" size={30} />
+                </Pressable>
             </View>
             <View style={styles.searchInputContainer}>
                 <Icon name="search" color="#6B6B6B" size={20} />
                 <TextInput
                     placeholder="캐릭터 검색"
                     placeholderTextColor={"#6B6B6B"}
+                    a
                     style={styles.searchInput}
                     onChangeText={(text) => setSearchInput(text)}
                 />
@@ -130,8 +162,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     bannerImage: {
-        width: windowWidth * 0.8,
-        height: windowHeight * 0.08,
+        height: 50,
+        width: 50,
         resizeMode: "contain",
     },
     searchInput: { color: "white", flex: 1 },
