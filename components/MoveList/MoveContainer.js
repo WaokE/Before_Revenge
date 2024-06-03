@@ -1,4 +1,13 @@
-import { View, Text, StyleSheet, Dimensions, Pressable, Animated, ScrollView } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    Dimensions,
+    Pressable,
+    Animated,
+    ScrollView,
+    PixelRatio,
+} from "react-native";
 import { useState } from "react";
 import React from "react";
 import { Icon } from "@rneui/themed";
@@ -11,6 +20,10 @@ import convertFeature from "../../lib/convertDataToImage/convertFeature";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
+
+const normalizeFontSize = (size) => {
+    return size / PixelRatio.getFontScale();
+};
 
 const MoveContainer = ({ move, highLight }) => {
     const [isNoteVisible, setIsNoteVisible] = useState(false);
@@ -131,10 +144,12 @@ const styles = StyleSheet.create({
         flexDirection: "column",
     },
     moveContainerName: {
+        fontSize: normalizeFontSize(16),
         fontFamily: "Pretendard-Medium",
         color: "white",
     },
     moveListContainerjudge: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Medium",
         color: "#8B8B8B",
     },
