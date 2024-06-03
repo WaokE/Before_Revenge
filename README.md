@@ -10,7 +10,7 @@ TF8은 비디오 게임 철권 8 플레이어들을 위해 각 캐릭터별 기�
 ## 프로젝트 타임라인 ⏱️
 <div align="center">
   
-![image](https://github.com/WaokE/Before_Revenge/assets/128684924/b7c94026-4eec-4b2d-bc0a-72abf3fd416c)
+![TimelineCycle](https://github.com/WaokE/TF8/assets/128684924/d1ef0cd1-6a9f-4bc1-b7c5-a9070f12f921)
 
 </div>
 
