@@ -30,7 +30,6 @@ yarn-error.*
 
 # local env files
 .env*.local
-.env
 
 # typescript
 *.tsbuildinfo
@@ -44,3 +43,5 @@ assets/moveData/
 
 # 이미지 경로
 assets/CharacterImage/
+
+.env
