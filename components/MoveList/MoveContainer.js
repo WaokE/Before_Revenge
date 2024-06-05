@@ -14,6 +14,7 @@ import { Icon } from "@rneui/themed";
 
 import ExpandNoteIcon from "../ExpandNoteIcon";
 import TextWithHighlight from "../Filter/TextWithHightlight";
+import TextWithColorize from "../Filter/TextWithColorize";
 
 import convertCommand from "../../lib/convertDataToImage/convertCommand";
 import convertFeature from "../../lib/convertDataToImage/convertFeature";
@@ -64,9 +65,12 @@ const MoveContainer = ({ move, highLight }) => {
                     </ScrollView>
                 </View>
                 <Text style={styles.moveContainerActivateColumn}>{move.startUpFrame}</Text>
-                <Text style={styles.moveContainerGuardColumn}>{move.blockFrame}</Text>
-                <Text style={styles.moveContainerHitColumn}>{move.hitFrame}</Text>
-                <Text style={styles.moveContainerCounterColumn}>{move.counterHitFrame}</Text>
+                <TextWithColorize frame={move.blockFrame} style={styles.moveContainerGuardColumn} />
+                <TextWithColorize frame={move.hitFrame} style={styles.moveContainerHitColumn} />
+                <TextWithColorize
+                    frame={move.counterHitFrame}
+                    style={styles.moveContainerCounterColumn}
+                />
             </View>
             <Pressable onPress={toggleNoteVisibility}>
                 {move.notes.length > 0 && (
