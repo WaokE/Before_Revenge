@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     noteText: {
+        fontSize: normalizeFontSize(14),
         fontFamily: "Pretendard-Medium",
         color: "white",
     },
