@@ -5,7 +5,8 @@ TF8은 비디오 게임 철권 8 플레이어들을 위해 각 캐릭터별 기�
 
 유사 서비스를 이용하던 중 불편함을 느끼게 되었고, 직접 이를 개선하고자 프로젝트를 기획, 개발하게 되었습니다.
 
-느꼈던 문제점들과 기획 단계에서 고려했던 점들이 궁금하시다면 [좌충우돌 모바일 앱 개발기 - 기획](https://velog.io/@dlgudwns1207/%EC%A2%8C%EC%B6%A9%EC%9A%B0%EB%8F%8C-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EA%B0%9C%EB%B0%9C%EA%B8%B0-%EA%B8%B0%ED%9A%8D) 포스트를 참조해 주세요!
+느꼈던 문제점들과 기획 단계에서 고려했던 점, 트러블슈팅 등이 궁금하시다면 
+[앱 개발기-기획](https://velog.io/@dlgudwns1207/%EC%A2%8C%EC%B6%A9%EC%9A%B0%EB%8F%8C-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EA%B0%9C%EB%B0%9C%EA%B8%B0-%EA%B8%B0%ED%9A%8D)을 포함한 블로그의 포스트들을 참조해 주세요!
 
 ## 프로젝트 타임라인 ⏱️
 <div align="center">
@@ -25,28 +26,12 @@ TF8은 비디오 게임 철권 8 플레이어들을 위해 각 캐릭터별 기�
 ## 핵심 기능 ⭐
 <div align="center">
 
-### 캐릭터별 무브리스트 조회 기능
+### 캐릭터별 무브리스트 조회, 필터링 기능
 
-  
-![KakaoTalk_20240415_020919228](https://github.com/WaokE/Before_Revenge/assets/128684924/e8d4ea34-b6b5-4cf1-894a-e81bef6adcaa)
+![TF 8](https://github.com/WaokE/TF8/assets/128684924/5003e7b2-b2d8-42e7-bbf7-7b709c7048e7)
 
-캐릭터 선택 화면입니다. 각 캐릭터 아이콘을 클릭하여 해당 캐릭터의 무브리스트를 조회 가능합니다.
-
-![기술 조회](https://github.com/WaokE/Before_Revenge/assets/128684924/46c161de-18af-4dc6-9472-09a1522675ab)
-
-무브리스트 화면. 번역된 기술명, 기술 특징 등 유사 서비스와 차별화 된 질의 데이터를 제공합니다.
-
-![KakaoTalk_20240415_020930136](https://github.com/WaokE/Before_Revenge/assets/128684924/ec521d92-bf09-424f-ac22-4ac499e6b2a7)
-
-필터 추가 화면. 기술명, 노트 검색 외에 다양한 필터를 추가하여 원하는 기술들의 정보를 검색할 수 있습니다. [필터 사용법](https://continuous-hearing-7ca.notion.site/a38540d97a73454986f1b4c56c5ec163?pvs=74)
-  
-![기술 필터 결과 조회](https://github.com/WaokE/Before_Revenge/assets/128684924/bb6ff8c4-6e36-4b82-bb65-ac3faaaf5c7c)
-
-원하는 기술들을 필터링 기능을 통해 검색한 모습
 
 </div>
-
-### 추후 유저를 위한 다양한 기능이 추가 예정입니다.
 
 ## 해결한 문제 ❓
 
@@ -62,3 +47,15 @@ TF8은 비디오 게임 철권 8 플레이어들을 위해 각 캐릭터별 기�
 
 [커밋1](https://github.com/WaokE/Before_Revenge/commit/6ea272bc1e25e48ee38288a1f68e7b4809c97363) 
 [커밋2](https://github.com/WaokE/Before_Revenge/commit/5d61d9a8144a989886057e58356b0b9b18167af7)
+
+**`React Native`의 `PixelRatio API`를 이용한 일관성 있는 UI/UX 제공**
+
+🚨 문제 발생
+
+어플리케이션 런칭 후, **몇몇 사용자에게서 특정 UI가 잘려서 보이는 문제가 있다는 제보**를 받았습니다. 에러을 처음 발견했을 때에는 단순한 사이즈 변경을 통해 해결할 수 있는 문제라고 판단하였고, 수치를 조정하습니다. 하지만 업데이트 배포 후에도 아래와 같이 동일한 문제가 반복되었습니다.
+
+![에러 제보 리뷰](https://github.com/WaokE/TF8/assets/128684924/46062c6a-a161-495b-870a-b809944a48f0)
+
+✅ 문제 해결
+
+다양한 환경에서의 테스트를 거친 후에, 해당 이슈가 **기기의 네이티브 폰트 사이즈 설정값**에 따라 발생한다는 것을 알게 되었습니다.  컨테이너의 단순 사이즈 조정을 통해서는 해당 이슈의 발생을 피할 수 없다는 것을 알 수 있었고, 이를 해결하기 위해 `React Native` 의 `PixelRatio.getFontScale()` API를 이용하여 사용자 기기의 `Font Scaling` 값에 접근한 후, `{Font Size} * {Font Scailing}` 값을 폰트 크기로 사용하였습니다. 이를 통해 사용자 기기의 설정값에 관계없이 일관된 UI/UX를 제공할 수 있었습니다.
