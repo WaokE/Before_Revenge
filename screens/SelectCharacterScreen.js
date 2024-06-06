@@ -12,7 +12,7 @@ import {
     Alert,
 } from "react-native";
 import { Icon } from "@rneui/themed";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import * as MailComposer from "expo-mail-composer";
 
 // 컴포넌트
@@ -73,6 +73,7 @@ const SelectCharacterScreen = ({ navigation }) => {
     const handleIconPress = (characterName) => {
         navigation.navigate(navigateCharacterMoveScreen(characterName));
     };
+    const textInputRef = useRef(null);
 
     return (
         <SafeAreaView style={styles.screenContainer}>
@@ -101,12 +102,21 @@ const SelectCharacterScreen = ({ navigation }) => {
             <View style={styles.searchInputContainer}>
                 <Icon name="search" color="#6B6B6B" size={20} />
                 <TextInput
+                    value={searchInput}
                     placeholder="캐릭터 검색"
                     placeholderTextColor={"#6B6B6B"}
-                    a
                     style={styles.searchInput}
                     onChangeText={(text) => setSearchInput(text)}
+                    ref={textInputRef}
                 />
+                <Pressable
+                    onPress={() => {
+                        setSearchInput("");
+                        textInputRef.current.blur();
+                    }}
+                >
+                    <Icon name="close" color="#6B6B6B" size={25} />
+                </Pressable>
             </View>
             <ScrollView contentContainerStyle={styles.scrollViewContainer}>
                 {Object.keys(CharacterImagePaths).map((characterName, index) => {

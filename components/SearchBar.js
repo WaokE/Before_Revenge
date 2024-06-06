@@ -1,20 +1,33 @@
-import { View, TextInput, StyleSheet, PixelRatio } from "react-native";
+import { View, TextInput, StyleSheet, PixelRatio, Pressable } from "react-native";
+import { useRef } from "react";
 import { Icon } from "@rneui/themed";
 
 const normalizeFontSize = (size) => {
     return size / PixelRatio.getFontScale();
 };
 
-const SearchBar = ({ placeholder, onChangeText }) => {
+const SearchBar = ({ value, placeholder, onChangeText }) => {
+    const textInputRef = useRef(null);
+
     return (
         <View style={styles.searchInputContainer}>
             <Icon name="search" color="#6B6B6B" size={20} />
             <TextInput
+                value={value}
                 placeholder={placeholder}
                 placeholderTextColor={"#6B6B6B"}
                 style={styles.searchInput}
                 onChangeText={(text) => onChangeText(text)}
+                ref={textInputRef}
             />
+            <Pressable
+                onPress={() => {
+                    onChangeText("");
+                    textInputRef.current.blur();
+                }}
+            >
+                <Icon name="close" color="#6B6B6B" size={25} />
+            </Pressable>
         </View>
     );
 };

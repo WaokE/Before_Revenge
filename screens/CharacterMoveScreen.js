@@ -47,6 +47,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                 <Text style={styles.headerText}>{convertCharNameEngToKor(characterName)}</Text>
             </View>
             <SearchBar
+                value={filterInput.text}
                 placeholder="기술 검색 (초풍, 컷킥, 통발...)"
                 onChangeText={(text) => {
                     setFilterInput((prev) => ({ ...prev, text: text }));
