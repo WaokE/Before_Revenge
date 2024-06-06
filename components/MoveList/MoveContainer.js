@@ -8,7 +8,7 @@ import {
     ScrollView,
     PixelRatio,
 } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { Icon } from "@rneui/themed";
 
@@ -26,14 +26,35 @@ const normalizeFontSize = (size) => {
     return size / PixelRatio.getFontScale();
 };
 
-const MoveContainer = ({ move, highLight }) => {
+const MoveContainer = ({ move, highLight, isAllNoteVisible }) => {
     const [isNoteVisible, setIsNoteVisible] = useState(false);
     const heightAnim = React.useRef(new Animated.Value(0)).current;
 
+    useEffect(() => {
+        if (isAllNoteVisible) {
+            makeNoteVisible();
+        } else {
+            makeNoteInvisible();
+        }
+    }, [isAllNoteVisible]);
+
     const toggleNoteVisibility = () => {
-        setIsNoteVisible(!isNoteVisible);
+        isNoteVisible ? makeNoteInvisible() : makeNoteVisible();
+    };
+
+    const makeNoteVisible = () => {
+        setIsNoteVisible(true);
         Animated.timing(heightAnim, {
-            toValue: isNoteVisible ? 0 : 1,
+            toValue: 1,
+            duration: 300,
+            useNativeDriver: false,
+        }).start();
+    };
+
+    const makeNoteInvisible = () => {
+        setIsNoteVisible(false);
+        Animated.timing(heightAnim, {
+            toValue: 0,
             duration: 300,
             useNativeDriver: false,
         }).start();

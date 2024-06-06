@@ -22,6 +22,10 @@ const normalizeFontSize = (size) => {
     return size / PixelRatio.getFontScale();
 };
 
+const toggleAllNoteVisibility = (isAllNoteVisible, setIsAllNoteVisible) => {
+    setIsAllNoteVisible(!isAllNoteVisible);
+};
+
 const CharacterMoveScreen = ({ route, navigation }) => {
     const { characterName } = route.params;
     const moveData = importCharacterMoveData[characterName];
@@ -29,6 +33,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
     const [selectedSection, setSelectedSection] = useState("전체");
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
     const [filterInput, setFilterInput] = useState(initialFilterInput);
+    const [isAllNoteVisible, setIsAllNoteVisible] = useState(false);
 
     useEffect(() => {}, []);
 
@@ -45,6 +50,16 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                     <Icon name="arrow-back" color="white" />
                 </Pressable>
                 <Text style={styles.headerText}>{convertCharNameEngToKor(characterName)}</Text>
+                <Pressable
+                    onPress={() => {
+                        toggleAllNoteVisibility(isAllNoteVisible, setIsAllNoteVisible);
+                    }}
+                >
+                    <Icon
+                        name="description"
+                        color={isAllNoteVisible ? "white" : "rgba(255, 255, 255, 0.5)"}
+                    />
+                </Pressable>
             </View>
             <SearchBar
                 value={filterInput.text}
@@ -67,6 +82,7 @@ const CharacterMoveScreen = ({ route, navigation }) => {
                 moveData={moveData}
                 selectedSection={selectedSection}
                 filterInput={filterInput}
+                isAllNoteVisible={isAllNoteVisible}
             />
         </View>
     );
@@ -88,6 +104,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontFamily: "Pretendard-Bold",
         marginLeft: 10,
+        flex: 1,
     },
 });
 

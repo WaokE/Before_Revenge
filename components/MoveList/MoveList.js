@@ -9,7 +9,7 @@ const normalizeFontSize = (size) => {
     return size / PixelRatio.getFontScale();
 };
 
-const MoveList = ({ moveData, selectedSection, filterInput }) => {
+const MoveList = ({ moveData, selectedSection, filterInput, isAllNoteVisible }) => {
     console.log("MoveList rendered");
     let filteredMoveData =
         selectedSection === "전체"
@@ -30,7 +30,11 @@ const MoveList = ({ moveData, selectedSection, filterInput }) => {
             <SectionList
                 sections={filteredMoveData}
                 renderItem={({ item }) => (
-                    <MoveContainer move={item} highLight={filterInput.text} />
+                    <MoveContainer
+                        move={item}
+                        highLight={filterInput.text}
+                        isAllNoteVisible={isAllNoteVisible}
+                    />
                 )}
                 renderSectionHeader={({ section: { title } }) => (
                     <Text style={styles.sectionHeaderText}>{title}</Text>
