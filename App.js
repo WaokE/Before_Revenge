@@ -19,23 +19,28 @@ export default function App() {
     useEffect(() => {
         const apiUrl = process.env.EXPO_PUBLIC_API_URL;
         axios.get(apiUrl + "VersionData.json").then((response) => {
+            const AndroidLatestPatchNote = response.data.AndroidLatestPatchNote;
             const LatestVersionCode = response.data.AndroidLatestVersionCode;
             const currentVersionCode = Application.nativeBuildVersion;
 
             if (parseInt(LatestVersionCode) > parseInt(currentVersionCode)) {
-                Alert.alert("최신 버전이 존재합니다.", "업데이트를 진행해주세요.", [
-                    {
-                        text: "무시하고 실행",
-                        style: "cancel",
-                    },
-                    {
-                        text: "업데이트",
-                        onPress: () =>
-                            Linking.openURL(
-                                "https://play.google.com/store/apps/details?id=com.waoke.TF8&pcampaignid=web_share"
-                            ),
-                    },
-                ]);
+                Alert.alert(
+                    "최신 버전이 존재합니다.",
+                    "업데이트 요약 : " + AndroidLatestPatchNote,
+                    [
+                        {
+                            text: "무시하고 실행",
+                            style: "cancel",
+                        },
+                        {
+                            text: "업데이트",
+                            onPress: () =>
+                                Linking.openURL(
+                                    "https://play.google.com/store/apps/details?id=com.waoke.TF8&pcampaignid=web_share"
+                                ),
+                        },
+                    ]
+                );
             }
         });
     }, []);
